@@ -1,0 +1,3 @@
+# Module nrivishwakarma
+# RPC service class, partial path of RPC policy file
+com.nrivishwakarma.servlets.client.GreetingService, 958A6D4827EC220D1EF4C5A7BADB9570.gwt.rpc
