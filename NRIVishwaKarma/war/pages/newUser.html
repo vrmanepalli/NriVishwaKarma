@@ -24,9 +24,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
 
     <script src="../js/app.js"></script>
+    <script src="../js/newUser.js"></script>
+    <script src="../js/imageupload.js"></script>
     <style type="text/css">
-		img{
-			width:300px;height: 300px;
+		#avatar{
+			min-width: 300px;
+			height: 300px;
 		}
 		.span6{margin-left: 20px;}
 	</style>
@@ -35,25 +38,37 @@
   
   <body ng-controller="newUserCtrl">
     <div class="container">
-    <h5 align="center">Please fill this form to registeration om our site</h5>
+    <h5 align="center">Please fill this form to registeration on our site</h5>
     <div class="row">
     <div class="span12">
     	<div class="row">
 		<div class="span6">
-	    <p>First name: </p><input type="text" ng-model="fname" class="input-xlarge" placeholder="Name">
-	    <p>Last name: </p><input type="text" ng-model="lname" class="input-xlarge" placeholder="Last name">
+		<fieldset  class={{fName}}>
+	    	<p>First name: </p><input type="text" ng-model="fname" class="input-xlarge" placeholder="Name"><img src={{icon1}}>
+	    </fieldset>
+	    <fieldset  class={{lName}}>
+	    	<p>Last name: </p><input type="text" ng-model="lname" class="input-xlarge" placeholder="Last name" ng-click="validFName()">
+	    </fieldset>
 	    <p>Date of birth:</p>
 	    <section id="datepicker">
 	        <div class="bs-docs-example">
 	            <div class="control-group input-append">
-	              <input id="inputDatepicker" class="input-small" type="text" ng-model="datepicker.date" data-date-format="mm/dd/yyyy" bs-datepicker>
+	              <input id="inputDatepicker" class="input-small" type="text" ng-model="datepicker.date" data-date-format="mm/dd/yyyy" bs-datepicker ng-click="validLName()">
 	              <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
 	            </div>
 	        </div>
-	      </section>
+	    </section>
+	    <fieldset  class={{Gender}}>
+	    <p>Gender: </p>
+	    	<select ng-model="gender">
+	    		<option value="">Select gender</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+	    	</select><img src={{icon3}}>
+	    </fieldset>
 	      <p>Country: </p>
-	      				<select class="form-control bfh-countries" data-flags="true" ng-model="country">
-							<option value="" selected="selected">Select Country</option>
+	      				<select class="form-control bfh-countries" data-flags="true" ng-model="country" ng-click="validGender()">
+							<option value="">Select Country</option>
 							<option value="United States">United States</option>
 							<option value="United Kingdom">United Kingdom</option>
 							<option value="Afghanistan">Afghanistan</option>
@@ -352,26 +367,35 @@
 								<option value="WY">Wyoming</option>
 						</select>
 			<p>City: </p><input type="text" ng-model="city" class="input-xlarge" placeholder="City">
+			<fieldset  class={{fieldEmail}}>
+				<p>E-mail: </p><input type="text" ng-model="email" class="input-xlarge" placeholder="E-mail"><img src={{icon4}}>
+			</fieldset>
+			</div>
+			<div class="span6">
 				<div class="control-group">
 			     	<label class="control-label" for="photo"> Download photo: </label>
 			     	<div class="control input-group"> 
-			     		<input type="file" name="file" id="file" />
+			     		<input id="inputImage" type="file" accept="image/*" image="image2" resize-max-height="300"
+																			                resize-max-width="250"
+																			                resize-quality="0.7" />
+			     		<button type="submit" ng-click="single(image2.resized)">Add</button>
 			     	</div>
 		     	</div>
-		     <p>E-mail: </p><input type="text" ng-model="email" class="input-xlarge" placeholder="E-mail">
-		     <p>Password: </p><input type="text" ng-model="pass" class="input-xlarge" placeholder="password">
-		     <p>Confirmation password: </p><input type="text" ng-model="confpass" class="input-xlarge" placeholder="confirmation password">
-			</div>
-			<div class="span6">
-				<img src="{{imgUrl}}" class="img-circle">
+				<img id="avatar" src="{{image2.url}}" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}" class="img-circle">
+			<fieldset  class={{fieldPassword}}>
+		     	<p>Password: </p><input type="text" ng-model="password" class="input-xlarge" placeholder="password" ng-click="validEmail()"><img src={{icon5}}>
+		    </fieldset>
+		    <fieldset  class={{fieldConfpassword}}>
+		     	<p>Confirmation password: </p><input type="text" ng-model="confpassword" class="input-xlarge" ng-click="validConfirm()" placeholder="confirmation password"><img src={{icon6}}>
+			</fieldset>
 			</div>
 			</div>
 		<div class="butons" align="center">
-			<input type="button" class="btn btn-large" value="Registration" ng-click="registr()">
+			<a href="#" class="btn btn-inverse btn-large"><i class="icon-white icon-ok"></i> Registration</a>
 		</div>    	
     	</div>
     	</div>
     </div>
+ <script src="../js/angular.min.js" type="text/javascript"></script>
   </body>
-
 </html>

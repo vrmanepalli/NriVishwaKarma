@@ -1,19 +1,10 @@
-var app = angular.module('myApp',['$strap.directives']);
+var app = angular.module('myApp',['$strap.directives','imageupload']);
 
 app.config(function($routeProvider){
 	/*$routeProvider.
 	when('/',{templateUrl:'/',controller:''}).
 	otherwise({redirecTo:'/',template:'/',controller:''});*/
 });
-
-app.controller('newUserCtrl',function($scope, $window, $location){
-
-	  // Datepicker directive
-	  $scope.datepicker = {date: new Date()};
-	  
-	  
-	  
-	});
 
 	// Docs styles
 	//
