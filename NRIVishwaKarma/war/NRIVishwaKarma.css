@@ -1,34 +1,131 @@
-/** Add css rules here for your application. */
 
-
-/** Example rules used by the template application (remove for your app) */
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  color: #777777;
-  margin: 40px 0px 70px;
-  text-align: center;
+.header-wrapper {
+	padding: 5px;
+	background-color: #DFE2DB;
 }
 
-.sendButton {
-  display: block;
-  font-size: 16pt;
+.header-body {
+	width: 960px;
+	margin: 0 auto;
 }
 
-/** Most GWT widgets already have a style name defined */
-.gwt-DialogBox {
-  width: 400px;
+.header-body h1 {
+	font-family: 'Gabriela', serif;
+	font-size: 40px;
+	display: inline-block;
 }
 
-.dialogVPanel {
-  margin: 5px;
+.login-and-register {
+	float: right;
+	padding-top: 15px;
+	padding-right: 15px;
+	font-size: 18px;
 }
 
-.serverResponseLabelError {
-  color: red;
+.login-and-register a:link {
+	color: #222222;
+	text-decoration: none;
 }
 
-/** Set ids using widget.getElement().setId("idOfElement") */
-#closeButton {
-  margin: 15px 6px 6px;
+.login-and-register a:visited {
+	color: #222222;
+	text-decoration: none;
 }
+
+.login-and-register a:hover {
+	color: #555555;
+	text-decoration: none;
+}
+
+.login-and-registers a:active {
+	color: #222222;
+	text-decoration: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.nav-wrapper {
+	height: 50px;
+	background-color: #222222;
+	font-family: 'Gabriela', serif;
+}
+
+.nav-body {
+	width: 960px;
+	margin: 0 auto;
+	color: #FFFFFF;
+	font-size: 24px;
+	padding-top: 15px;
+}
+
+.nav-body ul {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.nav-body li {
+	display: inline-block;
+	padding-right: 21px;
+	padding-left: 21px;
+	border-right: 1px dotted #FFFFFF;
+}
+
+.nav-body li:first-child {
+	padding-left: 0;	
+}
+
+.nav-body li:last-child {
+	padding-right: 0;
+	border: none;	
+}
+
+.nav-body a:link {
+	color: #FFFFFF;
+}
+
+.nav-body a:visited {
+	color: #FFFFFF;
+}
+.nav-body a:hover{
+	color: #FFF056;
+	text-decoration: none;
+}
+.nav-body a:active {
+	color: #DDDDDD;
+}
+
+
+/* /** Example rules used by the template application (remove for your app) */
+/* h1 { */
+/*   font-size: 2em; */
+/*   font-weight: bold; */
+/*   color: #777777; */
+/*   margin: 40px 0px 70px; */
+/*   text-align: center; */
+/* } */
+
+/* .sendButton { */
+/*   display: block; */
+/*   font-size: 16pt; */
+/* } */
+
+/* * Most GWT widgets already have a style name defined */
+/* .gwt-DialogBox { */
+/*   width: 400px; */
+/* } */
+
+/* .dialogVPanel { */
+/*   margin: 5px; */
+/* } */
+
+/* .serverResponseLabelError { */
+/*   color: red; */
+/* } */
+
+/* * Set ids using widget.getElement().setId("idOfElement") */
+/* #closeButton { */
+/*   margin: 15px 6px 6px; */
+/* } */
+/*  */ */

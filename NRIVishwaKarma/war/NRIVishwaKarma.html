@@ -4,19 +4,23 @@
 <!-- "Standards Mode". Replacing this declaration   -->
 <!-- with a "Quirks Mode" doctype is not supported. -->
 
-<html>
+<html ng-app="NRIVishwaKarma" ng-controller="NRIVishwaKarmaCtrl">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
     <!--                                                               -->
     <!-- Consider inlining CSS to reduce the number of requested files -->
     <!--                                                               -->
+    <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="NRIVishwaKarma.css">
+    <link type="text/css" rel="stylesheet" href="css/home.css">
 
     <!--                                           -->
     <!-- Any title is fine                         -->
     <!--                                           -->
-    <title>Web Application Starter Project</title>
+    <title>NRI Vishwa Karma</title>
     
     <!--                                           -->
     <!-- This script loads your compiled module.   -->
@@ -43,20 +47,38 @@
         in order for this application to display correctly.
       </div>
     </noscript>
+    
+    <div class="header-wrapper">
+    	<div class="header-body">
+    		<h1>NRI Vishwa Karma</h1>
+    		<span class="login-and-register"><a href="#">login</a>/<a href="#/NewUser">register</a></span>
+    		<div class="clear"></div>
+    	</div>
+    </div>
+    
+    <div class="nav-wrapper">
+    	<div class="nav-body">
+    		<ul>
+    			<li><a href="#/Home">Home</a></li>
+    			<li><a href="#">News</a></li>
+    			<li><a href="#/Profile">Profile</a></li>
+    			<li><a href="#">Wall</a></li>
+    			<li><a href="#">Members</a></li>
+    			<li><a href="#">Groups</a></li>
+    			<li><a href="#">Photos</a></li>
+    			<li><a href="#">Events</a></li>
+    		</ul>
+    	</div>
+    </div>
+    
+	<div ng-view></div>
 
-    <h1>NRI VishwaKarma Website is under development</h1>
-
-    <table align="center">
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Thanks for visiting.</td>        
-      </tr>
-      <!-- <tr>
-        <td id="nameFieldContainer"></td>
-        <td id="sendButtonContainer"></td>
-      </tr> -->
-      <tr>
-        <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
-      </tr>
-    </table>
   </body>
+  <script src="js/angular.js"></script>
+  <script src="js/angular-cookie.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/NRIVishwaKarma.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/newUser.js"></script>
+  <script src="js/profile.js"></script>
 </html>
