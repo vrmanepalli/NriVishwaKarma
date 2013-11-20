@@ -1,7 +1,7 @@
 angular.module('imageupload', [])
     .directive('image', function($q) {
         'use strict'
-
+    	
         var URL = window.URL || window.webkitURL;
 
         var getResizeArea = function () {
