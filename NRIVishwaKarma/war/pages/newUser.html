@@ -28,23 +28,27 @@
     <script src="../js/imageupload.js"></script>
     <style type="text/css">
 		#avatar{
-			min-width: 300px;
-			height: 300px;
+			max-height:300px;max-width:300px;
+			margin: 5%;
+			padding: 2%;
 		}
+
 		.span6{margin-left: 20px;}
+		small{color: red;}
+		.minibuttons{margin-left: 18%;margin-top: 1%;}
 	</style>
     
   </head>
   
   <body ng-controller="newUserCtrl">
     <div class="container">
-    <h5 align="center">Please fill this form to registeration on our site</h5>
+    <h4 align="center">* - fields required to fill</h4>
     <div class="row">
     <div class="span12">
     	<div class="row">
 		<div class="span6">
 		<fieldset  class={{fName}}>
-	    	<p>First name: </p><input type="text" ng-model="fname" class="input-xlarge" placeholder="Name"><img src={{icon1}}>
+	    	<p><small>*</small>First name: </p><input type="text" ng-model="fname" class="input-xlarge" placeholder="Name"><img src={{icon1}}>
 	    </fieldset>
 	    <fieldset  class={{lName}}>
 	    	<p>Last name: </p><input type="text" ng-model="lname" class="input-xlarge" placeholder="Last name" ng-click="validFName()">
@@ -59,7 +63,7 @@
 	        </div>
 	    </section>
 	    <fieldset  class={{Gender}}>
-	    <p>Gender: </p>
+	    <p><small>*</small>Gender: </p>
 	    	<select ng-model="gender">
 	    		<option value="">Select gender</option>
 				<option value="male">Male</option>
@@ -366,14 +370,14 @@
 								<option value="WI">Wisconsin</option>
 								<option value="WY">Wyoming</option>
 						</select>
-			<p>City: </p><input type="text" ng-model="city" class="input-xlarge" placeholder="City">
+			<p>City: </p><input type="text" ng-model="city" class="input-large" placeholder="City">
 			<fieldset  class={{fieldEmail}}>
-				<p>E-mail: </p><input type="text" ng-model="email" class="input-xlarge" placeholder="E-mail"><img src={{icon4}}>
+				<p><small>*</small>E-mail: </p><input type="text" ng-model="email" class="input-xlarge" placeholder="E-mail"><img src={{icon4}}>
 			</fieldset>
 			</div>
 			<div class="span6">
 				<div class="control-group">
-			     	<label class="control-label" for="photo"> Download photo: </label>
+			     	<label class="control-label" for="photo"> Download avatar: </label>
 			     	<div class="control input-group"> 
 			     		<input id="inputImage" type="file" accept="image/*" image="image2" resize-max-height="300"
 																			                resize-max-width="250"
@@ -381,17 +385,22 @@
 			     		<button type="submit" ng-click="single(image2.resized)">Add</button>
 			     	</div>
 		     	</div>
-				<img id="avatar" src="{{image2.url}}" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}" class="img-circle">
+ 		     		<img class="img-polaroid img-rounded" id="avatar" rotate degrees="heading"  src="{{image2.url}}" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}">
+				<br/>
+				<div class="minibuttons">
+					<a class="btn btn-inverse btn-mini" ng-click="leftTurn()"><i class="icon-white icon-circle-arrow-left"></i> left</a>
+					<a class="btn btn-inverse btn-mini" ng-click="rightTurn()">right <i class="icon-white icon-circle-arrow-right"></i></a>
+				</div>
 			<fieldset  class={{fieldPassword}}>
-		     	<p>Password: </p><input type="text" ng-model="password" class="input-xlarge" placeholder="password" ng-click="validEmail()"><img src={{icon5}}>
+		     	<p><small>*</small>Password: </p><input type="text" ng-model="password" class="input-xlarge" placeholder="password" ng-click="validEmail()"><img src={{icon5}}>
 		    </fieldset>
 		    <fieldset  class={{fieldConfpassword}}>
-		     	<p>Confirmation password: </p><input type="text" ng-model="confpassword" class="input-xlarge" ng-click="validConfirm()" placeholder="confirmation password"><img src={{icon6}}>
+		     	<p><small>*</small>Confirmation password: </p><input type="text" ng-model="confpassword" class="input-xlarge" ng-click="validConfirm()" placeholder="confirmation password"><img src={{icon6}}>
 			</fieldset>
 			</div>
 			</div>
 		<div class="butons" align="center">
-			<a href="#" class="btn btn-inverse btn-large"><i class="icon-white icon-ok"></i> Registration</a>
+			<a class="btn btn-inverse btn-large"><i class="icon-white icon-ok"></i> Registration</a>
 		</div>    	
     	</div>
     	</div>

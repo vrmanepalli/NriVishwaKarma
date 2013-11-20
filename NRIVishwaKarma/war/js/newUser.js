@@ -10,6 +10,38 @@ app.controller('newUserCtrl',function($scope, $window, $location, $http, $rootSc
 	$scope.icon4 = "../img/default.png";
 	$scope.icon5 = "../img/default.png";
 	$scope.icon6 = "../img/default.png";
+	var width = 300
+	$scope.imageWidth = width;
+	var heading = 0;
+	$scope.heading = heading;
+	
+	app.directive('rotate', function () {
+	    return {
+	        restrict: 'A',
+	        link: function (scope, element, attrs) {
+	            scope.$watch(attrs.degrees, function (rotateDegrees) {
+	                console.log(rotateDegrees);
+	                var r = 'rotate(' + rotateDegrees + 'deg)';
+	                element.css({
+	                    '-moz-transform': r,
+	                    '-webkit-transform': r,
+	                    '-o-transform': r,
+	                    '-ms-transform': r
+	                });
+	            });
+	        }
+	    }
+	});
+	
+	$scope.leftTurn = function(){
+		heading = heading-90
+		$scope.heading=heading;
+	}
+	
+	$scope.rightTurn = function(){
+		heading = heading+90;
+		$scope.heading=heading;
+	}
 	  
 		  $scope.checkForm=function(field, type){
 			 var pp = '';
