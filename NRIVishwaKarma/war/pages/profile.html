@@ -13,6 +13,7 @@
 		img{
 			width:225px;height: 225px;
 		}
+		small{color: gray;}
 	</style>
 	<link href="css/bootstrap.min.css">
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -40,6 +41,7 @@
 				</div>
 				<div class="span8"><!-- row with private information and news -->
 					<div class="well" ng-hide="changePrivate">
+						<p align="right"><small><a>edit</a></small></p>
 						<h3>{{user.name}}</h3>
 						<p>{{user.contry}}, {{user.state}}, {{user.city}}</p>
 						<p>{{user.age}} years old</p>

@@ -1,4 +1,4 @@
-var app = angular.module("NRIVishwaKarma", []).config(function($routeProvider) {
+var app = angular.module("NRIVishwaKarma", ['$strap.directives','imageupload']).config(function($routeProvider) {
 	$routeProvider.when("/Home", {
 		templateUrl: "pages/home.html",
 		controller: "homeCtrl"
