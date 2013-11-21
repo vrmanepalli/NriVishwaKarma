@@ -1,8 +1,8 @@
 
-app.controller('newUserCtrl',function($scope, $window, $location, $http, $rootScope){
-
-	  // Datepicker directive
-	  $scope.datepicker = {date: new Date()};
+app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dataFactory){
+	
+	// Datepicker directive
+	$scope.datepicker = {date: new Date()};
 	  
 	$rootScope.image2={url:"../img/profile.png"};
 	$scope.icon1 = "../img/default.png";
@@ -16,6 +16,34 @@ app.controller('newUserCtrl',function($scope, $window, $location, $http, $rootSc
 	var heading = 0;
 	$scope.heading = heading;
 	
+	$scope.signupForm = function() {
+		var data = {
+			fname: $scope.fname,
+			lname: $scope.lname,
+			bday: $scope.datepicker.date,
+			gender: $scope.gender,
+			country: $scope.country,
+			state: $scope.state,
+			city: $scope.city,
+			email: $scope.email,
+			password: $scope.password,
+			confirm_pass: $scope.confPassword,
+			country_origin: $scope.originCountry,
+			state_origin: $scope.originState,
+			city_origin: $scope.originCity,
+			phone: $scope.phone
+		};
+		console.log(JSON.stringify(data));
+		dataFactory.registerUser(JSON.stringify(data))
+			.success(function(results) {
+				console.log(results);
+			})
+			.error(function(error) {
+				console.log(error);
+			});
+	};
+});
+	/*
 	app.directive('rotate', function () {
 	    return {
 	        restrict: 'A',
@@ -181,4 +209,4 @@ app.controller('newUserCtrl',function($scope, $window, $location, $http, $rootSc
                 $scope.sizeInBytes = result.size;
             });
 	};	
-})
+	*/

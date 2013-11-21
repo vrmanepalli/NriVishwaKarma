@@ -1,0 +1,22 @@
+@CHARSET "US-ASCII";
+
+.span6 {
+	margin-left: 20px;
+}
+
+small {
+	color: #FF6666;
+}
+
+.minibuttons {
+	margin-left: 18%;
+	margin-top: 1%;
+}
+
+.ng-valid {
+	border-color: #CCCCCC;
+}
+
+.ng-valid {
+	border-color: #FF6666;
+}
