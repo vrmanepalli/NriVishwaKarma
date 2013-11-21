@@ -13,10 +13,6 @@ small {
 	margin-top: 1%;
 }
 
-.ng-valid {
-	border-color: #CCCCCC;
-}
-
-.ng-valid {
+input.has-visited.ng-invalid:not(.has-focus) {
 	border-color: #FF6666;
 }

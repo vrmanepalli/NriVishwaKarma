@@ -3,7 +3,9 @@ app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dat
 	
 	// Datepicker directive
 	$scope.datepicker = {date: new Date()};
-	  
+	
+	$scope.gender="male";
+	
 	$rootScope.image2={url:"../img/profile.png"};
 	$scope.icon1 = "../img/default.png";
 	$scope.icon2 = "../img/default.png";
