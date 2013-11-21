@@ -12,10 +12,13 @@
     <!-- Consider inlining CSS to reduce the number of requested files -->
     <!--                                                               -->
     <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
-    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/datepicker.css">
     <link type="text/css" rel="stylesheet" href="NRIVishwaKarma.css">
     <link type="text/css" rel="stylesheet" href="css/home.css">
+    <link type="text/css" rel="stylesheet" href="css/news.css">
+    <link type="text/css" rel="stylesheet" href="css/wall.css">
 
     <!--                                           -->
     <!-- Any title is fine                         -->
@@ -60,9 +63,9 @@
     	<div class="nav-body">
     		<ul>
     			<li><a href="#/Home">Home</a></li>
-    			<li><a href="#">News</a></li>
+    			<li><a href="#/News">News</a></li>
     			<li><a href="#/Profile">Profile</a></li>
-    			<li><a href="#">Wall</a></li>
+    			<li><a href="#/Wall">Wall</a></li>
     			<li><a href="#">Members</a></li>
     			<li><a href="#">Groups</a></li>
     			<li><a href="#">Photos</a></li>
@@ -72,13 +75,21 @@
     </div>
     
 	<div ng-view></div>
+	
+	<div class="footer">
+	
+	</div>
 
   </body>
   <script src="js/angular.js"></script>
   <script src="js/angular-cookie.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/NRIVishwaKarma.js"></script>
   <script src="js/home.js"></script>
   <script src="js/newUser.js"></script>
+  <script src="js/news.js"></script>
+  <script src="js/wall.js"></script>
   <script src="js/profile.js"></script>
+  <script src="js/imageupload.js"></script>
 </html>
