@@ -8,6 +8,7 @@
 	<script src="../js/angular-cookie.js"></script>
 	<script src="//mgcrea.github.com/angular-strap/js/angular-strap.js"></script>
 	<script src="../js/imageupload.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
 <title>User profile</title>
 	<style type="text/css">
 		img{
@@ -34,21 +35,47 @@
 							<li><a href="#"><i class="icon-user"></i> Friends ({{numOfFriends}})</a></li>
 							<li><a href="#"><i class="icon-globe"></i> Groups ({{numOfGroups}})</a></li>
 							<li><a href="#"><i class="icon-tasks"></i> Events</a></li>
-							<hr/>
+							<li class="divider"></li>
 							<li><a href="#"><i class="icon-share"></i> Log out</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="span8"><!-- row with private information and news -->
-					<div class="well" ng-hide="changePrivate">
-						<p align="right"><small><a>edit</a></small></p>
-						<h3>{{user.name}}</h3>
-						<p>{{user.contry}}, {{user.state}}, {{user.city}}</p>
-						<p>{{user.age}} years old</p>
-						<p>{{user.status}}</p>
-						<p>from: {{user.fromcontry}}, {{user.fromstate}}, {{user.fromcity}}</p>
-						<p>job: {{user.job}} at {{user.company}}</p>
-					</div>
+					  <ul class="nav nav-tabs">
+					    <li class="active"><a href="#tab1" data-toggle="tab">General</a></li>
+					    <li><a href="#tab2" data-toggle="tab">Career</a></li>
+					    <li><a href="#tab3" data-toggle="tab">Interests</a></li>
+					  </ul>
+<!-- -------------------Tab 1 with general info----------------------------------- -->
+					  <div class="tab-content">
+					    <div class="tab-pane active" id="tab1">
+					      	<p align="right"><small><a>edit</a></small></p>
+							<h3>{{username}}</h3>
+							<p>{{user.country}}, {{user.state}}, {{user.city}}</p>
+							<p>{{user.age}} years old</p>
+							<p>{{user.status}}</p>
+							<p>from: {{user.fromcountry}}, {{user.fromstate}}, {{user.fromcity}}</p>
+							<p>About me: {{user.about}}</p>
+					    </div>
+<!-- -------------------Tab 2 with career---------------------------------------- -->
+					    <div class="tab-pane" id="tab2">
+					    	<p align="right"><small><a>edit</a></small></p>
+					     	<p>Job position: {{user.job}} at {{user.company}}</p>
+							<p>University: {{user.univer}}, {{user.yearuniver}}</p>
+							<p>School: {{user.school}}, {{user.yearschool}}</p>
+					  	</div>
+<!-- ------------------Tab 3 interests-------------------------------------------- -->
+					  	<div class="tab-pane" id="tab3">
+					  		<p align="right"><small><a>edit</a></small></p>
+					  		<p>Interests: {{user.inter}}</p>
+					  		<p>Sport: {{user.sport}}</p>
+					  		<p>Music: {{user.music}}</p>
+					  		<p>Movie: {{user.movie}}</p>
+					  		<p>Books: {{user.book}}</p>
+					  	</div>
+					  
+					<hr/>
+					
 					<div class="well">
 						<p>here will be ng-repeat for events of user's friends</p>
 					</div>
@@ -57,6 +84,7 @@
 		</div>
 		</div>
 	</div>
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
