@@ -34,6 +34,7 @@
 	<style type="text/css">
 		hr{margin: 0px;}
 		.int{padding: 17px;}
+		.myForm{border: 2px;}
 	</style>
 </head>
 <body ng-app="NRIVishwaKarma">
@@ -41,8 +42,11 @@
 		<div class="row">
 		<div class="span12">
 			<h4>Fill next fields about yourself</h4>
+		<div class="well">
 			<p>About me:</p>
 				<textarea class="input-xxlarge"  rows="4" cols="38" ng-model="about" placeholder="About me..."></textarea>
+		</div>
+		<div class="well">
 			<p>School:</p>
 			<div class="row">
 			<div class="span6">
@@ -58,128 +62,142 @@
 			        </div>
 			    </section>
 			</div>
-		</div>    
-		<p>University:</p>
+		</div>
+		</div>
+		<div class="well">  
+			<p>University:</p>
+			<div class="row">
+			<div class="span6">
+				<input type="text" class="input-xxlarge" ng-model="university" placeholder="Name of university">
+			</div>
+			<div class="span4">
+					<section id="datepicker">
+				        <div class="bs-docs-example">
+				            <div class="control-group input-append">
+				              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="universityear" data-date-format="yyyy" bs-datepicker>
+				              <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+				            </div>
+				        </div>
+				    </section>
+			</div>
+		</div>
+		</div>  
 		<div class="row">
-		<div class="span6">
-			<input type="text" class="input-xxlarge" ng-model="university" placeholder="Name of university">
-		</div>
-		<div class="span4">
-				<section id="datepicker">
-			        <div class="bs-docs-example">
-			            <div class="control-group input-append">
-			              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="universityear" data-date-format="yyyy" bs-datepicker>
-			              <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
-			            </div>
-			        </div>
-			    </section>
-		</div>
-		</div>
-		<div class="row">
 		<div class="span2">
-			<p>Interests:</p>
-			<hr/>
-			<p>
-			<input type="checkbox" class="int" ng-model="photo"> Photo<br>
-			<input type="checkbox" class="int" ng-model="travel"> Travel<br>
-			<input type="checkbox" class="int" ng-model="auto"> Auto<br>
-			<input type="checkbox" class="int" ng-model="collecting"> Collecting<br>
-			<input type="checkbox" class="int" ng-model="computer"> Computer<br>
-			<input type="checkbox" class="int" ng-model="theater"> Theater<br>
-			<input type="checkbox" class="int" ng-model="needlework"> Needlework<br>
-			<input type="checkbox" class="int" ng-model="cookery"> Cookery<br>
-			<input type="checkbox" class="int" ng-model="hunting"> Hunting<br>
-			<input type="checkbox" class="int" ng-model="PCgames"> PC games<br>
-			<input type="checkbox" class="int" ng-model="art"> Art<br>
-			<input type="checkbox" class="int" ng-model="sience"> Sience<br></p>
+			<div class="well">
+					<p>Interests:</p>
+				<hr/>
+				<p>
+				<input type="checkbox" class="int" ng-model="photo"> Photo<br>
+				<input type="checkbox" class="int" ng-model="travel"> Travel<br>
+				<input type="checkbox" class="int" ng-model="auto"> Auto<br>
+				<input type="checkbox" class="int" ng-model="collecting"> Collecting<br>
+				<input type="checkbox" class="int" ng-model="computer"> Computer<br>
+				<input type="checkbox" class="int" ng-model="theater"> Theater<br>
+				<input type="checkbox" class="int" ng-model="needlework"> Needlework<br>
+				<input type="checkbox" class="int" ng-model="cookery"> Cookery<br>
+				<input type="checkbox" class="int" ng-model="hunting"> Hunting<br>
+				<input type="checkbox" class="int" ng-model="PCgames"> PC games<br>
+				<input type="checkbox" class="int" ng-model="art"> Art<br>
+				<input type="checkbox" class="int" ng-model="sience"> Sience<br></p>
+			</div>
 		</div>
 		<div class="span2">
-			<p>Sport:</p>
-			<hr/>
-			<p>
-			<input type="checkbox" class="sport" ng-model="running"> Running<br>
-			<input type="checkbox" class="sport" ng-model="soccer"> Soccer<br>
-			<input type="checkbox" class="sport" ng-model="football"> Football<br>
-			<input type="checkbox" class="sport" ng-model="voleyball"> VoleyBall<br>
-			<input type="checkbox" class="sport" ng-model="baseball"> Baseball<br>
-			<input type="checkbox" class="sport" ng-model="bascketball"> Bascketball<br>
-			<input type="checkbox" class="sport" ng-model="hokey"> Hokey<br>
-			<input type="checkbox" class="sport" ng-model="fitness"> Fitness<br>
-			<input type="checkbox" class="sport" ng-model="swimming"> Swimming<br>
-			<input type="checkbox" class="sport" ng-model="bicycle"> Bicycle<br>
-			<input type="checkbox" class="sport" ng-model="tennis"> Tennis<br>
-			<input type="checkbox" class="sport" ng-model="snowboard"> Snowboard<br>
-			<input type="checkbox" class="sport" ng-model="diving"> Diving<br>
-			<input type="checkbox" class="sport" ng-model="bowling"> Bowling<br>
-			<input type="checkbox" class="sport" ng-model="surfing"> Surfing<br>
-			<input type="checkbox" class="sport" ng-model="yoga"> Yoga<br>
-			<input type="checkbox" class="sport" ng-model="boxing"> Boxing<br>
-			<input type="checkbox" class="sport" ng-model="kickboxing"> Kickboxing<br>
-			<input type="checkbox" class="sport" ng-model="judo"> Judo<br>
-			<input type="checkbox" class="sport" ng-model="skates"> Skates<br>
-			<input type="checkbox" class="sport" ng-model="roller"> Roller skates<br>
-			<input type="checkbox" class="sport" ng-model="skiing"> Skiing<br></p>
+			<div class="well">
+				<p>Sport:</p>
+				<hr/>
+				<p>
+				<input type="checkbox" class="sport" ng-model="running"> Running<br>
+				<input type="checkbox" class="sport" ng-model="soccer"> Soccer<br>
+				<input type="checkbox" class="sport" ng-model="football"> Football<br>
+				<input type="checkbox" class="sport" ng-model="voleyball"> Voleyball<br>
+				<input type="checkbox" class="sport" ng-model="baseball"> Baseball<br>
+				<input type="checkbox" class="sport" ng-model="bascketball"> Bascketball<br>
+				<input type="checkbox" class="sport" ng-model="hokey"> Hokey<br>
+				<input type="checkbox" class="sport" ng-model="fitness"> Fitness<br>
+				<input type="checkbox" class="sport" ng-model="swimming"> Swimming<br>
+				<input type="checkbox" class="sport" ng-model="bicycle"> Bicycle<br>
+				<input type="checkbox" class="sport" ng-model="tennis"> Tennis<br>
+				<input type="checkbox" class="sport" ng-model="snowboard"> Snowboard<br>
+				<input type="checkbox" class="sport" ng-model="diving"> Diving<br>
+				<input type="checkbox" class="sport" ng-model="bowling"> Bowling<br>
+				<input type="checkbox" class="sport" ng-model="surfing"> Surfing<br>
+				<input type="checkbox" class="sport" ng-model="yoga"> Yoga<br>
+				<input type="checkbox" class="sport" ng-model="boxing"> Boxing<br>
+				<input type="checkbox" class="sport" ng-model="kickboxing"> Kickboxing<br>
+				<input type="checkbox" class="sport" ng-model="judo"> Judo<br>
+				<input type="checkbox" class="sport" ng-model="skates"> Skates<br>
+				<input type="checkbox" class="sport" ng-model="roller"> Roller skates<br>
+				<input type="checkbox" class="sport" ng-model="skiing"> Skiing<br></p>
+			</div>
 		</div>
 		<div class="span2">
-			<p>Music: </p>
-			<hr/>
-			<p>
-			<input type="checkbox" class="music" ng-model="pop"> Pop<br>
-			<input type="checkbox" class="music" ng-model="rnb"> R'n'b<br>
-			<input type="checkbox" class="music" ng-model="hip"> Hip-hop<br>
-			<input type="checkbox" class="music" ng-model="classic"> Classic<br>
-			<input type="checkbox" class="music" ng-model="pank"> Pank<br>
-			<input type="checkbox" class="music" ng-model="disco"> Disco<br>
-			<input type="checkbox" class="music" ng-model="Jass"> Jass<br>
-			<input type="checkbox" class="music" ng-model="roll"> Rok-n-roll<br>
-			<input type="checkbox" class="music" ng-model="dance"> Dance<br>
-			<input type="checkbox" class="music" ng-model="latino"> Latino<br>
-			<input type="checkbox" class="music" ng-model="retro"> Retro<br>
-			<input type="checkbox" class="music" ng-model="shastriya"> Shastriya Sangeet<br>
-			<input type="checkbox" class="music" ng-model="shanson"> Shanson<br>
-			<input type="checkbox" class="music" ng-model="country"> Country<br>
-			<input type="checkbox" class="music" ng-model="tehno"> Tehno<br>
-			<input type="checkbox" class="music" ng-model="rock"> Rock<br>			
-			</p>
+			<div class="well">
+				<p>Music: </p>
+				<hr/>
+				<p>
+				<input type="checkbox" class="music" ng-model="pop"> Pop<br>
+				<input type="checkbox" class="music" ng-model="rnb"> R'n'b<br>
+				<input type="checkbox" class="music" ng-model="hip"> Hip-hop<br>
+				<input type="checkbox" class="music" ng-model="classic"> Classic<br>
+				<input type="checkbox" class="music" ng-model="pank"> Pank<br>
+				<input type="checkbox" class="music" ng-model="disco"> Disco<br>
+				<input type="checkbox" class="music" ng-model="Jass"> Jass<br>
+				<input type="checkbox" class="music" ng-model="roll"> Rok-n-roll<br>
+				<input type="checkbox" class="music" ng-model="dance"> Dance<br>
+				<input type="checkbox" class="music" ng-model="latino"> Latino<br>
+				<input type="checkbox" class="music" ng-model="retro"> Retro<br>
+				<input type="checkbox" class="music" ng-model="shastriya"> Shastriya Sangeet<br>
+				<input type="checkbox" class="music" ng-model="shanson"> Shanson<br>
+				<input type="checkbox" class="music" ng-model="country"> Country<br>
+				<input type="checkbox" class="music" ng-model="tehno"> Tehno<br>
+				<input type="checkbox" class="music" ng-model="rock"> Rock<br>			
+				</p>
+			</div>
 		</div>
 		<div class="span2">
-			<p>Movie: </p>
-			<hr/>
-			<p>
-			<input type="checkbox" class="movie" ng-model="arthouse"> Arthouse<br>
-			<input type="checkbox" class="movie" ng-model="thriller"> Thriller<br>
-			<input type="checkbox" class="movie" ng-model="detective"> Detective<br>
-			<input type="checkbox" class="movie" ng-model="drama"> Drama<br>
-			<input type="checkbox" class="movie" ng-model="comedy"> Comedy<br>
-			<input type="checkbox" class="movie" ng-model="horror"> Horror<br>
-			<input type="checkbox" class="movie" ng-model="fantasy"> Fantasy<br>
-			<input type="checkbox" class="movie" ng-model="adventure"> Adventure<br>
-			<input type="checkbox" class="movie" ng-model="western"> Western<br>
-			<input type="checkbox" class="movie" ng-model="historical"> Historical<br>
-			<input type="checkbox" class="movie" ng-model="musical"> Musical<br>
-			<input type="checkbox" class="movie" ng-model="sitcom"> Sitcom<br>
-			<input type="checkbox" class="movie" ng-model="tv"> TV series<br>
-			<input type="checkbox" class="movie" ng-model="sience"> Sience<br>
-
-			</p>
+			<div class="well">
+				<p>Movie: </p>
+				<hr/>
+				<p>
+				<input type="checkbox" class="movie" ng-model="arthouse"> Arthouse<br>
+				<input type="checkbox" class="movie" ng-model="thriller"> Thriller<br>
+				<input type="checkbox" class="movie" ng-model="detective"> Detective<br>
+				<input type="checkbox" class="movie" ng-model="drama"> Drama<br>
+				<input type="checkbox" class="movie" ng-model="comedy"> Comedy<br>
+				<input type="checkbox" class="movie" ng-model="horror"> Horror<br>
+				<input type="checkbox" class="movie" ng-model="fantasy"> Fantasy<br>
+				<input type="checkbox" class="movie" ng-model="adventure"> Adventure<br>
+				<input type="checkbox" class="movie" ng-model="western"> Western<br>
+				<input type="checkbox" class="movie" ng-model="historical"> Historical<br>
+				<input type="checkbox" class="movie" ng-model="musical"> Musical<br>
+				<input type="checkbox" class="movie" ng-model="sitcom"> Sitcom<br>
+				<input type="checkbox" class="movie" ng-model="tv"> TV series<br>
+				<input type="checkbox" class="movie" ng-model="sience"> Sience<br>
+				</p>
+			</div>
 		</div>
 		<div class="span2">
-			<p>Books: </p>
-			<hr/>
-			<p>
-			<input type="checkbox" class="book" ng-model="classic"> Classic<br>
-			<input type="checkbox" class="book" ng-model="tradegy"> Tradegy<br>
-			<input type="checkbox" class="book" ng-model="comedy"> Comedy<br>
-			<input type="checkbox" class="book" ng-model="love"> Love story<br>
-			<input type="checkbox" class="book" ng-model="fantasy"> Fantasy<br>
-			<input type="checkbox" class="book" ng-model="horror"> Horror<br>
-			<input type="checkbox" class="book" ng-model="detective"> Detective<br>
-			<input type="checkbox" class="book" ng-model="sience"> Sience<br>
-			<input type="checkbox" class="book" ng-model="biography"> Biography<br>
-			</p>
+			<div class="well">
+				<p>Books: </p>
+				<hr/>
+				<p>
+				<input type="checkbox" class="book" ng-model="classic"> Classic<br>
+				<input type="checkbox" class="book" ng-model="tradegy"> Tradegy<br>
+				<input type="checkbox" class="book" ng-model="comedy"> Comedy<br>
+				<input type="checkbox" class="book" ng-model="love"> Love story<br>
+				<input type="checkbox" class="book" ng-model="fantasy"> Fantasy<br>
+				<input type="checkbox" class="book" ng-model="horror"> Horror<br>
+				<input type="checkbox" class="book" ng-model="detective"> Detective<br>
+				<input type="checkbox" class="book" ng-model="sience"> Sience<br>
+				<input type="checkbox" class="book" ng-model="biography"> Biography<br>
+				</p>
+			</div>
 		</div>
 		</div>
-		<a href="#" class="btn btn-inverse btn-large"><i class="icon-white icon-download-alt"></i> Save</a>
+		<div class="form-actions navbar-static-bottom" align="center">
+			<a href="#" class="btn btn-inverse btn-large"><i class="icon-white icon-download-alt"></i> Save</a>
+		</div>
 		</div>
 		</div>
 	</div>
