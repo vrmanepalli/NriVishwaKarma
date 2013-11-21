@@ -1,7 +1,7 @@
 
 .header-wrapper {
 	padding: 5px;
-	background-color: #DFE2DB;
+	background: url("img/grey-noise.png");
 }
 
 .header-body {
@@ -96,6 +96,10 @@
 	color: #DDDDDD;
 }
 
+.footer {
+	height: 100px;
+	background-color: #222222;
+}
 
 /* /** Example rules used by the template application (remove for your app) */
 /* h1 { */

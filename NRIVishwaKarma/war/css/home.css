@@ -1,1 +1,62 @@
 @CHARSET "US-ASCII";
+
+.home-welcome-row {
+	margin-top: 40px;
+	background-color: #EEEEEE;
+}
+
+.home-welcome-info {
+	margin-top: 40px;	
+}
+
+.home-welcome-info h1 {
+	font-size: 30px;
+	color: #ffb732;
+	text-shadow: 1px 1px 1px #666666;
+	filter: dropshadow(color=#000000, offx=2, offy=2);
+}
+
+.home-welcome-info ul {
+	list-style-type: none;
+	margin-top: 30px;
+	margin-left: 0;
+	color: #444444;
+}
+
+.home-welcome-info li {
+	padding: 20px 0 20px 0;
+	font-size: 20px;
+}
+
+.home-friends-icon {
+	margin-right: 20px;
+	color: #75D7EF;
+}
+
+.home-events-icon {
+	margin-right: 20px;
+	color: #75EFB2;
+}
+
+.home-photos-icon {
+	margin-right: 20px;
+	color: #EF8D75;
+}
+
+.home-news-icon {
+	margin-right: 20px;
+	color: #EFED75;
+}
+
+.home-text-wrapper {
+	margin-top: 30px;
+	background: url("../img/grey-noise.png");
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+.home-text {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	text-align: justify;
+}
