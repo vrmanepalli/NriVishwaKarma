@@ -1,5 +1,6 @@
-app.controller("modalInstanceCtrl", function ($scope, $rootScope, $modalInstance, dataFactory) {
+app.controller("modalInstanceCtrl", function ($scope, $rootScope, $modalInstance, $cookies, dataFactory) {
 	$scope.showForgotPassword = false;
+	$scope.input = {};
 	
 	$scope.forgotPassword = function() {
 		$("#forgotLink").removeAttr("href");
@@ -8,8 +9,9 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $modalInstance
 	
 	$scope.sendResetEmail = function() {
 		var data = {
-				email: $scope.email
-			};
+			email: $scope.input.email
+		};
+		console.log($scope.input.email);
 		dataFactory.forgotPassword(JSON.stringify(data))
 			.success(function(results) {
 				console.log(results);
@@ -22,12 +24,17 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $modalInstance
 	$scope.login = function () {
 		
 		var data = {
-			email: $scope.email,
-			password: $scope.password
+			email: $scope.input.email,
+			password: $scope.input.password
 		};
+		console.log($scope.input.email);
+		console.log($scope.input.password);
 		dataFactory.login(JSON.stringify(data))
 			.success(function(results) {
-				console.log(results);
+				if(results.status == true) {
+					$cookies.email = $scope.input.email;
+					$cookies.password = $scope.input.password;
+				}
 			})
 			.error(function(error) {
 						console.log(error);

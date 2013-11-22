@@ -16,3 +16,15 @@ small {
 input.has-visited.ng-invalid:not(.has-focus) {
 	border-color: #FF6666;
 }
+
+.month-select {
+	width: 110px;
+}
+
+.day-select {
+	width: 60px;
+}
+
+.year-select {
+	width: 80px;
+}

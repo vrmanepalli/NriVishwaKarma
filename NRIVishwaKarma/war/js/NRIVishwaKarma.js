@@ -1,5 +1,4 @@
-'use strict';
-var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'imageupload']).config(function($routeProvider) {
+var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'ngCookies', 'imageupload']).config(function($routeProvider) {
 	$routeProvider.when("/Home", {
 		templateUrl: "pages/home.html",
 		controller: "homeCtrl"
@@ -27,10 +26,9 @@ var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'imageupload']).conf
 });
 
 app.controller("NRIVishwaKarmaCtrl", function($scope, $modal, $log) {
-
 	
 	$scope.open = function () {
-
+		$("#loginButton").removeAttr("href");
 		var modalInstance = $modal.open({
 			templateUrl: 'pages/login.html',
 			controller: "modalInstanceCtrl",

@@ -6,7 +6,7 @@
 		Please enter the email address you signed up with. An email will be sent shortly.
 	</div>
 	<p>Email:</p>
-		<input type="email" ng-model="email" name="email" class="input-xlarge"
+		<input type="email" ng-model="input.email" name="email" class="input-xlarge"
 			placeholder="E-mail" required>
 	<div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
 		<small class="error">
@@ -15,7 +15,7 @@
 	</div>
 	<div ng-hide="showForgotPassword">
 		<p>Password:</p>
-		<input type="text" ng-model="password" name="password" id="password" class="input-xlarge" placeholder="password" 
+		<input type="text" ng-model="input.password" name="password" id="password" class="input-xlarge" placeholder="password" 
 			ng-click="validEmail()" ng-minlength=8 ng-maxlength=100 required>
 		<div class="error" ng-show="signup_form.password.$dirty && signup_form.password.$invalid">
 			<small class="error" ng-show="signup_form.password.$error.minlength">

@@ -29,7 +29,7 @@ angular.module('NRIVishwaKarma')
     
     dataFactory.updateInterestFactory = function(interest){
     	return $http.post('UpdateInterestServlet',interest);
-    }
+    };
  
 	return dataFactory;
 }]);
