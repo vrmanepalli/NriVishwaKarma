@@ -45,6 +45,19 @@ app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dat
 			});
 	};
 });
+
+angular.module('NRIVishwaKarma').directive('match', function($parse) {
+	return {
+		require: 'ngModel',
+		link: function(scope, elem, attrs, ctrl) {
+			scope.$watch(function() {        
+		        return $parse(attrs.match)(scope) === ctrl.$modelValue;
+		    }, function(currentValue) {
+		    	ctrl.$setValidity('mismatch', currentValue);
+		    });
+		}
+	};
+});
 	/*
 	app.directive('rotate', function () {
 	    return {

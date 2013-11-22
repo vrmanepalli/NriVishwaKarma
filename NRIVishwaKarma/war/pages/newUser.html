@@ -745,32 +745,55 @@
 									ng-pattern="/^[0-9]{10}$/">
 								<div class="error" ng-show="signup_form.phone.$dirty && signup_form.phone.$invalid">
 									<small class="error" ng-show="signup_form.phone.$error.pattern">
-										Your phone number must be 10 digits.
+										Your phone number must be 10 digits (no dashes or spaces).
 									</small>
 								</div>
 							<fieldset>
 								<p>
 									<small>*</small>E-mail:
 								</p>
-								<input type="text" ng-model="email" class="input-xlarge"
-									placeholder="E-mail"><img src={{icon4}}>
+								<input type="email" ng-model="email" name="email" class="input-xlarge"
+									placeholder="E-mail" required>
+								<div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+									<small class="error">
+										Please enter a valid email.
+									</small>
+								</div>
 							</fieldset>
 							<fieldset>
 								<p>
 									<small>*</small>Password:
 								</p>
-								<input type="text" ng-model="password" class="input-xlarge"
-									placeholder="password" ng-click="validEmail()"><img
-									src={{icon5}}>
+								<input type="text" ng-model="password" name="password" id="password" class="input-xlarge" placeholder="password" 
+									ng-click="validEmail()" ng-minlength=8 ng-maxlength=100 required>
+								<div class="error" ng-show="signup_form.password.$dirty && signup_form.password.$invalid">
+									<small class="error" ng-show="signup_form.password.$error.minlength">
+										Your password must be at least 8 characters long.
+									</small>
+									<small class="error" ng-show="signup_form.password.$error.maxlength">
+										Your password cannot be longer than 100 characters.
+									</small>
+								</div>
 							</fieldset>
 							<fieldset>
 								<p>
 									<small>*</small>Confirmation password:
 								</p>
-								<input type="text" ng-model="confPassword" class="input-xlarge"
-									ng-click="validConfirm()" placeholder="confirmation password"><img
-									src={{icon6}}>
+								<input type="text" ng-model="confPassword" name="confPassword" class="input-xlarge"
+									ng-click="validConfirm()" match="password" placeholder="confirmation password">
+								<div class="error" ng-show="signup_form.confPassword.$dirty && signup_form.confPassword.$invalid">
+									<small class="error" ng-show="signup_form.confPassword.$error.minlength">
+										Your password must be at least 8 characters long.
+									</small>
+									<small class="error" ng-show="signup_form.confPassword.$error.maxlength">
+										Your password cannot be longer than 100 characters.
+									</small>
+									<small class="error" ng-show="signup_form.confPassword.$error.mismatch">
+										Your passwords don't match.
+									</small>
+								</div>
 							</fieldset>
+
 						</div>
 					</div>
 					<div class="form-actions navbar-static-bottom" align="center">
