@@ -1,6 +1,6 @@
 package com.nrivishwakarma.utilities;
 
-public class Movie {
+public class Movie extends AllInterests {
 	public String arthouse;
 	public String thriller;
 	public String detective;

@@ -1,6 +1,6 @@
 package com.nrivishwakarma.utilities;
 
-public class Books {
+public class Books extends AllInterests {
 	public String classic;
 	public String tradegy;
 	public String detective;

@@ -1,6 +1,6 @@
 package com.nrivishwakarma.utilities;
 
-public class Music {
+public class Music extends AllInterests {
 	public String pop;
 	public String rnb;
 	public String hip;

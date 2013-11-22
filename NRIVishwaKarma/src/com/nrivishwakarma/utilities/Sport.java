@@ -1,6 +1,6 @@
 package com.nrivishwakarma.utilities;
 
-public class Sport {
+public class Sport extends AllInterests {
 	public String running;
 	public String soccer;
 	public String football;

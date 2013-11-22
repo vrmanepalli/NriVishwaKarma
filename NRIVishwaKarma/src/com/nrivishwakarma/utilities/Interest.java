@@ -1,5 +1,5 @@
 package com.nrivishwakarma.utilities;
-public class Interest {
+public class Interest extends AllInterests {
 	public String photo;
 	public String travel;
 	public String auto;
