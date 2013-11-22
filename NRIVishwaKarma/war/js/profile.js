@@ -36,7 +36,7 @@ app.controller('profileCtrl',function($scope,$rootScope){
 			school:"Slavyansk hight school #15",
 			yearschool:"2001",
 			about:"I created this page, I'll hope You will like it!:)",
-			inter:"photo,travel,computer",
+			inter:"photo, travel, computer",
 			sport:"fitness",
 			music:"",
 			movie:"comedy",
