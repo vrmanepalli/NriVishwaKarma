@@ -77,10 +77,10 @@ app.controller('profileCtrl',function($scope,$rootScope){
 	$scope.School = $scope.user.school;
 	$scope.Yearschool = $scope.user.yearschool;
 	if($scope.user.job===""){$scope.jobhide=true;}
-	if($scope.user.degree===""){$scope.degreehide=true;}
+	if($scope.user.field===""){$scope.degreehide=true;}
 	if($scope.user.univer===""){$scope.univerhide=true;}
 	if($scope.user.school===""){$scope.schoolhide=true;}
-	if(($scope.user.job==="")&&($scope.user.degree==="")&&($scope.user.univer==="")&&($scope.user.school==="")){
+	if(($scope.user.job==="")&&($scope.user.field==="")&&($scope.user.univer==="")&&($scope.user.school==="")){
 		$scope.allCareer=true;
 	}
 //----------Interests TAB----------------------------
@@ -165,6 +165,21 @@ app.controller('profileCtrl',function($scope,$rootScope){
 		$scope.user.yearuniver = $scope.Yearuniver;
 		$scope.user.school = $scope.School;
 		$scope.user.yearschool = $scope.Yearschool;
+		$scope.Job = $scope.user.job;
+		$scope.Company = $scope.user.company;
+		$scope.Degree = $scope.user.degree;
+		$scope.Field = $scope.user.field;
+		$scope.Univer = $scope.user.univer;
+		$scope.Yearuniver = $scope.user.yearuniver;
+		$scope.School = $scope.user.school;
+		$scope.Yearschool = $scope.user.yearschool;
+		if($scope.user.job===""){$scope.jobhide=true;}else{$scope.jobhide=false;}
+		if($scope.user.field===""){$scope.degreehide=true;}else{$scope.degreehide=false;}
+		if($scope.user.univer===""){$scope.univerhide=true;}else{$scope.univerhide=false;}
+		if($scope.user.school===""){$scope.schoolhide=true;}else{$scope.schoolhide=false;}
+		if(($scope.user.job==="")&&($scope.user.field==="")&&($scope.user.univer==="")&&($scope.user.school==="")){
+			$scope.allCareer=true;
+		}else{$scope.allCareer=false}
 //-------Data Factory send career info of user--------------------------
 //		dataFactory.updateUserFactory($scope.user)
 //			.success(function(result){
