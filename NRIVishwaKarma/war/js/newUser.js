@@ -1,4 +1,4 @@
-
+'use strict';
 app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dataFactory){
 	
 	// Datepicker directive

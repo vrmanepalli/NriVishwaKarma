@@ -1,3 +1,4 @@
+'use strict';
 angular.module('NRIVishwaKarma')
 .factory('dataFactory', ['$http', function($http) {
 	var dataFactory = {};

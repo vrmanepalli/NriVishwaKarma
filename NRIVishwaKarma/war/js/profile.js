@@ -1,3 +1,4 @@
+'use strict';
 app.controller('profileCtrl',function($scope,$rootScope){
 	$rootScope.user={
 			email:"katrina@gmail.com",
