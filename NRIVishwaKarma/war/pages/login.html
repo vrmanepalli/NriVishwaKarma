@@ -1,0 +1,43 @@
+<div class="modal-header">
+	<h3>Login</h3>
+</div>
+<div class="modal-body">
+	<div ng-show="showForgotPassword">
+		Please enter the email address you signed up with. An email will be sent shortly.
+	</div>
+	<p>Email:</p>
+		<input type="email" ng-model="email" name="email" class="input-xlarge"
+			placeholder="E-mail" required>
+	<div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+		<small class="error">
+			Please enter a valid email.
+		</small>
+	</div>
+	<div ng-hide="showForgotPassword">
+		<p>Password:</p>
+		<input type="text" ng-model="password" name="password" id="password" class="input-xlarge" placeholder="password" 
+			ng-click="validEmail()" ng-minlength=8 ng-maxlength=100 required>
+		<div class="error" ng-show="signup_form.password.$dirty && signup_form.password.$invalid">
+			<small class="error" ng-show="signup_form.password.$error.minlength">
+				Your password must be at least 8 characters long.
+			</small>
+			<small class="error" ng-show="signup_form.password.$error.maxlength">
+				Your password cannot be longer than 100 characters.
+			</small>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<a href="#" id="forgotLink" ng-hide="showForgotPassword" ng-click="forgotPassword()">
+		Forgot Password
+	</a>
+	<button class="btn btn-primary" ng-show="showForgotPassword" ng-click="sendResetEmail()">
+		Send Reset
+	</button>
+	<button class="btn btn-primary" ng-hide="showForgotPassword" ng-click="login()">
+		Login
+	</button>
+    <button class="btn btn-warning" ng-click="cancel()">
+    	Cancel
+    </button>
+</div>

@@ -1,4 +1,4 @@
-var app = angular.module("NRIVishwaKarma", ['$strap.directives','imageupload']).config(function($routeProvider) {
+var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'imageupload']).config(function($routeProvider) {
 	$routeProvider.when("/Home", {
 		templateUrl: "pages/home.html",
 		controller: "homeCtrl"
@@ -25,6 +25,23 @@ var app = angular.module("NRIVishwaKarma", ['$strap.directives','imageupload']).
 	.otherwise({redirectTo: '/Home'});
 });
 
-app.controller("NRIVishwaKarmaCtrl", function($scope) {
+app.controller("NRIVishwaKarmaCtrl", function($scope, $modal, $log) {
+
 	
-});
+	$scope.open = function () {
+
+		var modalInstance = $modal.open({
+			templateUrl: 'pages/login.html',
+			controller: "modalInstanceCtrl",
+			resolve: {
+				
+			}
+		});
+
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
+});  
