@@ -1,3 +1,4 @@
+'use strict';
 angular.module('imageupload', [])
     .directive('image', function($q) {
         'use strict'

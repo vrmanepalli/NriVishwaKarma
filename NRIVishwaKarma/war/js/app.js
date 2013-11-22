@@ -1,3 +1,4 @@
+'use strict';
 var app = angular.module('myApp',['$strap.directives','imageupload']);
 
 app.config(function($routeProvider){

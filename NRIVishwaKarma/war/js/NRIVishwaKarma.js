@@ -1,3 +1,4 @@
+'use strict';
 var app = angular.module("NRIVishwaKarma", ['$strap.directives','imageupload']).config(function($routeProvider) {
 	$routeProvider.when("/Home", {
 		templateUrl: "pages/home.html",

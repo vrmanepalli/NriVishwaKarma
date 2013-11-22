@@ -1,9 +1,11 @@
-
+'use strict';
 app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dataFactory){
 	
 	// Datepicker directive
 	$scope.datepicker = {date: new Date()};
-	  
+	
+	$scope.gender="male";
+	
 	$rootScope.image2={url:"../img/profile.png"};
 	$scope.icon1 = "../img/default.png";
 	$scope.icon2 = "../img/default.png";
@@ -41,6 +43,19 @@ app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dat
 			.error(function(error) {
 				console.log(error);
 			});
+	};
+});
+
+angular.module('NRIVishwaKarma').directive('match', function($parse) {
+	return {
+		require: 'ngModel',
+		link: function(scope, elem, attrs, ctrl) {
+			scope.$watch(function() {        
+		        return $parse(attrs.match)(scope) === ctrl.$modelValue;
+		    }, function(currentValue) {
+		    	ctrl.$setValidity('mismatch', currentValue);
+		    });
+		}
 	};
 });
 	/*

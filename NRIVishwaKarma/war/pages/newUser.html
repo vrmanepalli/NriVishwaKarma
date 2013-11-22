@@ -1,6 +1,6 @@
 <link type="text/css" rel="stylesheet" href="../css/marginHack.css">
 	<div class="container">
-		<h4 align="center">* - fields required to fill</h4>
+		<h4 align="center">* Required Fields</h4>
 		<div class="row">
 			<div class="span12">
 				<form name="signup_form" novalidate ng-submit="signupForm()">
@@ -8,27 +8,42 @@
 					
 						<div class="span6">
 							<fieldset>
-								<p>
-									<small>*</small>First name:
-								</p>
-								<input type="text" ng-model="fname" name="fname" class="input-xlarge" placeholder="Name" 
-									ng-minlength=2 ng-maxlength=10 required>
+								<p><small>*</small>First name:</p>
+								<input type="text" ng-model="fname" name="fname" class="input-xlarge" placeholder="First Name" 
+									ng-minlength=2 ng-maxlength=100 ng-pattern="/^[A-Z][a-zA-Z]+$/"required>
 								<div class="error" ng-show="signup_form.fname.$dirty && signup_form.fname.$invalid">
 									<small class="error" ng-show="signup_form.fname.$error.required">
-										Your name is required. 
+										Your first name is required. 
 									</small> 
+									<small class="error" ng-show="signup_form.fname.$error.pattern">
+										Your first name must start with a capital, have only letters, and no spaces.
+									</small>
 									<small class="error" ng-show="signup_form.fname.$error.minlength"> 
-										Your name is required to be at least 2 characters 
+										Your first name is required to be at least 2 characters 
 									</small> 
 									<small class="error" ng-show="signup_form.fname.$error.maxlength"> 
-										Your name cannot be longer than 100 characters 
+										Your first name cannot be longer than 100 characters 
 									</small>
 								</div>
 							</fieldset>
 							<fieldset>
-								<p>Last name:</p>
-								<input type="text" ng-model="lname" class="input-xlarge"
-									placeholder="Last name" ng-click="validFName()">
+								<p><small>*</small>Last name:</p>
+								<input type="text" ng-model="lname" name="lname" class="input-xlarge" placeholder="Last Name" 
+									ng-minlength=2 ng-maxlength=100 ng-pattern="/^[A-Z][a-zA-Z]+$/"required>
+								<div class="error" ng-show="signup_form.lname.$dirty && signup_form.lname.$invalid">
+									<small class="error" ng-show="signup_form.lname.$error.required">
+										Your last name is required. 
+									</small> 
+									<small class="error" ng-show="signup_form.lname.$error.pattern">
+										Your last name must start with a capital, have only letters, and no spaces.
+									</small>
+									<small class="error" ng-show="signup_form.lname.$error.minlength"> 
+										Your last name is required to be at least 2 characters 
+									</small> 
+									<small class="error" ng-show="signup_form.lname.$error.maxlength"> 
+										Your last name cannot be longer than 100 characters 
+									</small>
+								</div>
 							</fieldset>
 							<p>Date of birth:</p>
 							<section id="datepicker">
@@ -48,7 +63,6 @@
 									<small>*</small>Gender:
 								</p>
 								<select ng-model="gender">
-									<option value="">Select gender</option>
 									<option value="male">Male</option>
 									<option value="female">Female</option>
 								</select><img src={{icon3}}>
@@ -391,14 +405,28 @@
 								<option value="WY">Wyoming</option>
 							</select>
 							<p>City:</p>
-							<input type="text" ng-model="city" class="input-large"
-								placeholder="City">
+							<input type="text" ng-model="city" name="city" class="input-xlarge" placeholder="Current City" 
+									ng-minlength=2 ng-maxlength=100 ng-pattern="/^[A-Z][a-zA-Z\s]+$/">
+								<div class="error" ng-show="signup_form.city.$dirty && signup_form.city.$invalid">
+									<small class="error" ng-show="signup_form.city.$error.required">
+										Your city name is required. 
+									</small> 
+									<small class="error" ng-show="signup_form.city.$error.pattern">
+										Your city name must start with a capital and have only letters.
+									</small>
+									<small class="error" ng-show="signup_form.city.$error.minlength"> 
+										Your city name is required to be at least 2 characters 
+									</small> 
+									<small class="error" ng-show="signup_form.city.$error.maxlength"> 
+										Your city name cannot be longer than 100 characters 
+									</small>
+								</div>
 
 						</div>
 						<div class="span6">
-							<p>Country of Origin:</p>
-							<select class="form-control bfh-countries" data-flags="true"
-								ng-model="originCountry" ng-click="validGender()">
+							<p><small>*</small>Country of Origin:</p>
+							<select name="originCountry" class="form-control bfh-countries" data-flags="true"
+								ng-model="originCountry" ng-click="validGender()" required>
 								<option value="">Select Country</option>
 								<option value="United States">United States</option>
 								<option value="United Kingdom">United Kingdom</option>
@@ -676,43 +704,103 @@
 								<option value="Zambia">Zambia</option>
 								<option value="Zimbabwe">Zimbabwe</option>
 							</select>
-							<p>State of Origin:</p>
-							<input type="text" ng-model="originState" class="input-large"
-								placeholder="State of Origin">
-							<p>City of Origin:</p>
-							<input type="text" ng-model="originCity" class="input-large"
-								placeholder="City of Origin">
+							
+							
+							<p><small>*</small>State of Origin:</p>
+							<input type="text" ng-model="originState" name="originState" class="input-xlarge" placeholder="State of Origin" 
+									ng-minlength=2 ng-maxlength=100 ng-pattern="/^[A-Z][a-zA-Z\s]+$/" required>
+								<div class="error" ng-show="signup_form.originState.$dirty && signup_form.originState.$invalid">
+									<small class="error" ng-show="signup_form.originState.$error.required">
+										Your state of origin name is required. 
+									</small> 
+									<small class="error" ng-show="signup_form.originState.$error.pattern">
+										Your state of origin name must start with a capital and have only letters.
+									</small>
+									<small class="error" ng-show="signup_form.originState.$error.minlength"> 
+										Your state of origin name is required to be at least 2 characters 
+									</small> 
+									<small class="error" ng-show="signup_form.originState.$error.maxlength"> 
+										Your state of origin name cannot be longer than 100 characters 
+									</small>
+								</div>
+							<p><small>*</small>City of Origin:</p>
+							<input type="text" ng-model="originCity" name="originCity" class="input-xlarge" placeholder="City of Origin" 
+									ng-minlength=2 ng-maxlength=100 ng-pattern="/^[A-Z][a-zA-Z\s]+$/" required>
+								<div class="error" ng-show="signup_form.originCity.$dirty && signup_form.originCity.$invalid">
+									<small class="error" ng-show="signup_form.originCity.$error.required">
+										Your city of origin name is required. 
+									</small> 
+									<small class="error" ng-show="signup_form.originCity.$error.pattern">
+										Your city of origin name must start with a capital and have only letters.
+									</small>
+									<small class="error" ng-show="signup_form.originCity.$error.minlength"> 
+										Your city of origin name is required to be at least 2 characters 
+									</small> 
+									<small class="error" ng-show="signup_form.originCity.$error.maxlength"> 
+										Your city of origin name cannot be longer than 100 characters 
+									</small>
+								</div>
 							<p>Phone Number:</p>
-							<input type="text" ng-model="phone" class="input-large"
-								placeholder="Phone Number">
+							<input type="text" ng-model="phone" name="phone" class="input-xlarge" placeholder="Phone Number" 
+									ng-pattern="/^[0-9]{10}$/">
+								<div class="error" ng-show="signup_form.phone.$dirty && signup_form.phone.$invalid">
+									<small class="error" ng-show="signup_form.phone.$error.pattern">
+										Your phone number must be 10 digits (no dashes or spaces).
+									</small>
+								</div>
 							<fieldset>
 								<p>
 									<small>*</small>E-mail:
 								</p>
-								<input type="text" ng-model="email" class="input-xlarge"
-									placeholder="E-mail"><img src={{icon4}}>
+								<input type="email" ng-model="email" name="email" class="input-xlarge"
+									placeholder="E-mail" required>
+								<div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+									<small class="error">
+										Please enter a valid email.
+									</small>
+								</div>
 							</fieldset>
 							<fieldset>
 								<p>
 									<small>*</small>Password:
 								</p>
-								<input type="text" ng-model="password" class="input-xlarge"
-									placeholder="password" ng-click="validEmail()"><img
-									src={{icon5}}>
+								<input type="text" ng-model="password" name="password" id="password" class="input-xlarge" placeholder="password" 
+									ng-click="validEmail()" ng-minlength=8 ng-maxlength=100 required>
+								<div class="error" ng-show="signup_form.password.$dirty && signup_form.password.$invalid">
+									<small class="error" ng-show="signup_form.password.$error.minlength">
+										Your password must be at least 8 characters long.
+									</small>
+									<small class="error" ng-show="signup_form.password.$error.maxlength">
+										Your password cannot be longer than 100 characters.
+									</small>
+								</div>
 							</fieldset>
 							<fieldset>
 								<p>
 									<small>*</small>Confirmation password:
 								</p>
-								<input type="text" ng-model="confPassword" class="input-xlarge"
-									ng-click="validConfirm()" placeholder="confirmation password"><img
-									src={{icon6}}>
+								<input type="text" ng-model="confPassword" name="confPassword" class="input-xlarge"
+									ng-click="validConfirm()" match="password" placeholder="confirmation password">
+								<div class="error" ng-show="signup_form.confPassword.$dirty && signup_form.confPassword.$invalid">
+									<small class="error" ng-show="signup_form.confPassword.$error.minlength">
+										Your password must be at least 8 characters long.
+									</small>
+									<small class="error" ng-show="signup_form.confPassword.$error.maxlength">
+										Your password cannot be longer than 100 characters.
+									</small>
+									<small class="error" ng-show="signup_form.confPassword.$error.mismatch">
+										Your passwords don't match.
+									</small>
+								</div>
 							</fieldset>
+
 						</div>
 					</div>
 					<div class="form-actions navbar-static-bottom" align="center">
-						<button class="btn btn-inverse btn-large"><i
-							class="icon-white icon-ok"></i> Register</button>
+						<button class="btn btn-inverse btn-large" ng-disabled="signup_form.$invalid">
+							<i class="icon-white icon-ok"></i> 
+							Register
+						</button>
 					</div>
 				</form>
 			</div>
