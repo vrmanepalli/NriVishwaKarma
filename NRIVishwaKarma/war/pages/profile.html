@@ -129,10 +129,10 @@
 					    	<div ng-hide="Career">
 							   	<p align="right" ng-hide="User" ng-click="editCareer()"><small><a>edit block</a></small></p>
 					    		<div ng-hide="allCareer">
-							     	<p ng-hide="job">Job position: {{user.job}} at {{user.company}}</p>
-							     	<p ng-hide="degree">Degree: {{user.degree}} in {{user.field}}</p>
-									<p ng-hide="univer">University: {{user.univer}}, {{user.yearuniver}}</p>
-									<p ng-hide="school">School: {{user.school}}, {{user.yearschool}}</p>
+							     	<p ng-hide="jobhide">Job position: {{user.job}} at {{user.company}}</p>
+							     	<p ng-hide="degreehide">Degree: {{user.degree}} in {{user.field}}</p>
+									<p ng-hide="univerhide">University: {{user.univer}}, {{user.yearuniver}}</p>
+									<p ng-hide="schoolhide">School: {{user.school}}, {{user.yearschool}}</p>
 								</div>
 								<div ng-show="allCareer">
 									<p>At the moment, this tab is not filled yet...</p>
@@ -144,36 +144,36 @@
 								<p>Job: </p>
 									<div class="row">
 									<div class="span4">
-										<input type="text" class="input-xlarge" ng-model="user.job" placeholder="Job position">
+										<input type="text" class="input-xlarge" ng-model="Job" placeholder="Job position">
 									</div>
 									<div class="span4">
-										<input type="text" ng-model="user.company" placeholder="Company">
+										<input type="text" ng-model="Company" placeholder="Company">
 									</div>
 									</div>
 								<p>Degree: </p>
 									<div class="row">
 									<div class="span4">
-										<select ng-model="user.degree">
-											<option value="associate">Associate</option>
-											<option value="bachelor">Bachelor</option>
-											<option value="master">Master</option>
-											<option value="doctor">Doctoral degree</option>
+										<select ng-model="Degree">
+											<option value="Associate">Associate</option>
+											<option value="Bachelor">Bachelor</option>
+											<option value="Master">Master</option>
+											<option value="Doctoral degree">Doctoral degree</option>
 										</select>
 									</div>
 									<div class="span4">
-										<input type="text" ng-model="user.field" placeholder="Field of Study">
+										<input type="text" ng-model="Field" placeholder="Field of Study">
 									</div>
 									</div>
 								<p>University:</p>
 									<div class="row">
 									<div class="span4">
-										<input type="text" class="input-xlarge" ng-model="user.univer" placeholder="Name of university">
+										<input type="text" class="input-xlarge" ng-model="Univer" placeholder="Name of university">
 									</div>
 									<div class="span4">
 											<section id="datepicker">
 										        <div class="bs-docs-example">
 										            <div class="control-group input-append">
-										              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="user.yearuniver" data-date-format="yyyy" bs-datepicker>
+										              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="Yearuniver" data-date-format="yyyy" bs-datepicker>
 										              <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
 										            </div>
 										        </div>
@@ -183,13 +183,13 @@
 								<p>School:</p>
 									<div class="row">
 									<div class="span4">
-										<input type="text" class="input-xlarge" ng-model="user.school" placeholder="Name of your school">
+										<input type="text" class="input-xlarge" ng-model="School" placeholder="Name of your school">
 									</div>
 									<div class="span4">
 										<section id="datepicker">
 									        <div class="bs-docs-example">
 									            <div class="control-group input-append">
-									              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="user.yearschool" data-date-format="yyyy" bs-datepicker>
+									              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="Yearschool" data-date-format="yyyy" bs-datepicker>
 									              <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
 									            </div>
 									        </div>

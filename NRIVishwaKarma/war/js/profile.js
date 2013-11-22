@@ -29,18 +29,18 @@ app.controller('profileCtrl',function($scope,$rootScope){
 			fromcity:"Beer-Sheva",
 			job:"Training",
 			company:"PTP",
-			degree:"Master's",
+			degree:"Master",
 			field:"Mathematic's and IT in economics",
 			univer:"DSEA",
 			yearuniver:"2006",
 			school:"Slavyansk hight school #15",
 			yearschool:"2001",
 			about:"I created this page, I'll hope You will like it!:)",
-			inter:"",
-			sport:"",
+			inter:"photo,travel,computer",
+			sport:"fitness",
 			music:"",
-			movie:"",
-			book:""
+			movie:"comedy",
+			book:"fantasy"
 	}
 //------------General TAB-------------------------------------------
 	$scope.imageUrl = $scope.user.imageUrl; 
@@ -68,14 +68,23 @@ app.controller('profileCtrl',function($scope,$rootScope){
 	$scope.Fromcity=$scope.user.fromcity;
 	$scope.About=$scope.user.about;
 //----------Career TAB----------------------------------------------
-	if($scope.user.job===""){$scope.job=true;}
-	if($scope.user.degree===""){$scope.degree=true;}
-	if($scope.user.univer===""){$scope.univer=true;}
-	if($scope.user.school===""){$scope.school=true;}
+	$scope.Job = $scope.user.job;
+	$scope.Company = $scope.user.company;
+	$scope.Degree = $scope.user.degree;
+	$scope.Field = $scope.user.field;
+	$scope.Univer = $scope.user.univer;
+	$scope.Yearuniver = $scope.user.yearuniver;
+	$scope.School = $scope.user.school;
+	$scope.Yearschool = $scope.user.yearschool;
+	if($scope.user.job===""){$scope.jobhide=true;}
+	if($scope.user.degree===""){$scope.degreehide=true;}
+	if($scope.user.univer===""){$scope.univerhide=true;}
+	if($scope.user.school===""){$scope.schoolhide=true;}
 	if(($scope.user.job==="")&&($scope.user.degree==="")&&($scope.user.univer==="")&&($scope.user.school==="")){
 		$scope.allCareer=true;
 	}
 //----------Interests TAB----------------------------
+	
 	if($scope.user.inter===""){$scope.inter=true;}
 	if($scope.user.sport===""){$scope.sport=true;}
 	if($scope.user.music===""){$scope.music=true;}
@@ -137,6 +146,25 @@ app.controller('profileCtrl',function($scope,$rootScope){
 		$scope.Career = true;
 	}
 	$scope.cancelCareer = function(){
+		$scope.Career = false;
+	}
+	$scope.okCareer = function(){
+		$scope.user.job = $scope.Job;
+		$scope.user.company = $scope.Company;
+		$scope.user.degree = $scope.Degree;
+		$scope.user.field = $scope.Field;
+		$scope.user.univer = $scope.Univer;
+		$scope.user.yearuniver = $scope.Yearuniver;
+		$scope.user.school = $scope.School;
+		$scope.user.yearschool = $scope.Yearschool;
+//-------Data Factory send career info of user--------------------------
+//		dataFactory.updateUserFactory($scope.user)
+//			.success(function(result){
+//				$scope.General = false;
+//			})
+//			.error(function(error){
+//				console.log("error in update general user's info \n"+error);
+//			})
 		$scope.Career = false;
 	}
 	$scope.editInter = function(){
