@@ -28,18 +28,18 @@
 	<link href="css/bootstrap.min.css">
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	<style type="text/css">
-		img{
+		.avatar{
 			width:225px;height: 225px;
 		}
 		small{color: gray;}
 		hr{margin-top: 0px;}
-		.inter{font-size: 16px; margin-top: 10px;}
+		.inter{margin-top: 10px;}
 		.form-actions{margin-bottom: 0px;}
-		#avatar{
+		/* #avatar{
 			max-height:300px;max-width:300px;
 			margin: 5%;
 			padding: 2%;
-		}
+		} */
 	</style>
 	
 </head>
@@ -50,7 +50,7 @@
 		
 			<div class="row">
 				<div class="span4"><!-- row of user's picture and link -->
-					<p align="center"><img src="{{imageUrl}}"></p>
+					<p align="center"><img class="avatar" src="{{imageUrl}}"></p>
 					<div class="well">
 						<ul class="nav nav-pills nav-stacked">
 							<li><a href="#"><i class="icon-envelope"></i> Message ({{numOfMessage}})</a></li>
@@ -77,21 +77,21 @@
 					    <div class="tab-pane active" id="tab1">
 					      	<div ng-hide="General">
 						      	<p align="right" ng-hide="User"><small><a ng-click="editGeneral()">edit block</a></small></p>
-								<h3>{{username}}</h3>
-								<p>Current address: {{user.country}}, {{user.state}}, {{user.city}}</p>
-								<p>Phone: {{user.phone}}</p>
-								<p>Age: {{user.age}} years old</p>
-								<p>Marital status: {{user.status}}</p>
-								<p>From: {{user.fromcountry}}, {{user.fromstate}}, {{user.fromcity}}</p>
-								<p>About me: {{user.about}}</p>
+								<h3><font color={{colorGender}}>{{username}}</font></h3>
+								<p ng-hide="addresshide">Current address: {{user.country}}, {{user.state}}, {{user.city}}</p>
+								<p ng-hide="phonehide">Phone: {{user.phone}}</p>
+								<p ng-hide="agehide">Age: {{user.age}} years old</p>
+								<p ng-hide="statushide">Marital status: {{user.status}}</p>
+								<p ng-hide="fromaddresshide">From: {{user.fromcountry}}, {{user.fromstate}}, {{user.fromcity}}</p>
+								<p ng-hide="abouthide">About me: {{user.about}}</p>
 							</div>
 						<!-- ----------------------- -->
 							<div ng-show="General">
 								<h5>Edit general informations:</h5>
 								<p align="right"><button class="btn btn-info btn-mini"  data-toggle="modal" data-target="#avatarModal"><i class="icon-white icon-picture"></i> change avatar</button></p>
-								<p>Full name: </p><input type="text" ng-model="user.fname" placeholder="Name"><input type="text" ng-model="user.lname" placeholder="Last name">
-								<p>Address: </p><input type="text" ng-model="user.country" placeholder="Country"><input type="text" ng-model="user.state" placeholder="State"><input type="text" ng-model=user.city placeholder="City">
-								<p>Phone: </p><input type="text" ng-model="user.phone" placeholder="Phone number">
+								<p>Full name: </p><input type="text" ng-model="Fname" placeholder="Name"><input type="text" ng-model="Lname" placeholder="Last name">
+								<p>Address: </p><input type="text" ng-model="Country" placeholder="Country"><input type="text" ng-model="State" placeholder="State"><input type="text" ng-model="City" placeholder="City">
+								<p>Phone: </p><input type="text" ng-model="Phone" placeholder="Phone number">
 								<p>Date of birth:</p>
 								    <section id="datepicker">
 								        <div class="bs-docs-example">
@@ -101,11 +101,11 @@
 								            </div>
 								        </div>
 								    </section>
-								<p>Gender: </p><select ng-model="user.gender">
+								<p>Gender: </p><select ng-model="Gender">
 													<option value="male">Male</option>
 													<option value="female">Female</option>
 												</select>
-								<p>Marital status: </p><select ng-model="user.status">
+								<p>Marital status: </p><select ng-model="Status">
 														<option value="single">Single</option>
 														<option value="married">Married</option>
 														<option value="divorced">Divorced</option>
@@ -114,9 +114,9 @@
 														<option value="cohabiting">Cohabiting</option>
 														</select>
 								<p>Where are You from: </p>
-									<input type="text" ng-model="user.fromcountry" placeholder="Country"><input type="text" ng-model="user.fromstate" placeholder="State"><input type="text" ng-model=user.fromcity placeholder="City">				
+									<input type="text" ng-model="Fromcountry" placeholder="Country"><input type="text" ng-model="Fromstate" placeholder="State"><input type="text" ng-model="Fromcity" placeholder="City">				
 								<p>About me: </p>
-									<textarea class="input-xxlarge"  rows="4" cols="38" ng-model="user.about" placeholder="About me..."></textarea>
+									<textarea class="input-xxlarge"  rows="4" cols="38" ng-model="About" placeholder="About me..."></textarea>
 								<br>
 								<div class="form-actions">	
 								<button class="btn btn-success btn-small" ng-click="okGeneral()"><i class="icon-white icon-check"></i> save</button>
@@ -127,11 +127,16 @@
 <!-- -------------------Tab 2 with career---------------------------------------- -->
 					    <div class="tab-pane" id="tab2">
 					    	<div ng-hide="Career">
-						    	<p align="right" ng-hide="User" ng-click="editCareer()"><small><a>edit block</a></small></p>
-						     	<p>Job position: {{user.job}} at {{user.company}}</p>
-						     	<p>Degree: {{user.degree}} in {{user.field}}</p>
-								<p>University: {{user.univer}}, {{user.yearuniver}}</p>
-								<p>School: {{user.school}}, {{user.yearschool}}</p>
+							   	<p align="right" ng-hide="User" ng-click="editCareer()"><small><a>edit block</a></small></p>
+					    		<div ng-hide="allCareer">
+							     	<p ng-hide="jobhide">Job position: {{user.job}} at {{user.company}}</p>
+							     	<p ng-hide="degreehide">Degree: {{user.degree}} in {{user.field}}</p>
+									<p ng-hide="univerhide">University: {{user.univer}}, {{user.yearuniver}}</p>
+									<p ng-hide="schoolhide">School: {{user.school}}, {{user.yearschool}}</p>
+								</div>
+								<div ng-show="allCareer">
+									<p>At the moment, this tab is not filled yet...</p>
+								</div>
 							</div>
 						<!-- ---------------------------------- -->
 							<div ng-show="Career">
@@ -139,36 +144,36 @@
 								<p>Job: </p>
 									<div class="row">
 									<div class="span4">
-										<input type="text" class="input-xlarge" ng-model="user.job" placeholder="Job position">
+										<input type="text" class="input-xlarge" ng-model="Job" placeholder="Job position">
 									</div>
 									<div class="span4">
-										<input type="text" ng-model="user.company" placeholder="Company">
+										<input type="text" ng-model="Company" placeholder="Company">
 									</div>
 									</div>
 								<p>Degree: </p>
 									<div class="row">
 									<div class="span4">
-										<select ng-model="user.degree">
-											<option value="associate">Associate</option>
-											<option value="bachelor">Bachelor</option>
-											<option value="master">Master</option>
-											<option value="doctor">Doctoral degree</option>
+										<select ng-model="Degree">
+											<option value="Associate">Associate</option>
+											<option value="Bachelor">Bachelor</option>
+											<option value="Master">Master</option>
+											<option value="Doctoral degree">Doctoral degree</option>
 										</select>
 									</div>
 									<div class="span4">
-										<input type="text" ng-model="user.field" placeholder="Field of Study">
+										<input type="text" ng-model="Field" placeholder="Field of Study">
 									</div>
 									</div>
 								<p>University:</p>
 									<div class="row">
 									<div class="span4">
-										<input type="text" class="input-xlarge" ng-model="user.univer" placeholder="Name of university">
+										<input type="text" class="input-xlarge" ng-model="Univer" placeholder="Name of university">
 									</div>
 									<div class="span4">
 											<section id="datepicker">
 										        <div class="bs-docs-example">
 										            <div class="control-group input-append">
-										              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="user.yearuniver" data-date-format="yyyy" bs-datepicker>
+										              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="Yearuniver" data-date-format="yyyy" bs-datepicker>
 										              <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
 										            </div>
 										        </div>
@@ -178,13 +183,13 @@
 								<p>School:</p>
 									<div class="row">
 									<div class="span4">
-										<input type="text" class="input-xlarge" ng-model="user.school" placeholder="Name of your school">
+										<input type="text" class="input-xlarge" ng-model="School" placeholder="Name of your school">
 									</div>
 									<div class="span4">
 										<section id="datepicker">
 									        <div class="bs-docs-example">
 									            <div class="control-group input-append">
-									              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="user.yearschool" data-date-format="yyyy" bs-datepicker>
+									              <input placeholder="year" id="inputDatepicker" class="input-small" ng-model="Yearschool" data-date-format="yyyy" bs-datepicker>
 									              <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
 									            </div>
 									        </div>
@@ -200,12 +205,17 @@
 <!-- ------------------Tab 3 interests-------------------------------------------- -->
 					  	<div class="tab-pane" id="tab3">
 					  		<div ng-hide="Interests">
-						  		<p ng-hide="User" align="right" ng-click="editInter()"><small><a>edit block</a></small></p>
-						  		<p>Interests: {{user.inter}}</p>
-						  		<p>Sport: {{user.sport}}</p>
-						  		<p>Music: {{user.music}}</p>
-						  		<p>Movie: {{user.movie}}</p>
-						  		<p>Books: {{user.book}}</p>
+					  			<p ng-hide="User" align="right" ng-click="editInter()"><small><a>edit block</a></small></p>
+					  			<div ng-hide="allInter">
+							  		<p ng-hide="inter">Interests: {{user.inter}}</p>
+							  		<p ng-hide="sport">Sport: {{user.sport}}</p>
+							  		<p ng-hide="music">Music: {{user.music}}</p>
+							  		<p ng-hide="movie">Movie: {{user.movie}}</p>
+							  		<p ng-hide="books">Books: {{user.book}}</p>
+						  		</div>
+						  		<div ng-show="allInter">
+						  			<p>At the moment, this tab is not filled yet...</p>
+						  		</div>
 						  	</div>
 					<!-- ------------------------------------------ -->
 						  	<div ng-show="Interests">
@@ -352,7 +362,6 @@
 <!-- ------------------------Tab 4 for Security------------------------ -->	
 					<div class="tab-pane" id="tab4">
 					  		<div ng-hide="changeSecurity">
-					  		<h5>Change password: </h5>
 						  		<p ng-hide="Security" align="right" ng-click="editSecurity()"><small><a>edit block</a></small></p>
 						  		<h5>Your email and password for login:</h5>
 						  		<p>E-mail: {{user.email}}</p>
@@ -360,6 +369,7 @@
 						  	</div>
 					<!-- ------------------------------------- -->
 						  	<div ng-show="changeSecurity">
+						  	<h5 style="margin-left:20%;">Change password: </h5>
 						  		<div class="row">
 							  		<fieldset  class={{fieldPassword}}>
 								  	<div class="span2">
@@ -397,7 +407,7 @@
 		</div>
 	</div>
 <!-- -----------------------------Modal window for change avatar------------------------------------------ -->
-		<div class="modal fade" id="avatarModal">
+		<div class="modal fade" id="avatarModal" ng-show="modalWindow">
   			<div class="modal-header">
     			<button class="close" data-dismiss="modal">&times;</button>
     			<h4>Change avatar:</h4>
@@ -406,8 +416,7 @@
 			    <p align="center"><input id="inputImage" type="file" accept="image/*" image="image2" resize-max-height="300"
 																                resize-max-width="250"
 																                resize-quality="0.7" /></p>
-			    <!-- <button type="submit" ng-click="single(image2.resized)">Add</button> -->
- 		     	<p align="center"><img class="img-polaroid img-rounded" id="avatar" rotate degrees="heading"  src="{{image2.url}}" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}"></p>
+ 		     	<p align="center"><img class="img-polaroid img-rounded" rotate degrees="heading"  src="{{image2.url}}" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}"></p>
   			</div>
   			<div class="modal-footer">
     			<button class="btn" data-dismiss="modal"><i class="icon-share"></i> NO</button>
