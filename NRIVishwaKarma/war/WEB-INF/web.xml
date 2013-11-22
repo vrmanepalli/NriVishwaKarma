@@ -15,6 +15,32 @@
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/nrivishwakarma/greet</url-pattern>
   </servlet-mapping>
+  <servlet>
+        <servlet-name>register</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.RegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ForgotPass</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.PassSendServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ForgotPass</servlet-name>
+        <url-pattern>/ForgotPass</url-pattern>
+    </servlet-mapping>
+  
+   <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.LoginValidationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+  
   
   <!-- Default page to serve -->
   <welcome-file-list>
