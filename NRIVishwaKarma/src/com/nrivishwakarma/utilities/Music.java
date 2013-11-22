@@ -1,122 +1,122 @@
 package com.nrivishwakarma.utilities;
 
 public class Music {
-	public boolean pop;
-	public boolean rnb;
-	public boolean hip;
-	public boolean classic;
-	public boolean pank;
-	public boolean disco;
-	public boolean jass;
-	public boolean roll;
-	public boolean dance;
-	public boolean latino;
-	public boolean retro;
-	public boolean shastriya;
-	public boolean shanson;
-	public boolean country;
-	public boolean tehno;
-	public boolean rock;
-	public boolean getPop() {
+	public String pop;
+	public String rnb;
+	public String hip;
+	public String classic;
+	public String pank;
+	public String disco;
+	public String jass;
+	public String roll;
+	public String dance;
+	public String latino;
+	public String retro;
+	public String shastriya;
+	public String shanson;
+	public String country;
+	public String tehno;
+	public String rock;
+	public String getPop() {
 		return pop;
 	}
-	public void setPop(boolean pop) {
+	public void setPop(String pop) {
 		this.pop = pop;
 	}
-	public boolean getRnb() {
+	public String getRnb() {
 		return rnb;
 	}
-	public void setRnb(boolean rnb) {
+	public void setRnb(String rnb) {
 		this.rnb = rnb;
 	}
-	public boolean getHip() {
+	public String getHip() {
 		return hip;
 	}
-	public void setHip(boolean hip) {
+	public void setHip(String hip) {
 		this.hip = hip;
 	}
-	public boolean getClassic() {
+	public String getClassic() {
 		return classic;
 	}
-	public void setClassic(boolean classic) {
+	public void setClassic(String classic) {
 		this.classic = classic;
 	}
-	public boolean getPank() {
+	public String getPank() {
 		return pank;
 	}
-	public void setPank(boolean pank) {
+	public void setPank(String pank) {
 		this.pank = pank;
 	}
-	public boolean getDisco() {
+	public String getDisco() {
 		return disco;
 	}
-	public void setDisco(boolean disco) {
+	public void setDisco(String disco) {
 		this.disco = disco;
 	}
-	public boolean getJass() {
+	public String getJass() {
 		return jass;
 	}
-	public void setJass(boolean jass) {
+	public void setJass(String jass) {
 		this.jass = jass;
 	}
-	public boolean getRoll() {
+	public String getRoll() {
 		return roll;
 	}
-	public void setRoll(boolean roll) {
+	public void setRoll(String roll) {
 		this.roll = roll;
 	}
-	public boolean getDance() {
+	public String getDance() {
 		return dance;
 	}
-	public void setDance(boolean dance) {
+	public void setDance(String dance) {
 		this.dance = dance;
 	}
-	public boolean getLatino() {
+	public String getLatino() {
 		return latino;
 	}
-	public void setLatino(boolean latino) {
+	public void setLatino(String latino) {
 		this.latino = latino;
 	}
-	public boolean getRetro() {
+	public String getRetro() {
 		return retro;
 	}
-	public void setRetro(boolean retro) {
+	public void setRetro(String retro) {
 		this.retro = retro;
 	}
-	public boolean getShastriya() {
+	public String getShastriya() {
 		return shastriya;
 	}
-	public void setShastriya(boolean shastriya) {
+	public void setShastriya(String shastriya) {
 		this.shastriya = shastriya;
 	}
-	public boolean getShanson() {
+	public String getShanson() {
 		return shanson;
 	}
-	public void setShanson(boolean shanson) {
+	public void setShanson(String shanson) {
 		this.shanson = shanson;
 	}
-	public boolean getCountry() {
+	public String getCountry() {
 		return country;
 	}
-	public void setCountry(boolean country) {
+	public void setCountry(String country) {
 		this.country = country;
 	}
-	public boolean getTehno() {
+	public String getTehno() {
 		return tehno;
 	}
-	public void setTehno(boolean tehno) {
+	public void setTehno(String tehno) {
 		this.tehno = tehno;
 	}
-	public boolean getRock() {
+	public String getRock() {
 		return rock;
 	}
-	public void setRock(boolean rock) {
+	public void setRock(String rock) {
 		this.rock = rock;
 	}
-	public Music(boolean pop, boolean rnb, boolean hip, boolean classic,
-			boolean pank, boolean disco, boolean jass, boolean roll, boolean dance,
-			boolean latino, boolean retro, boolean shastriya, boolean shanson,
-			boolean country, boolean tehno, boolean rock) {
+	public Music(String pop, String rnb, String hip, String classic,
+			String pank, String disco, String jass, String roll, String dance,
+			String latino, String retro, String shastriya, String shanson,
+			String country, String tehno, String rock) {
 		super();
 		this.pop = pop;
 		this.rnb = rnb;
@@ -138,4 +138,16 @@ public class Music {
 	public Music() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "Music [pop=" + pop + ", rnb=" + rnb + ", hip=" + hip
+				+ ", classic=" + classic + ", pank=" + pank + ", disco="
+				+ disco + ", jass=" + jass + ", roll=" + roll + ", dance="
+				+ dance + ", latino=" + latino + ", retro=" + retro
+				+ ", shastriya=" + shastriya + ", shanson=" + shanson
+				+ ", country=" + country + ", tehno=" + tehno + ", rock="
+				+ rock + "]";
+	}
+	
+	
 }

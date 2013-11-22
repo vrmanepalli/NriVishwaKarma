@@ -1,72 +1,72 @@
 package com.nrivishwakarma.utilities;
 
 public class Books {
-	public boolean classic;
-	public boolean tradegy;
-	public boolean detective;
-	public boolean comedy;
-	public boolean love;
-	public boolean fantasy;
-	public boolean horror;
-	public boolean sience;
-	public boolean biography;
-	public boolean getClassic() {
+	public String classic;
+	public String tradegy;
+	public String detective;
+	public String comedy;
+	public String love;
+	public String fantasy;
+	public String horror;
+	public String sience;
+	public String biography;
+	public String getClassic() {
 		return classic;
 	}
-	public void setClassic(boolean classic) {
+	public void setClassic(String classic) {
 		this.classic = classic;
 	}
-	public boolean getTradegy() {
+	public String getTradegy() {
 		return tradegy;
 	}
-	public void setTradegy(boolean tradegy) {
+	public void setTradegy(String tradegy) {
 		this.tradegy = tradegy;
 	}
-	public boolean getDetective() {
+	public String getDetective() {
 		return detective;
 	}
-	public void setDetective(boolean detective) {
+	public void setDetective(String detective) {
 		this.detective = detective;
 	}
-	public boolean getComedy() {
+	public String getComedy() {
 		return comedy;
 	}
-	public void setComedy(boolean comedy) {
+	public void setComedy(String comedy) {
 		this.comedy = comedy;
 	}
-	public boolean getLove() {
+	public String getLove() {
 		return love;
 	}
-	public void setLove(boolean love) {
+	public void setLove(String love) {
 		this.love = love;
 	}
-	public boolean getFantasy() {
+	public String getFantasy() {
 		return fantasy;
 	}
-	public void setFantasy(boolean fantasy) {
+	public void setFantasy(String fantasy) {
 		this.fantasy = fantasy;
 	}
-	public boolean getHorror() {
+	public String getHorror() {
 		return horror;
 	}
-	public void setHorror(boolean horror) {
+	public void setHorror(String horror) {
 		this.horror = horror;
 	}
-	public boolean getSience() {
+	public String getSience() {
 		return sience;
 	}
-	public void setSience(boolean sience) {
+	public void setSience(String sience) {
 		this.sience = sience;
 	}
-	public boolean getBiography() {
+	public String getBiography() {
 		return biography;
 	}
-	public void setBiography(boolean biography) {
+	public void setBiography(String biography) {
 		this.biography = biography;
 	}
-	public Books(boolean classic, boolean tradegy, boolean detective,
-			boolean comedy, boolean love, boolean fantasy, boolean horror,
-			boolean sience, boolean biography) {
+	public Books(String classic, String tradegy, String detective,
+			String comedy, String love, String fantasy, String horror,
+			String sience, String biography) {
 		super();
 		this.classic = classic;
 		this.tradegy = tradegy;
@@ -80,6 +80,13 @@ public class Books {
 	}
 	public Books() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "Books [classic=" + classic + ", tradegy=" + tradegy
+				+ ", detective=" + detective + ", comedy=" + comedy + ", love="
+				+ love + ", fantasy=" + fantasy + ", horror=" + horror
+				+ ", sience=" + sience + ", biography=" + biography + "]";
 	}
 	
 }
