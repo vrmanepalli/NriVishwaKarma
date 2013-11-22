@@ -28,18 +28,18 @@
 	<link href="css/bootstrap.min.css">
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	<style type="text/css">
-		img{
+		.avatar{
 			width:225px;height: 225px;
 		}
 		small{color: gray;}
 		hr{margin-top: 0px;}
 		.inter{margin-top: 10px;}
 		.form-actions{margin-bottom: 0px;}
-		#avatar{
+		/* #avatar{
 			max-height:300px;max-width:300px;
 			margin: 5%;
 			padding: 2%;
-		}
+		} */
 	</style>
 	
 </head>
@@ -50,7 +50,7 @@
 		
 			<div class="row">
 				<div class="span4"><!-- row of user's picture and link -->
-					<p align="center"><img src="{{imageUrl}}"></p>
+					<p align="center"><img class="avatar" src="{{imageUrl}}"></p>
 					<div class="well">
 						<ul class="nav nav-pills nav-stacked">
 							<li><a href="#"><i class="icon-envelope"></i> Message ({{numOfMessage}})</a></li>
@@ -397,7 +397,7 @@
 		</div>
 	</div>
 <!-- -----------------------------Modal window for change avatar------------------------------------------ -->
-		<div class="modal fade" id="avatarModal">
+		<div class="modal fade" id="avatarModal" ng-show="modalWindow">
   			<div class="modal-header">
     			<button class="close" data-dismiss="modal">&times;</button>
     			<h4>Change avatar:</h4>
@@ -406,8 +406,7 @@
 			    <p align="center"><input id="inputImage" type="file" accept="image/*" image="image2" resize-max-height="300"
 																                resize-max-width="250"
 																                resize-quality="0.7" /></p>
-			    <!-- <button type="submit" ng-click="single(image2.resized)">Add</button> -->
- 		     	<p align="center"><img class="img-polaroid img-rounded" id="avatar" rotate degrees="heading"  src="{{image2.url}}" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}"></p>
+ 		     	<p align="center"><img class="img-polaroid img-rounded" rotate degrees="heading"  src="{{image2.url}}" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}"></p>
   			</div>
   			<div class="modal-footer">
     			<button class="btn" data-dismiss="modal"><i class="icon-share"></i> NO</button>
