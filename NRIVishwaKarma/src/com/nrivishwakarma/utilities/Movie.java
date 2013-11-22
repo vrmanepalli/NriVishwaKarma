@@ -1,108 +1,108 @@
 package com.nrivishwakarma.utilities;
 
 public class Movie {
-	public String arthouse;
-	public String thriller;
-	public String detective;
-	public String drama;
-	public String comedy;
-	public String horror;
-	public String fantasy;
-	public String sience;
-	public String adventure;
-	public String western;
-	public String historical;
-	public String musical;
-	public String sitkom;
-	public String tv;
-	public String getArthouse() {
+	public boolean arthouse;
+	public boolean thriller;
+	public boolean detective;
+	public boolean drama;
+	public boolean comedy;
+	public boolean horror;
+	public boolean fantasy;
+	public boolean sience;
+	public boolean adventure;
+	public boolean western;
+	public boolean historical;
+	public boolean musical;
+	public boolean sitkom;
+	public boolean tv;
+	public boolean getArthouse() {
 		return arthouse;
 	}
-	public void setArthouse(String arthouse) {
+	public void setArthouse(boolean arthouse) {
 		this.arthouse = arthouse;
 	}
-	public String getThriller() {
+	public boolean getThriller() {
 		return thriller;
 	}
-	public void setThriller(String thriller) {
+	public void setThriller(boolean thriller) {
 		this.thriller = thriller;
 	}
-	public String getDetective() {
+	public boolean getDetective() {
 		return detective;
 	}
-	public void setDetective(String detective) {
+	public void setDetective(boolean detective) {
 		this.detective = detective;
 	}
-	public String getDrama() {
+	public boolean getDrama() {
 		return drama;
 	}
-	public void setDrama(String drama) {
+	public void setDrama(boolean drama) {
 		this.drama = drama;
 	}
-	public String getComedy() {
+	public boolean getComedy() {
 		return comedy;
 	}
-	public void setComedy(String comedy) {
+	public void setComedy(boolean comedy) {
 		this.comedy = comedy;
 	}
-	public String getHorror() {
+	public boolean getHorror() {
 		return horror;
 	}
-	public void setHorror(String horror) {
+	public void setHorror(boolean horror) {
 		this.horror = horror;
 	}
-	public String getFantasy() {
+	public boolean getFantasy() {
 		return fantasy;
 	}
-	public void setFantasy(String fantasy) {
+	public void setFantasy(boolean fantasy) {
 		this.fantasy = fantasy;
 	}
-	public String getSience() {
+	public boolean getSience() {
 		return sience;
 	}
-	public void setSience(String sience) {
+	public void setSience(boolean sience) {
 		this.sience = sience;
 	}
-	public String getAdventure() {
+	public boolean getAdventure() {
 		return adventure;
 	}
-	public void setAdventure(String adventure) {
+	public void setAdventure(boolean adventure) {
 		this.adventure = adventure;
 	}
-	public String getWestern() {
+	public boolean getWestern() {
 		return western;
 	}
-	public void setWestern(String western) {
+	public void setWestern(boolean western) {
 		this.western = western;
 	}
-	public String getHistorical() {
+	public boolean getHistorical() {
 		return historical;
 	}
-	public void setHistorical(String historical) {
+	public void setHistorical(boolean historical) {
 		this.historical = historical;
 	}
-	public String getMusical() {
+	public boolean getMusical() {
 		return musical;
 	}
-	public void setMusical(String musical) {
+	public void setMusical(boolean musical) {
 		this.musical = musical;
 	}
-	public String getSitkom() {
+	public boolean getSitkom() {
 		return sitkom;
 	}
-	public void setSitkom(String sitkom) {
+	public void setSitkom(boolean sitkom) {
 		this.sitkom = sitkom;
 	}
-	public String getTv() {
+	public boolean getTv() {
 		return tv;
 	}
-	public void setTv(String tv) {
+	public void setTv(boolean tv) {
 		this.tv = tv;
 	}
-	public Movie(String arthouse, String thriller, String detective,
-			String drama, String comedy, String horror, String fantasy,
-			String sience, String adventure, String western, String historical,
-			String musical, String sitkom, String tv) {
+	public Movie(boolean arthouse, boolean thriller, boolean detective,
+			boolean drama, boolean comedy, boolean horror, boolean fantasy,
+			boolean sience, boolean adventure, boolean western, boolean historical,
+			boolean musical, boolean sitkom, boolean tv) {
 		super();
 		this.arthouse = arthouse;
 		this.thriller = thriller;
@@ -122,14 +122,5 @@ public class Movie {
 	public Movie() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "Movie [arthouse=" + arthouse + ", thriller=" + thriller
-				+ ", detective=" + detective + ", drama=" + drama + ", comedy="
-				+ comedy + ", horror=" + horror + ", fantasy=" + fantasy
-				+ ", sience=" + sience + ", adventure=" + adventure
-				+ ", western=" + western + ", historical=" + historical
-				+ ", musical=" + musical + ", sitkom=" + sitkom + ", tv=" + tv
-				+ "]";
-	}
+	
 }

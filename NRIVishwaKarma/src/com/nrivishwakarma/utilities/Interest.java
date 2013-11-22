@@ -1,86 +1,86 @@
 package com.nrivishwakarma.utilities;
 public class Interest {
-	public String photo;
-	public String travel;
-	public String auto;
-	public String collecting;
-	public String theater;
-	public String needlework;
-	public String cookery;
-	public String hunting;
-	public String PCgames;
-	public String art;
-	public String sience;
-	public String getPhoto() {
+	public boolean photo;
+	public boolean travel;
+	public boolean auto;
+	public boolean collecting;
+	public boolean theater;
+	public boolean needlework;
+	public boolean cookery;
+	public boolean hunting;
+	public boolean PCgames;
+	public boolean art;
+	public boolean sience;
+	public boolean getPhoto() {
 		return photo;
 	}
-	public void setPhoto(String photo) {
+	public void setPhoto(boolean photo) {
 		this.photo = photo;
 	}
-	public String getTravel() {
+	public boolean getTravel() {
 		return travel;
 	}
-	public void setTravel(String travel) {
+	public void setTravel(boolean travel) {
 		this.travel = travel;
 	}
-	public String getAuto() {
+	public boolean getAuto() {
 		return auto;
 	}
-	public void setAuto(String auto) {
+	public void setAuto(boolean auto) {
 		this.auto = auto;
 	}
-	public String getCollecting() {
+	public boolean getCollecting() {
 		return collecting;
 	}
-	public void setCollecting(String collecting) {
+	public void setCollecting(boolean collecting) {
 		this.collecting = collecting;
 	}
-	public String getTheater() {
+	public boolean getTheater() {
 		return theater;
 	}
-	public void setTheater(String theater) {
+	public void setTheater(boolean theater) {
 		this.theater = theater;
 	}
-	public String getNeedlework() {
+	public boolean getNeedlework() {
 		return needlework;
 	}
-	public void setNeedlework(String needlework) {
+	public void setNeedlework(boolean needlework) {
 		this.needlework = needlework;
 	}
-	public String getCookery() {
+	public boolean getCookery() {
 		return cookery;
 	}
-	public void setCookery(String cookery) {
+	public void setCookery(boolean cookery) {
 		this.cookery = cookery;
 	}
-	public String getHunting() {
+	public boolean getHunting() {
 		return hunting;
 	}
-	public void setHunting(String hunting) {
+	public void setHunting(boolean hunting) {
 		this.hunting = hunting;
 	}
-	public String getPCgames() {
+	public boolean getPCgames() {
 		return PCgames;
 	}
-	public void setPCgames(String pCgames) {
+	public void setPCgames(boolean pCgames) {
 		PCgames = pCgames;
 	}
-	public String getArt() {
+	public boolean getArt() {
 		return art;
 	}
-	public void setArt(String art) {
+	public void setArt(boolean art) {
 		this.art = art;
 	}
-	public String getSience() {
+	public boolean getSience() {
 		return sience;
 	}
-	public void setSience(String sience) {
+	public void setSience(boolean sience) {
 		this.sience = sience;
 	}
-	public Interest(String photo, String travel, String auto,
-			String collecting, String theater, String needlework,
-			String cookery, String hunting, String pCgames, String art,
-			String sience) {
+	public Interest(boolean photo, boolean travel, boolean auto,
+			boolean collecting, boolean theater, boolean needlework,
+			boolean cookery, boolean hunting, boolean pCgames, boolean art,
+			boolean sience) {
 		super();
 		this.photo = photo;
 		this.travel = travel;
@@ -96,14 +96,6 @@ public class Interest {
 	}
 	public Interest() {
 		super();
-	}
-	@Override
-	public String toString() {
-		return "Interest [photo=" + photo + ", travel=" + travel + ", auto="
-				+ auto + ", collecting=" + collecting + ", theater=" + theater
-				+ ", needlework=" + needlework + ", cookery=" + cookery
-				+ ", hunting=" + hunting + ", PCgames=" + PCgames + ", art="
-				+ art + ", sience=" + sience + "]";
 	}
 	
 }

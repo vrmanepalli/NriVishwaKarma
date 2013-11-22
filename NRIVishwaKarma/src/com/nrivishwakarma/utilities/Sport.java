@@ -1,166 +1,166 @@
 package com.nrivishwakarma.utilities;
 
 public class Sport {
-	public String running;
-	public String soccer;
-	public String football;
-	public String voleyball;
-	public String baseball;
-	public String basketball;
-	public String hokey;
-	public String fitness;
-	public String swimming;
-	public String bicycle;
-	public String tennis;
-	public String snowboard;
-	public String diving;
-	public String bowling;
-	public String surfing;
-	public String yoga;
-	public String boxing;
-	public String kickboxing;
-	public String judo;
-	public String skates;
-	public String roller;
-	public String skiing;
-	public String getRunning() {
+	public boolean running;
+	public boolean soccer;
+	public boolean football;
+	public boolean voleyball;
+	public boolean baseball;
+	public boolean basketball;
+	public boolean hokey;
+	public boolean fitness;
+	public boolean swimming;
+	public boolean bicycle;
+	public boolean tennis;
+	public boolean snowboard;
+	public boolean diving;
+	public boolean bowling;
+	public boolean surfing;
+	public boolean yoga;
+	public boolean boxing;
+	public boolean kickboxing;
+	public boolean judo;
+	public boolean skates;
+	public boolean roller;
+	public boolean skiing;
+	public boolean getRunning() {
 		return running;
 	}
-	public void setRunning(String running) {
+	public void setRunning(boolean running) {
 		this.running = running;
 	}
-	public String getSoccer() {
+	public boolean getSoccer() {
 		return soccer;
 	}
-	public void setSoccer(String soccer) {
+	public void setSoccer(boolean soccer) {
 		this.soccer = soccer;
 	}
-	public String getFootball() {
+	public boolean getFootball() {
 		return football;
 	}
-	public void setFootball(String football) {
+	public void setFootball(boolean football) {
 		this.football = football;
 	}
-	public String getVoleyball() {
+	public boolean getVoleyball() {
 		return voleyball;
 	}
-	public void setVoleyball(String voleyball) {
+	public void setVoleyball(boolean voleyball) {
 		this.voleyball = voleyball;
 	}
-	public String getBaseball() {
+	public boolean getBaseball() {
 		return baseball;
 	}
-	public void setBaseball(String baseball) {
+	public void setBaseball(boolean baseball) {
 		this.baseball = baseball;
 	}
-	public String getBasketball() {
+	public boolean getBasketball() {
 		return basketball;
 	}
-	public void setBasketball(String basketball) {
+	public void setBasketball(boolean basketball) {
 		this.basketball = basketball;
 	}
-	public String getHokey() {
+	public boolean getHokey() {
 		return hokey;
 	}
-	public void setHokey(String hokey) {
+	public void setHokey(boolean hokey) {
 		this.hokey = hokey;
 	}
-	public String getFitness() {
+	public boolean getFitness() {
 		return fitness;
 	}
-	public void setFitness(String fitness) {
+	public void setFitness(boolean fitness) {
 		this.fitness = fitness;
 	}
-	public String getSwimming() {
+	public boolean getSwimming() {
 		return swimming;
 	}
-	public void setSwimming(String swimming) {
+	public void setSwimming(boolean swimming) {
 		this.swimming = swimming;
 	}
-	public String getBicycle() {
+	public boolean getBicycle() {
 		return bicycle;
 	}
-	public void setBicycle(String bicycle) {
+	public void setBicycle(boolean bicycle) {
 		this.bicycle = bicycle;
 	}
-	public String getTennis() {
+	public boolean getTennis() {
 		return tennis;
 	}
-	public void setTennis(String tennis) {
+	public void setTennis(boolean tennis) {
 		this.tennis = tennis;
 	}
-	public String getSnowboard() {
+	public boolean getSnowboard() {
 		return snowboard;
 	}
-	public void setSnowboard(String snowboard) {
+	public void setSnowboard(boolean snowboard) {
 		this.snowboard = snowboard;
 	}
-	public String getDiving() {
+	public boolean getDiving() {
 		return diving;
 	}
-	public void setDiving(String diving) {
+	public void setDiving(boolean diving) {
 		this.diving = diving;
 	}
-	public String getBowling() {
+	public boolean getBowling() {
 		return bowling;
 	}
-	public void setBowling(String bowling) {
+	public void setBowling(boolean bowling) {
 		this.bowling = bowling;
 	}
-	public String getSurfing() {
+	public boolean getSurfing() {
 		return surfing;
 	}
-	public void setSurfing(String surfing) {
+	public void setSurfing(boolean surfing) {
 		this.surfing = surfing;
 	}
-	public String getYoga() {
+	public boolean getYoga() {
 		return yoga;
 	}
-	public void setYoga(String yoga) {
+	public void setYoga(boolean yoga) {
 		this.yoga = yoga;
 	}
-	public String getBoxing() {
+	public boolean getBoxing() {
 		return boxing;
 	}
-	public void setBoxing(String boxing) {
+	public void setBoxing(boolean boxing) {
 		this.boxing = boxing;
 	}
-	public String getKickboxing() {
+	public boolean getKickboxing() {
 		return kickboxing;
 	}
-	public void setKickboxing(String kickboxing) {
+	public void setKickboxing(boolean kickboxing) {
 		this.kickboxing = kickboxing;
 	}
-	public String getJudo() {
+	public boolean getJudo() {
 		return judo;
 	}
-	public void setJudo(String judo) {
+	public void setJudo(boolean judo) {
 		this.judo = judo;
 	}
-	public String getSkates() {
+	public boolean getSkates() {
 		return skates;
 	}
-	public void setSkates(String skates) {
+	public void setSkates(boolean skates) {
 		this.skates = skates;
 	}
-	public String getRoller() {
+	public boolean getRoller() {
 		return roller;
 	}
-	public void setRoller(String roller) {
+	public void setRoller(boolean roller) {
 		this.roller = roller;
 	}
-	public String getSkiing() {
+	public boolean getSkiing() {
 		return skiing;
 	}
-	public void setSkiing(String skiing) {
+	public void setSkiing(boolean skiing) {
 		this.skiing = skiing;
 	}
-	public Sport(String running, String soccer, String football,
-			String voleyball, String baseball, String basketball, String hokey,
-			String fitness, String swimming, String bicycle, String tennis,
-			String snowboard, String diving, String bowling, String surfing,
-			String yoga, String boxing, String kickboxing, String judo,
-			String skates, String roller, String skiing) {
+	public Sport(boolean running, boolean soccer, boolean football,
+			boolean voleyball, boolean baseball, boolean basketball, boolean hokey,
+			boolean fitness, boolean swimming, boolean bicycle, boolean tennis,
+			boolean snowboard, boolean diving, boolean bowling, boolean surfing,
+			boolean yoga, boolean boxing, boolean kickboxing, boolean judo,
+			boolean skates, boolean roller, boolean skiing) {
 		super();
 		this.running = running;
 		this.soccer = soccer;
@@ -188,17 +188,5 @@ public class Sport {
 	public Sport() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "Sport [running=" + running + ", soccer=" + soccer
-				+ ", football=" + football + ", voleyball=" + voleyball
-				+ ", baseball=" + baseball + ", basketball=" + basketball
-				+ ", hokey=" + hokey + ", fitness=" + fitness + ", swimming="
-				+ swimming + ", bicycle=" + bicycle + ", tennis=" + tennis
-				+ ", snowboard=" + snowboard + ", diving=" + diving
-				+ ", bowling=" + bowling + ", surfing=" + surfing + ", yoga="
-				+ yoga + ", boxing=" + boxing + ", kickboxing=" + kickboxing
-				+ ", judo=" + judo + ", skates=" + skates + ", roller="
-				+ roller + ", skiing=" + skiing + "]";
-	}
+	
 }

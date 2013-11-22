@@ -132,7 +132,15 @@ app.controller('profileCtrl',function($scope,$rootScope){
 		$scope.user.fromstate = $scope.Fromstate;
 		$scope.user.fromcity = $scope.Fromcity;
 		$scope.user.about = $scope.About;
-		
+		if($scope.user.phone===""){$scope.phonehide=true;}else{$scope.phonehide=false;}
+		if($scope.user.age===""){$scope.agehide=true;}else{$scope.agehide=false;}
+		if($scope.user.country===""){$scope.addresshide=true;}else{$scope.addresshide=false;}
+		if($scope.user.status===""){$scope.statushide=true;}else{$scope.statushide=false;}
+		if($scope.user.fromcountry===""){$scope.fromaddresshide=true;}else{$scope.fromaddresshide=false;}
+		if($scope.user.about===""){$scope.abouthide=true;}else{$scope.abouthide=false;}
+		if($scope.user.gender==="male"){$scope.colorGender="blue";}
+		if($scope.user.gender==="female"){$scope.colorGender="pink";}
+		$scope.General = false;//--hide when will be show factory
 //-------Data Factory send general info of user--------------------------
 //		dataFactory.updateUserFactory($scope.user)
 //			.success(function(result){
