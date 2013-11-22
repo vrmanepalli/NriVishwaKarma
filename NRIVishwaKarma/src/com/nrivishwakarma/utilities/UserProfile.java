@@ -12,7 +12,7 @@ public class UserProfile {
 	public String country;
 	public String state;
 	public String city;
-	public String phone;
+	public int phone;
 	public String status;
 	public String fromcountry;
 	public String fromstate;
@@ -32,7 +32,7 @@ public class UserProfile {
 	public UserProfile(String email, String password, String fname,
 			String lname, String age, String bdate, String gender,
 			String imageUrl, String country, String state, String city,
-			String phone, String status, String fromcountry, String fromstate,
+			int phone, String status, String fromcountry, String fromstate,
 			String fromcity, String job, String company, String degree,
 			String field, String univer, String yearuniver, String school,
 			String yearschool, String about, String interest, String sport,
@@ -171,10 +171,10 @@ public class UserProfile {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
-	public void setPhone(String phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 	public String getStatus() {
