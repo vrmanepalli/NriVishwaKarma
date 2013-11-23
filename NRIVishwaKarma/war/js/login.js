@@ -1,4 +1,5 @@
-app.controller("modalInstanceCtrl", function ($scope, $rootScope, $modalInstance, $cookies, dataFactory) {
+app.controller("modalInstanceCtrl", function ($scope, $rootScope, $modalInstance, 
+		$cookies, dataFactory, items) {
 	$scope.showForgotPassword = false;
 	$scope.input = {};
 	
@@ -31,13 +32,17 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $modalInstance
 		console.log($scope.input.password);
 		dataFactory.login(JSON.stringify(data))
 			.success(function(results) {
-				if(results.status == true) {
+				if(results.status == "true") {
+					$cookies.signedIn = true;
 					$cookies.email = $scope.input.email;
 					$cookies.password = $scope.input.password;
+					console.log(results);
+				} else if(results.status == "false") {
+					$scope.errorMsg = results.message;
 				}
 			})
 			.error(function(error) {
-						console.log(error);
+				console.log(error);
 			});
 	};
 

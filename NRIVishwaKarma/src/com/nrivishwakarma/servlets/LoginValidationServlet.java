@@ -26,7 +26,7 @@ public class LoginValidationServlet extends HttpServlet {
            	throws ServletException, IOException
     {
 		 
-		 String returnValue = "";
+		 String returnValue = "Testing";
 		 System.out.println("in LoginValidationServlet");
 			boolean status = false;
 			StringBuilder sb = new StringBuilder();
@@ -42,13 +42,14 @@ public class LoginValidationServlet extends HttpServlet {
 			try {
 				DataBaseRegister dbr = new DataBaseRegister();
 				returnValue = dbr.validLogin(ud.email,ud.password);
+				System.out.println("After dbr.validLogin");
 				status=true;
 			} catch (Exception e) {
 				status=false;
 				e.printStackTrace();System.out.println("can't update user data");
 			}
 			PrintWriter out = new PrintWriter(response.getWriter());
-			 
+			System.out.println(returnValue);
 			out.println(returnValue);
 
     }

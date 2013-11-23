@@ -25,15 +25,25 @@ var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'ngCookies', 'imageu
 	.otherwise({redirectTo: '/Home'});
 });
 
-app.controller("NRIVishwaKarmaCtrl", function($scope, $modal, $log) {
+app.controller("NRIVishwaKarmaCtrl", function($scope, $modal, $log, $cookies) {
+	
+	$scope.showLoggedInUser = false;
+	
+	if($cookies.signedIn == true) {
+		$scope.showLoggedInUser = true;
+	}
+	
+	$scope.items = [$scope.showLoggedInUser];
 	
 	$scope.open = function () {
-		$("#loginButton").removeAttr("href");
+		
 		var modalInstance = $modal.open({
 			templateUrl: 'pages/login.html',
 			controller: "modalInstanceCtrl",
 			resolve: {
-				
+				items: function () {
+					return $scope.items;
+			    }
 			}
 		});
 

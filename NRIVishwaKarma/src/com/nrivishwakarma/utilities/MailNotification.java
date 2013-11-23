@@ -47,7 +47,7 @@ package com.nrivishwakarma.utilities;
 				message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(mailTo));
 				message.setSubject(subject);
-				message.setText("Email:"+mailTo+"\npassword:"+text+"As you requested");
+				message.setText("This is a test email.");
 				Transport.send(message);
 	 
 				System.out.println("Done");

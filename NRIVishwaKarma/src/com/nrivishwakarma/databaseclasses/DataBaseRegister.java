@@ -73,34 +73,24 @@ package com.nrivishwakarma.databaseclasses;
 		public String validLogin(String email, String password) throws Exception{
 			boolean status = false;
 			String str="";
-			System.out.println("from the servlet"+email);
-			System.out.println("from the servlet"+password);
+			System.out.println("from the servlet: "+email);
+			System.out.println("from the servlet: "+password);
 			Connection con = DBConnection.getInstance().getConnection();
 			Statement stm = con.createStatement();
 	        UserDetails usr=getUser(email,password);
-	        System.out.println("from the getuser method"+usr.getEmail()+"password"+usr.getPassword());
+	        System.out.println("from the getuser method: "+usr.getEmail()+" password: "+usr.getPassword());
 			System.out.println(email.equals(usr.getEmail()));
 	        if(email.equals(usr.getEmail()) && password.equals(usr.getPassword())){
-				System.out.println("You login in");
-				status = true;
+				System.out.println("You logged in");
+				//status = true;
 				 str="{\"status\":\"true\", \"message\":\"successful\"}";
-				return str;
+				 System.out.println(str);
+				//return str;
+			} else {
+				System.out.println("Your Email or password id is invalid ");
+				str="{\"status\":\"false\",\"message\":\"Please re-enter your email and password\"}";
 			}
-		    else if(email != usr.getEmail()){
-				System.out.println("Your Email id invalid ");
-				str="{\"status\":\false\",\"message\":\"Enter the Valid Email\"}";
-				return str;
-			}
-			else if(email.equals(usr.getEmail()) && (password != usr.getPassword())){
-				
-				System.out.println("You put wrong password");
-				str="{\"status\":\false\",\"message\":\"Your Email id and password doesn't match\"}";
-				return str;
-			}
-			else
-			{
-				return str;
-			}
+	        return str;
 		}
 		
 		
@@ -117,7 +107,7 @@ package com.nrivishwakarma.databaseclasses;
 				user.setPassword   (rs.getString("pass"));
 				user.setConfirm_pass(rs.getString("Conf_pass"));
 				System.out.println("from the database"+rs.getString("email"));
-				System.out.println(rs.getString("password"));
+				System.out.println(rs.getString("pass"));
 				
 				}//while
 				return user;
