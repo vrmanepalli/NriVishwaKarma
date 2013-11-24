@@ -58,9 +58,13 @@
     		<h1>NRI Vishwa Karma</h1>
     		<span class="login-and-register"> 
     			<a href="#/NewUser" ng-hide="showLoggedInUser">register</a>
-    			<button ng-hide="showLoggedInUser" ng-click="open()">Login</button>
-    			<label ng-show="showLoggedInUser">{{userEmail}}</label>
-    			<button ng-show="showLoggedInUser" ng-click="open()">Log Out</button>
+    			<button ng-hide="showLoggedInUser" ng-click="openLogin()" class="btn">
+    				Login
+    			</button>
+    			<a href="#/Profile" ng-show="showLoggedInUser">{{userEmail}}</a>
+    			<button ng-show="showLoggedInUser" ng-click="logOut()" class="btn">
+    				Log Out
+    			</button>
     		</span>
     		<div class="clear"></div>
     	</div>

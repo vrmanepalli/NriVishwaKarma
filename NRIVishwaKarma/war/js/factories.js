@@ -10,6 +10,18 @@ angular.module('NRIVishwaKarma')
     dataFactory.forgotPassword = function(json) {
     	return $http.post('/ForgotPass', json);
     };
+    
+    dataFactory.getSecurityQuestion = function(json) {
+    	return $http.post('/GetSecurityQuestion', json);
+    };
+    
+    dataFactory.checkSecurityAnswer = function(json) {
+    	return $http.post('/CheckSecurityAnswer', json);
+    };
+    
+    dataFactory.updatePassword = function(json) {
+    	return $http.post('/UpdatePassword', json);
+    };
 	
     dataFactory.registerUser = function(json) {
     	return $http.post('/register', json);

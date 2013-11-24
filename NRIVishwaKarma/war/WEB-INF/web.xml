@@ -31,7 +31,30 @@
         <servlet-name>ForgotPass</servlet-name>
         <url-pattern>/ForgotPass</url-pattern>
     </servlet-mapping>
-  
+  	<servlet>
+        <servlet-name>GetSecurityQuestion</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.GetSecurityQuestionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetSecurityQuestion</servlet-name>
+        <url-pattern>/GetSecurityQuestion</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CheckSecurityAnswer</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.CheckSecurityAnswerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckSecurityAnswer</servlet-name>
+        <url-pattern>/CheckSecurityAnswer</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdatePassword</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.UpdatePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdatePassword</servlet-name>
+        <url-pattern>/UpdatePassword</url-pattern>
+    </servlet-mapping>
    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>com.nrivishwakarma.servlets.LoginValidationServlet</servlet-class>

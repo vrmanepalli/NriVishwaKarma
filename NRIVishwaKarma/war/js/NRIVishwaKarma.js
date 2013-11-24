@@ -25,26 +25,21 @@ var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'ngCookies', 'imageu
 	.otherwise({redirectTo: '/Home'});
 });
 
-app.controller("NRIVishwaKarmaCtrl", function($scope, $modal, $log, $cookies) {
+app.controller("NRIVishwaKarmaCtrl", function($scope, $rootScope, $modal, $log, $cookies) {
 	
-	$scope.showLoggedInUser = false;
+	$rootScope.showLoggedInUser = false;
+	$rootScope.userEmail = "";
 	
-	if($cookies.signedIn == true) {
-		$scope.showLoggedInUser = true;
+	if($cookies.signedIn == "true") {
+		$rootScope.showLoggedInUser = true;
+		$rootScope.userEmail = $cookies.email;
 	}
 	
-	$scope.items = [$scope.showLoggedInUser];
-	
-	$scope.open = function () {
+	$scope.openLogin = function () {
 		
 		var modalInstance = $modal.open({
 			templateUrl: 'pages/login.html',
-			controller: "modalInstanceCtrl",
-			resolve: {
-				items: function () {
-					return $scope.items;
-			    }
-			}
+			controller: "modalInstanceCtrl"
 		});
 
 		modalInstance.result.then(function (selectedItem) {
@@ -53,4 +48,13 @@ app.controller("NRIVishwaKarmaCtrl", function($scope, $modal, $log, $cookies) {
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
+	
+	$scope.logOut = function() {
+		$cookies.signedIn = "false";
+		$cookies.email = "";
+		$cookies.password = "";
+		$rootScope.showLoggedInUser = false;
+		$rootScope.userEmail = "";
+	};
+	
 });  

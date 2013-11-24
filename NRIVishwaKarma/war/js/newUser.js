@@ -1,6 +1,7 @@
 'use strict';
 app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dataFactory){
 	
+	$scope.question = "What was your childhood nickname?";
 	$scope.gender="male";
 	$scope.month = "01";
 	$scope.day = "01";
@@ -12,7 +13,7 @@ app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dat
 		var data = {
 			fname: $scope.fname,
 			lname: $scope.lname,
-			bday: "" + $scope.year + $scope.month + $scope.day,
+			bday: $scope.year + "-" + $scope.month + "-" + $scope.day,
 			gender: $scope.gender,
 			country: $scope.country,
 			state: $scope.state,
@@ -23,7 +24,9 @@ app.controller('newUserCtrl', function($scope, $location, $http, $rootScope, dat
 			country_origin: $scope.originCountry,
 			state_origin: $scope.originState,
 			city_origin: $scope.originCity,
-			phone: $scope.phone
+			phone: $scope.phone,
+			question: $scope.question,
+			answer: $scope.answer
 		};
 		console.log(JSON.stringify(data));
 		dataFactory.registerUser(JSON.stringify(data))

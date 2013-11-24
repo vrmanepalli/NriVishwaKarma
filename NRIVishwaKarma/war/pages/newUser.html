@@ -521,8 +521,8 @@
 									</small>
 								</div>
 
-						</div>
-						<div class="span6">
+					
+						
 							<p><small>*</small>Country of Origin:</p>
 							<select name="originCountry" class="form-control bfh-countries" data-flags="true"
 								ng-model="originCountry" ng-click="validGender()" required>
@@ -804,7 +804,8 @@
 								<option value="Zimbabwe">Zimbabwe</option>
 							</select>
 							
-							
+						</div>
+						<div class="span6">
 							<p><small>*</small>State of Origin:</p>
 							<input type="text" ng-model="originState" name="originState" class="input-xlarge" placeholder="State of Origin" 
 									ng-minlength=2 ng-maxlength=100 ng-pattern="/^[A-Z][a-zA-Z\s]+$/" required>
@@ -822,6 +823,7 @@
 										Your state of origin name cannot be longer than 100 characters 
 									</small>
 								</div>
+							
 							<p><small>*</small>City of Origin:</p>
 							<input type="text" ng-model="originCity" name="originCity" class="input-xlarge" placeholder="City of Origin" 
 									ng-minlength=2 ng-maxlength=100 ng-pattern="/^[A-Z][a-zA-Z\s]+$/" required>
@@ -863,7 +865,7 @@
 								<p>
 									<small>*</small>Password:
 								</p>
-								<input type="text" ng-model="password" name="password" id="password" class="input-xlarge" placeholder="password" 
+								<input type="password" ng-model="password" name="password" id="password" class="input-xlarge" placeholder="password" 
 									ng-click="validEmail()" ng-minlength=8 ng-maxlength=100 required>
 								<div class="error" ng-show="signup_form.password.$dirty && signup_form.password.$invalid">
 									<small class="error" ng-show="signup_form.password.$error.minlength">
@@ -878,7 +880,7 @@
 								<p>
 									<small>*</small>Confirmation password:
 								</p>
-								<input type="text" ng-model="confPassword" name="confPassword" class="input-xlarge"
+								<input type="password" ng-model="confPassword" name="confPassword" class="input-xlarge"
 									ng-click="validConfirm()" match="password" placeholder="confirmation password">
 								<div class="error" ng-show="signup_form.confPassword.$dirty && signup_form.confPassword.$invalid">
 									<small class="error" ng-show="signup_form.confPassword.$error.minlength">
@@ -892,7 +894,36 @@
 									</small>
 								</div>
 							</fieldset>
-
+							<fieldset>
+								<p><small>*</small>Security Question:</p>
+								<select ng-model="question">
+									<option value="What was your childhood nickname?">
+										What was your childhood nickname?
+									</option>
+									<option value="In what city or town was your first job?">
+										In what city or town was your first job?
+									</option>
+									<option value="What is the name of your favorite childhood friend?">
+										What is the name of your favorite childhood friend?
+									</option>
+									<option value="What is the middle name of your oldest child?">
+										What is the middle name of your oldest child?
+									</option>
+									<option value="What street did you live on in third grade?">
+										What street did you live on in third grade?
+									</option>
+								</select>
+								<input type="text" ng-model="answer" name="answer" class="input-xlarge" 
+									placeholder="answer" ng-maxlength=100 required>
+								<div class="error" ng-show="signup_form.answer.$dirty && signup_form.answer.$invalid">
+									<small class="error" ng-show="signup_form.answer.$error.required">
+										You are required to provide an answer for your security question.
+									</small>
+									<small class="error" ng-show="signup_form.answer.$error.maxlength"> 
+										Your answer cannot be longer than 100 characters 
+									</small>
+								</div>
+							</fieldset>
 						</div>
 					</div>
 					<div class="form-actions navbar-static-bottom" align="center">
