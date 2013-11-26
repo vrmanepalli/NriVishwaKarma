@@ -1,18 +1,15 @@
 'use strict';
-app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
-	$cookies.email= "katrina@gmail.com";
-	$rootScope.user = "katrina@gmail.com";
-//	if($rootScope.user === undefined){
-//		$route.reload();
-//		$location.path('/Home');
-//	}//if
-//	else{
-//	$rootScope.currentUser={email:"katrina@gmail.com"};
-	
+app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies, $location, $modal){
+
+	if($cookies.email === ""){
+		$location.path('/Login');
+	}//if
+	else{
+
 	//-------------Data Factory to download user's data for page----------------------
 	$scope.user = {};
-	
-	dataFactory.getInterestFactory($rootScope.user)
+	console.log("email: " + $rootScope.profileUser);
+	dataFactory.getInterestFactory($rootScope.profileUser)
 	.success(function(interests){
 		$scope.inter = interests;
 		$scope.updateInter();
@@ -22,7 +19,7 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
 	});
 	
 	
-	dataFactory.getUserFactory($rootScope.user)
+	dataFactory.getUserFactory($rootScope.profileUser)
 		.success(function(userData){
 			$scope.user=userData;
 			$scope.updateUserInfo();
@@ -33,14 +30,14 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
 	
 	$scope.updateUserInfo = function(){
 		//------------General TAB-------------------------------------------
-		if($scope.user.imageUrl===""){$scope.imageUrl = "../img/profile.png";} 
+		if($scope.user.imageUrl===""|| ($scope.user.imageUrl===undefined)){$scope.imageUrl = "../img/profile.png";} 
 		$scope.username = $scope.user.fname+" "+$scope.user.lname;
-		if($scope.user.phone===""){$scope.phonehide=true;}else{$scope.phonehide=false;}
-		if($scope.user.age===""){$scope.agehide=true;}else{$scope.agehide=false;}
-		if($scope.user.country===""){$scope.addresshide=true;}else{$scope.addresshide=false;}
-		if($scope.user.status===""){$scope.statushide=true;}else{$scope.statushide=false;}
-		if($scope.user.fromcountry===""){$scope.fromaddresshide=true;}else{$scope.fromaddresshide=false;}
-		if($scope.user.about===""){$scope.abouthide=true;}else{$scope.abouthide=false;}
+		if($scope.user.phone===""|| ($scope.user.phone===undefined)){$scope.phonehide=true;}else{$scope.phonehide=false;}
+		if($scope.user.age===""|| ($scope.user.age===undefined)){$scope.agehide=true;}else{$scope.agehide=false;}
+		if($scope.user.country===""|| ($scope.user.country===undefined)){$scope.addresshide=true;}else{$scope.addresshide=false;}
+		if($scope.user.status===""|| ($scope.user.status===undefined)){$scope.statushide=true;}else{$scope.statushide=false;}
+		if($scope.user.fromcountry===""|| ($scope.user.fromcountry===undefined)){$scope.fromaddresshide=true;}else{$scope.fromaddresshide=false;}
+		if(($scope.user.about==="") || ($scope.user.about===undefined)){$scope.abouthide=true;}else{$scope.abouthide=false;}
 		if($scope.user.gender==="male"){$scope.colorGender="blue";}
 		else if($scope.user.gender==="female"){$scope.colorGender="pink";}
 		$scope.datepicker = {date: new Date($scope.user.bdate)};
@@ -77,7 +74,7 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
 			$scope.allCareer=true;
 		}
 	
-		if($rootScope.user === $cookies.email){//-----<----if user open his page
+		if($rootScope.profileUser === $cookies.email){//-----<----if user open his page
 			console.log("in if");		
 		}
 		else{//-------<-------if guest open this page
@@ -208,12 +205,12 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
 		$scope.user.fromstate = $scope.Fromstate;
 		$scope.user.fromcity = $scope.Fromcity;
 		$scope.user.about = $scope.About;
-		if($scope.user.phone===""){$scope.phonehide=true;}else{$scope.phonehide=false;}
-		if($scope.user.age===""){$scope.agehide=true;}else{$scope.agehide=false;}
-		if($scope.user.country===""){$scope.addresshide=true;}else{$scope.addresshide=false;}
-		if($scope.user.status===""){$scope.statushide=true;}else{$scope.statushide=false;}
-		if($scope.user.fromcountry===""){$scope.fromaddresshide=true;}else{$scope.fromaddresshide=false;}
-		if($scope.user.about===""){$scope.abouthide=true;}else{$scope.abouthide=false;}
+		if($scope.user.phone===""|| ($scope.user.phone===undefined)){$scope.phonehide=true;}else{$scope.phonehide=false;}
+		if($scope.user.age===""|| ($scope.user.age===undefined)){$scope.agehide=true;}else{$scope.agehide=false;}
+		if($scope.user.country===""|| ($scope.user.country===undefined)){$scope.addresshide=true;}else{$scope.addresshide=false;}
+		if($scope.user.status===""|| ($scope.user.status===undefined)){$scope.statushide=true;}else{$scope.statushide=false;}
+		if($scope.user.fromcountry===""|| ($scope.user.fromcountry===undefined)){$scope.fromaddresshide=true;}else{$scope.fromaddresshide=false;}
+		if(($scope.user.about==="") || ($scope.user.about===undefined)){$scope.abouthide=true;}else{$scope.abouthide=false;}
 		if($scope.user.gender==="male"){$scope.colorGender="blue";}
 		if($scope.user.gender==="female"){$scope.colorGender="pink";}
 		$scope.General = false;
@@ -365,7 +362,7 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
 			$scope.allInter=true;
 		}else{$scope.allInter=false;}
 // ------Data factory for interests---------------------------------------------
-		$scope.inter.email=$rootScope.user;
+		$scope.inter.email=$rootScope.profileUser;
 		dataFactory.updateInterestFactory($scope.inter)
 		.success(function(){
 			$scope.Interests = false;
@@ -387,7 +384,7 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
 	$scope.okSecurity = function(){
 		console.log("password="+$scope.password);
 		$scope.changepass={
-				email:$rootScope.user,
+				email:$rootScope.profileUser,
 				password:$scope.password,
 		}
 		dataFactory.changePassfactory($scope.changepass)
@@ -399,10 +396,31 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
 		})
 	}
 	
-	
-	
-	//-----------download avatar---------------------------------------
+	/*****************Choose Avatar Modal *********************/
+	$scope.openAvatarPicker = function() {
+		console.log("Opening avatar modal")
+		var modalInstance = $modal.open({
+			templateUrl: 'pages/chooseAvatar.html',
+			controller: "chooseAvatarCtrl"
+		});
+
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
+		}, function () {
+			$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
+		
+	}//else
+})
+
+app.controller("chooseAvatarCtrl", function($scope, $rootScope, $modalInstance) {
+	console.log("initiallizing changeAvatarCtrl");
 	$rootScope.image2={url:"../img/profile.png"};
+	
+	$scope.closeChooseAvatar = function() {
+		 $modalInstance.close();
+	};
 
 	$scope.single = function(image) {
         var formData = new FormData();
@@ -415,6 +433,7 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies){
             $scope.uploadedImgSrc = result.src;
             $scope.sizeInBytes = result.size;
         });
-};	
-//	}//else
-})
+        
+        $modalInstance.close();
+	};
+});

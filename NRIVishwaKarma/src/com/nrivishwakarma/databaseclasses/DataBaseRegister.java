@@ -27,10 +27,10 @@ import com.nrivishwakarma.utilities.UserDetails;
 				System.out.println("In the Database reg\n"+dt.getFname());
 				System.out.println(dt.bday);
 				String str="insert into users"
-					+ "(FName,LName,pass,gender,city,state,phno,country_origin,state_origin,city_origin,conf_pass,Email,country) "
-					+ "values('"+dt.getFname()+"','"+dt.getLname()+"','"+dt.getPassword()+"','"+dt.getGender()+"','"+dt.getCity()+"','"+
-					dt.getState()+"','"+dt.getPhone()+"','"+dt.getCountry_origin()+"','"+dt.getState_origin()+"','"+dt.getCity_origin()+"','"+
-					dt.getConfirm_pass()+"','"+dt.getEmail()+"','"+dt.getCountry()+"')";
+					+ "(FName,LName,bday,pass,gender,city,state,phno,country_origin,state_origin,city_origin,Email,country,question,answer) "
+					+ "values('"+dt.getFname()+"','"+dt.getLname()+"','"+dt.getBday()+"','"+dt.getPassword()+"','"+dt.getGender()+"','"+dt.getCity()+"','"+
+					dt.getState()+"','"+dt.getPhone()+"','"+dt.getCountry_origin()+"','"+dt.getState_origin()+"','"+dt.getCity_origin()+
+					"','"+dt.getEmail()+"','"+dt.getCountry()+"','"+dt.getQuestion()+"','"+dt.getAnswer()+"')";
 				
 				//if()
 			     st=con.createStatement();

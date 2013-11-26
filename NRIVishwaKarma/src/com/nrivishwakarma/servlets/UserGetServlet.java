@@ -46,6 +46,7 @@ public class UserGetServlet extends HttpServlet{
 		String email = new Gson().fromJson(sb.toString(),String.class);
 		DBProfileUser dbu = new DBProfileUser();
 		UserProfile user = new UserProfile();
+		System.out.println("Data: " + user);
 		try {
 			user = dbu.getUser(email);
 		} catch (Exception e) {

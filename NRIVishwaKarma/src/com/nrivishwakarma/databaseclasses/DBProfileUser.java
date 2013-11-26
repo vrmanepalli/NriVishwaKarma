@@ -17,11 +17,15 @@ public class DBProfileUser {
     
     public void updateUser (UserProfile user){
         try {
-        	Connection conn = DBConnectionKatrina.getInstance().getConnection();
-            PreparedStatement pstm = conn.prepareStatement("update users set FName=?, LName=?, bday=?, gender=?, country=?,"
+        	Connection conn = DBConnection.getInstance().getConnection();
+        	System.out.println("update users set FName=?, LName=?, bday=?, gender=?, country=?,"
             		+ "state=?, city=?, country_origin=?, state_origin=?, city_origin=?, phno=?, aboutme=?, marital_status=?,"
             		+ "job=?, university=?, univ_year=?, school=?, school_year=?, degree=?, qualification=?, company=?"
             		+ "where Email='"+user.getEmail()+"'");
+            PreparedStatement pstm = conn.prepareStatement("update users set FName=?, LName=?, bday=?, gender=?, country=?,"
+            		+ "state=?, city=?, country_origin=?, state_origin=?, city_origin=?, phno=?, aboutme=?, marital_status=?,"
+            		+ "job=?, university=?, univ_year=?, school=?, school_year=?, degree=?, qualification=?, company=?"
+            		+ " where Email='"+user.getEmail()+"'");
             pstm.setString(1, user.getFname());
             pstm.setString(2, user.getLname());
             pstm.setString(3, user.getBdate());
@@ -49,7 +53,7 @@ public class DBProfileUser {
         }            
     }//updateUser
     public void changePassword(UserProfile user) throws Exception{
-    	Connection conn = DBConnectionKatrina.getInstance().getConnection();
+    	Connection conn = DBConnection.getInstance().getConnection();
         PreparedStatement pstm = conn.prepareStatement
         		("update users set pass=? where Email='"+user.getEmail()+"'");
         pstm.setString(1, user.getPassword());
@@ -57,7 +61,7 @@ public class DBProfileUser {
     }
     
     public UserProfile getUser (String email) throws Exception{
-        Connection conn = DBConnectionKatrina.getInstance().getConnection();
+        Connection conn = DBConnection.getInstance().getConnection();
         Statement st =(Statement)conn.createStatement();
         UserProfile details=new UserProfile();
         try {

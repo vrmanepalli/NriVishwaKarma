@@ -12,7 +12,7 @@ public class DBInterests {
 	
 	public Interests getInterests(String email) throws Exception{
 			Interests inter = new Interests();
-			Connection con=DBConnectionKatrina.getInstance().getConnection();
+			Connection con=DBConnection.getInstance().getConnection();
 			Statement stm=(Statement) con.createStatement();
 			ResultSet rs = (ResultSet) stm.executeQuery
 					("select * from interests where email = '"+email+"'");
@@ -98,7 +98,7 @@ public class DBInterests {
 	}//method to get all interests of user by email
 	
 	public void updateInterests(Interests inter) throws Exception{
-		Connection con=DBConnectionKatrina.getInstance().getConnection();
+		Connection con=DBConnection.getInstance().getConnection();
 		System.out.println("From updateinterest.class inter: "+inter);
 		PreparedStatement pstm = con.prepareStatement("update interests set photo=?, collecting=?, needlework=?, pcgames=?, travel=?,"
 				+ " computer=?,       cookery=?,            art=?, auto=?,    theater=?,         haunting=?,        science=?,        bookclassic=?,   bookcomedy=?, bookfantasy=?,"

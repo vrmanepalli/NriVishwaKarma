@@ -129,6 +129,7 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $route, $modal
 					$cookies.email = $scope.input.email;
 					$cookies.password = $scope.input.password;
 					$rootScope.userEmail = $scope.input.email;
+					$rootScope.profileUser = $scope.input.email;
 					$rootScope.showLoggedInUser = true;
 					$route.reload();
 					$modalInstance.close();
@@ -311,6 +312,7 @@ app.controller("loginCtrl", function ($scope, $rootScope, $cookies, $route, data
 					$cookies.signedIn = "true";
 					$cookies.email = $scope.input.email;
 					$cookies.password = $scope.input.password;
+					$rootScope.profileUser = $scope.input.email;
 					$rootScope.userEmail = $scope.input.email;
 					$rootScope.showLoggedInUser = true;
 					$route.reload();

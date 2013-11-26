@@ -37,6 +37,7 @@ app.controller("NRIVishwaKarmaCtrl", function($scope, $rootScope, $modal, $log, 
 	if($cookies.signedIn == "true") {
 		$rootScope.showLoggedInUser = true;
 		$rootScope.userEmail = $cookies.email;
+		$rootScope.profileUser = $rootScope.userEmail;
 	}
 	
 	$scope.openLogin = function () {
