@@ -72,7 +72,42 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-  
+    
+    <servlet>
+        <servlet-name>GetInterestServlet</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.GetInterestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetInterestServlet</servlet-name>
+        <url-pattern>/GetInterestServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UpdateInterestServlet</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.UpdateInterestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateInterestServlet</servlet-name>
+        <url-pattern>/UpdateInterestServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UserGetServlet</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.UserGetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserGetServlet</servlet-name>
+        <url-pattern>/UserGetServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UserUpdateServlet</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.UserUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserUpdateServlet</servlet-name>
+        <url-pattern>/UserUpdateServlet</url-pattern>
+    </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
