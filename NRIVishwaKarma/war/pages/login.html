@@ -28,6 +28,10 @@
 		<p>Answer:</p>
 		<input type="text" ng-model="input.answer" name="answer" id="answer" class="input-xlarge" placeholder="answer" 
 			ng-click="validEmail()" ng-maxlength=100 required>
+		<h6>-OR-</h6>
+		<p>
+			<a href="#" id="resetLink" ng-click="sendResetEmail()"> Click here to receive a reset email.</a> You will receive an email shortly.
+		</p>
 	</div>
 	
 	<!-- Reset Password -->
@@ -55,16 +59,19 @@
 	<button class="btn btn-primary" ng-show="showSecurityQuestion" ng-click="checkAnswer()">
 		Check Answer
 	</button>
-	<button class="btn btn-primary" ng-show="showResetPassword" ng-click="resetPassword()">
+	<button class="btn btn-primary" ng-show="showResetPassword && !showEmailReset" ng-click="resetPassword()">
+		Reset Password
+	</button>
+	<button class="btn btn-primary" ng-show="showResetPassword && showEmailReset" ng-click="sendTokenAndPassword()">
 		Reset Password
 	</button>
 	<button class="btn btn-primary" ng-show="showLogin" ng-click="login()">
 		Login
 	</button>
-	<button class="btn btn-primary" ng-show="showResetMsg" ng-click="ok()">
+	<button class="btn btn-primary" ng-show="showResetMsg && !notModalWindow" ng-click="ok()">
 		Ok
 	</button>
-    <button class="btn btn-warning" ng-hide="showResetMsg" ng-click="cancel()">
+    <button class="btn btn-warning" ng-hide="showResetMsg || notModalWindow" ng-click="cancel()">
     	Cancel
     </button>
 </div>

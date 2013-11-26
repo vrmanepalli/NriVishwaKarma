@@ -24,6 +24,15 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.ResetPasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/ResetPassword</url-pattern>
+    </servlet-mapping>
+  
+    <servlet>
         <servlet-name>ForgotPass</servlet-name>
         <servlet-class>com.nrivishwakarma.servlets.PassSendServlet</servlet-class>
     </servlet>

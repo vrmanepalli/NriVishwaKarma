@@ -1,0 +1,86 @@
+<div class="login-wrapper">
+<div class="container">
+	<div class="login-content-box">
+		<div class="row">
+			<div class="span3"></div>
+			<div class="modal-header span6">
+				<h3>Login</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3"></div>
+			<div class="modal-body span6">
+				<div ng-show="showForgotPassword">
+				Please enter the email address you signed up with.
+				</div>
+				<div ng-show="showLogin || showForgotPassword">
+					<p>Email:</p>
+					<input type="email" ng-model="input.email" name="email" class="input-xlarge"
+						placeholder="email" required>
+				</div>
+				<div ng-show="showForgotPassword">
+					If you have forgotten which email you used to sign up, please send an email
+					to placeholder@gmail.com and a customer representative will get back to you
+					as soon as possible.
+				</div>
+				<div ng-show="showLogin">
+					<p>Password:</p>
+					<input type="password" ng-model="input.password" name="password" id="password" class="input-xlarge" placeholder="password" 
+						ng-click="validEmail()" ng-minlength=8 ng-maxlength=100 required>
+				</div>
+	
+				<!-- Security Question -->
+	
+				<div ng-show="showSecurityQuestion">
+					<p>{{securityQuestion}}</p>
+					<p>Answer:</p>
+					<input type="text" ng-model="input.answer" name="answer" id="answer" class="input-xlarge" placeholder="answer" 
+						ng-click="validEmail()" ng-maxlength=100 required>
+					<h6>-OR-</h6>
+					<p>
+						<a href="#" id="resetLink" ng-click="sendResetEmail()"> Click here to receive a reset email.</a> You will receive an email shortly.
+					</p>
+				</div>
+	
+				<!-- Reset Password -->
+				<div ng-show="showResetPassword">
+					<label>Please enter your new password.</label>
+					<p>New Password:</p>
+					<input type="password" ng-model="input.resetPassword" name="resetPassword" id="resetPassword" class="input-xlarge" placeholder="new password" 
+						ng-click="validEmail()" ng-minlength=8 ng-maxlength=100 required>		
+					<p>Confirmation Password:</p>
+					<input type="password" ng-model="input.confPassword" name="confPassword" class="input-xlarge"
+						ng-click="validConfirm()" placeholder="confirmation password">
+				</div>
+				<div ng-show="showResetMsg">
+					{{resetMsg}}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3"></div>
+			<div class="modal-footer span6">
+				<label style="float: left;">{{errorMsg}}</label>
+				<a href="#" id="forgotLink" ng-show="showLogin" ng-click="forgotPassword()">
+					Forgot Password
+				</a>
+				<button class="btn btn-primary" ng-show="showForgotPassword" ng-click="checkEmailForQuestion()">
+					Check Email
+				</button>
+				<button class="btn btn-primary" ng-show="showSecurityQuestion" ng-click="checkAnswer()">
+					Check Answer
+				</button>
+				<button class="btn btn-primary" ng-show="showResetPassword && !showEmailReset" ng-click="resetPassword()">
+					Reset Password
+				</button>
+				<button class="btn btn-primary" ng-show="showResetPassword && showEmailReset" ng-click="sendTokenAndPassword()">
+					Reset Password
+				</button>
+				<button class="btn btn-primary" ng-show="showLogin" ng-click="login()">
+					Login
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

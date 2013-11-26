@@ -17,6 +17,28 @@ public class UserDetails {
     public String about_me;
     public String confirm_pass;
     public String marital_status;
+    public String question;
+    public String answer;
+    public String token;
+    
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 	public String getFname() {
 		return fname;
 	}

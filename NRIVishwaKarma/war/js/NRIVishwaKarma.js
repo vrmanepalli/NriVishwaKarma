@@ -3,6 +3,10 @@ var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'ngCookies', 'imageu
 		templateUrl: "pages/home.html",
 		controller: "homeCtrl"
 	})
+	.when("/Login", {
+		templateUrl: "pages/loginEmbedded.html",
+		controller: "loginCtrl"
+	})
 	.when("/NewUser", {
 		templateUrl: "pages/newUser.html",
 		controller: "newUserCtrl"

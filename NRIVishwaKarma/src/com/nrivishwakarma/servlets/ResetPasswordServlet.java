@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.nrivishwakarma.databaseclasses.DBConnection;
-import com.nrivishwakarma.utilities.UserDetails;
 import com.nrivishwakarma.databaseclasses.DataBaseRegister;
+import com.nrivishwakarma.utilities.UserDetails;
 
-public class PassSendServlet extends HttpServlet{
+public class ResetPasswordServlet extends HttpServlet{
+	
 	public void init() throws ServletException
 	 {
 	 }
 
 	 public void doPost(HttpServletRequest request,
-          	HttpServletResponse response)
-          	throws ServletException, IOException
-   {
-		 
+         	HttpServletResponse response)
+         	throws ServletException, IOException
+  {
 		 String passWord = "";
 		 System.out.println("in forgot Password servlet");
 			boolean status = false;
@@ -34,20 +33,21 @@ public class PassSendServlet extends HttpServlet{
 				sb.append(str);
 			}
 			UserDetails ud = new Gson().fromJson(sb.toString(), UserDetails.class);
-			System.out.println("data from front end:"+ud.email);
+			
+			System.out.println("data from front end:"+ud.token);
 			try {
 				DataBaseRegister dbr = new DataBaseRegister();
-				status=dbr.sendPassword(ud.email);
+				status = dbr.reqResetPassword(ud.token,ud.password);
 			} catch (Exception e) {
 				status=false;
-				e.printStackTrace();System.out.println("can't update user data");
+				e.printStackTrace();
 			}
+			
 			PrintWriter out = new PrintWriter(response.getWriter());
+			// out.println(returnValue);
 			out.println("{\"status\":\"" + status + "\"}");
 
-   }
-
-
+  }
 
 
 }

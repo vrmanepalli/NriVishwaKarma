@@ -1,13 +1,19 @@
 package com.nrivishwakarma.databaseclasses;
 
-	import java.sql.Connection;
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
-	import java.sql.Statement;
+	import java.security.MessageDigest;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 	import com.nrivishwakarma.databaseclasses.DBConnection;
-	import com.nrivishwakarma.utilities.MailNotification;
-	import com.nrivishwakarma.utilities.UserDetails;
+import com.nrivishwakarma.utilities.MailNotification;
+import com.nrivishwakarma.utilities.UserDetails;
 
 
 	public class DataBaseRegister {
@@ -122,26 +128,179 @@ package com.nrivishwakarma.databaseclasses;
 		
 		/*********ForgotPassword*********/
 
-		public void sendPassword(String email) throws Exception{
+		public boolean sendPassword(String email) throws Exception{
 			ResultSet rs=null;
-			String str="";
-			System.out.println("in the forgot password method"+email);
+			boolean status;
+			String str=null;
+			System.out.println("in the send password method"+email);
 			Connection con = DBConnection.getInstance().getConnection();
 			Statement stm = con.createStatement();
-			String sql="select pass from users where Email='"+email+"'";
+			String sql="select email from users where Email='"+email+"'";
 			rs=stm.executeQuery(sql);
 			while(rs.next()){
-				str=rs.getString("pass");
+				str=rs.getString("email");
 			}
-			System.out.println("the password that extracted from the database:"+str);
+			System.out.println("the email that extracted from the database:"+str);
 			if(str != null)
 			{
-				MailNotification md=new MailNotification(email," Request Password",str);
-				md.run();
+				String token = create_uid(str);
+				
+				MailNotification md=new MailNotification(email," Request Password",str,token);
+				
+				return md.run();
+			}
+				return false;
+			
+		
+		}
+		
+		
+		
+		public boolean reqResetPassword(String token,String password) throws Exception{
+			ResultSet rs=null;
+			String str="";
+			System.out.println("in the req send password method"+token);
+			Connection con = DBConnection.getInstance().getConnection();
+			Statement stm = con.createStatement();
+			String sql="select email from pass_change where "
+					+ "expirary_date>=cast(current_timestamp as date) "
+					+ "AND token='"+token+"'";
+			rs=stm.executeQuery(sql);
+			while(rs.next()){
+				str=rs.getString("email");
+			}
+			System.out.println("the email that extracted from the database:"+str);
+			if(str!=null){
+				return resetPassword(str,password);
+			}
+			else{
+				return false;
 			}
 		
 		}
 		
+		
+		/*********Check sequrityQuestion*********/
+		
+		public String getSecurityQuestion(String email) throws Exception{
+			ResultSet rs=null;
+			String str=null;
+			Connection con = DBConnection.getInstance().getConnection();
+			Statement stm = con.createStatement();
+			String sql="select question from users where email='"+email+"'";
+			rs=stm.executeQuery(sql);
+			while(rs.next()){
+				str=rs.getString("question");
+			}
+			System.out.println("the Question that extracted from the database:"+str);
+			return str;
+		}
+		public boolean checkSecurityQuestion(String email,String answer) throws Exception{
+			ResultSet rs=null;
+			String str="";
+			Connection con = DBConnection.getInstance().getConnection();
+			Statement stm = con.createStatement();
+			String sql="select  answer from users where email='"+email+"'";
+			rs=stm.executeQuery(sql);
+			while(rs.next()){
+				str=rs.getString("answer");
+			}
+			System.out.println("the answer that extracted from the database:"+str);
+			if(str.equals(answer)) {
+				create_uid(email);
+				return true;
+			}
+			return false;
+		}
+		
+		public String create_uid(String email)throws Exception{
+		
+	    String str, str3;
+		str3 = email;
+		Connection con = DBConnection.getInstance().getConnection();
+		Statement stm = con.createStatement();
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+		Date date = new Date();
+
+		System.out.println("starting date" + dateFormat.format(date));
+
+		Date dt = new Date();
+
+		Calendar c = Calendar.getInstance();
+
+		c.setTime(dt);
+
+		c.add(Calendar.DATE, 1);
+
+		dt = c.getTime();
+
+		System.out.println(dt);
+
+		System.out.println("expiration date" + dateFormat.format(dt));
+
+		MessageDigest sha = MessageDigest.getInstance("SHA-1");
+
+		byte[] result = sha.digest(str3.getBytes());
+
+		System.out.println("I am the  String" + str3);
+
+		System.out.println("Message encrypted " + hexEncode(result));
+
+		str = hexEncode(result);
+      
+		System.out.println("str: " + str);
+		stm = con.createStatement();
+
+		stm.executeUpdate("insert into pass_change values('" + str3 + "','"
+				+ dateFormat.format(date) + "','" + dateFormat.format(dt) + "','"
+				+ str + "')");
+
+		System.out.println("query executed");
+		return str;
 	}
 
+	static private String hexEncode(byte[] aInput) {
 
+		StringBuilder result = new StringBuilder();
+
+		char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+				'a', 'b', 'c', 'd', 'e', 'f' };
+
+		for (int idx = 0; idx < aInput.length; ++idx) {
+
+			byte b = aInput[idx];
+
+			result.append(digits[(b & 0xf0) >> 4]);
+
+			result.append(digits[b & 0x0f]);
+
+		}
+
+		return result.toString();
+
+	}
+	public boolean resetPassword(String email,String resetpass) throws Exception{
+		ResultSet rs=null;
+		String str="";
+		System.out.println("I am in the function");
+		Connection con = DBConnection.getInstance().getConnection();
+		Statement stm = con.createStatement();
+		String sql1="delete from pass_change where email='"+email+"'";
+		stm.executeUpdate(sql1);
+		String sql="update users set pass='"+resetpass+"' where Email='"+email+"'";
+		if(stm.getUpdateCount() > 0) {
+			try {
+				stm.executeUpdate(sql);
+				System.out.println("executeUpdate succeeded!");
+				return true;
+			} catch (SQLException e) {
+				return false;
+			}
+		}
+		return false;
+		
+	}
+	
+}
