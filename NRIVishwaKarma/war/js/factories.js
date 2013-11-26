@@ -47,6 +47,22 @@ angular.module('NRIVishwaKarma')
     dataFactory.updateInterestFactory = function(interest){
     	return $http.post('UpdateInterestServlet',interest);
     };
+    
+    dataFactory.getUserFactory = function(email){
+    	return $http.post('/UserGetServlet',email);
+    };
+    
+    dataFactory.updateUserFactory = function(user){
+    	return $http.post('/UserUpdateServlet',user);
+    };
+    
+    dataFactory.getInterestFactory = function(email){
+    	return $http.post('/GetInterestServlet',email);
+    };
+    
+    dataFactory.updateInterestFactory = function(interest){
+    	return $http.post('/UpdateInterestServlet',interest);
+    };
  
 	return dataFactory;
 }]);
