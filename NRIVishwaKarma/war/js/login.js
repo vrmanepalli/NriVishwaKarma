@@ -1,5 +1,5 @@
 app.controller("modalInstanceCtrl", function ($scope, $rootScope, $route, $modalInstance, 
-		$cookies, dataFactory) {
+		$cookies, dataFactory, $location) {
 	
 	$scope.showLogin = true;
 	$scope.showForgotPassword = false;
@@ -115,7 +115,12 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $route, $modal
 	};
 	
 	$scope.login = function () {
+		if($scope.input.password == undefined) {
+			$scope.errorMsg = "Must be between 8 and 100 characters.";
+			return;
+		}
 		$scope.errorMsg = "";
+		
 		var data = {
 			email: $scope.input.email,
 			password: $scope.input.password
@@ -131,7 +136,7 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $route, $modal
 					$rootScope.userEmail = $scope.input.email;
 					$rootScope.profileUser = $scope.input.email;
 					$rootScope.showLoggedInUser = true;
-					$route.reload();
+					$location.path("/Profile");
 					$modalInstance.close();
 				} else if(results.status == "false") {
 					$scope.errorMsg = results.message;
@@ -151,7 +156,7 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $route, $modal
 	};
 });
 
-app.controller("loginCtrl", function ($scope, $rootScope, $cookies, $route, dataFactory) {
+app.controller("loginCtrl", function ($scope, $rootScope, $cookies, $route, dataFactory, $location) {
 	$scope.showLogin = true;
 	$scope.showForgotPassword = false;
 	$scope.showSecurityQuestion = false;
@@ -299,6 +304,10 @@ app.controller("loginCtrl", function ($scope, $rootScope, $cookies, $route, data
 	};
 	
 	$scope.login = function () {
+		if($scope.input.password == undefined) {
+			$scope.errorMsg = "Must be between 8 and 100 characters.";
+			return;
+		}
 		$scope.errorMsg = "";
 		var data = {
 			email: $scope.input.email,
@@ -315,8 +324,8 @@ app.controller("loginCtrl", function ($scope, $rootScope, $cookies, $route, data
 					$rootScope.profileUser = $scope.input.email;
 					$rootScope.userEmail = $scope.input.email;
 					$rootScope.showLoggedInUser = true;
-					$route.reload();
-					//TODO redirect page
+					$location.path("/Profile");
+					$modalInstance.close();
 				} else if(results.status == "false") {
 					$scope.errorMsg = results.message;
 				}

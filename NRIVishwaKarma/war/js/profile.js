@@ -1,7 +1,7 @@
 'use strict';
 app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies, $location, $modal){
 
-	if($cookies.email === ""){
+	if($cookies.email == "" && $cookies.email == undefined){
 		$location.path('/Login');
 	}//if
 	else{
