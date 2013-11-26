@@ -7,6 +7,9 @@ public class UserProfile {
 	public String lname;
 	public String age;
 	public String bdate;
+	public String byear;
+	public String bmonth;
+	public String bday;
 	public String gender;
 	public String imageUrl;
 	public String country;
@@ -26,8 +29,7 @@ public class UserProfile {
 	public String school;
 	public String yearschool;
 	public String about;
-	public String interest;
-	
+
 	
 	public UserProfile(String email, String password, String fname,
 			String lname, String age, String bdate, String gender,
@@ -35,8 +37,7 @@ public class UserProfile {
 			int phone, String status, String fromcountry, String fromstate,
 			String fromcity, String job, String company, String degree,
 			String field, String univer, String yearuniver, String school,
-			String yearschool, String about, String interest, String sport,
-			String books, String movie, String music) {
+			String yearschool, String about) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -63,48 +64,47 @@ public class UserProfile {
 		this.school = school;
 		this.yearschool = yearschool;
 		this.about = about;
-		this.interest = interest;
-		this.sport = sport;
-		this.books = books;
-		this.movie = movie;
-		this.music = music;
 	}
-	public String getInterest() {
-		return interest;
-	}
-	public void setInterest(String interest) {
-		this.interest = interest;
-	}
-	public String getSport() {
-		return sport;
-	}
-	public void setSport(String sport) {
-		this.sport = sport;
-	}
-	public String getBooks() {
-		return books;
-	}
-	public void setBooks(String books) {
-		this.books = books;
-	}
-	public String getMovie() {
-		return movie;
-	}
-	public void setMovie(String movie) {
-		this.movie = movie;
-	}
-	public String getMusic() {
-		return music;
-	}
-	public void setMusic(String music) {
-		this.music = music;
-	}
-	public String sport;
-	public String books;
-	public String movie;
-	public String music;
 	
 	
+	@Override
+	public String toString() {
+		return "UserProfile [email=" + email + ", password=" + password
+				+ ", fname=" + fname + ", lname=" + lname + ", age=" + age
+				+ ", bdate=" + bdate + ", gender=" + gender + ", imageUrl="
+				+ imageUrl + ", country=" + country + ", state=" + state
+				+ ", city=" + city + ", phone=" + phone + ", status=" + status
+				+ ", fromcountry=" + fromcountry + ", fromstate=" + fromstate
+				+ ", fromcity=" + fromcity + ", job=" + job + ", company="
+				+ company + ", degree=" + degree + ", field=" + field
+				+ ", univer=" + univer + ", yearuniver=" + yearuniver
+				+ ", school=" + school + ", yearschool=" + yearschool
+				+ ", about=" + about + "]";
+	}
+
+	
+	public String getByear() {
+		return byear;
+	}
+	public void setByear(String byear) {
+		this.byear = byear;
+	}
+	public String getBmonth() {
+		return bmonth;
+	}
+	public void setBmonth(String bmonth) {
+		this.bmonth = bmonth;
+	}
+	public String getBday() {
+		return bday;
+	}
+
+
+	public void setBday(String bday) {
+		this.bday = bday;
+	}
+
+
 	public String getEmail() {
 		return email;
 	}
@@ -259,21 +259,6 @@ public class UserProfile {
 	public UserProfile() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "UserProfile [email=" + email + ", password=" + password
-				+ ", fname=" + fname + ", lname=" + lname + ", age=" + age
-				+ ", bdate=" + bdate + ", gender=" + gender + ", imageUrl="
-				+ imageUrl + ", country=" + country + ", state=" + state
-				+ ", city=" + city + ", phone=" + phone + ", status=" + status
-				+ ", fromcountry=" + fromcountry + ", fromstate=" + fromstate
-				+ ", fromcity=" + fromcity + ", job=" + job + ", company="
-				+ company + ", degree=" + degree + ", field=" + field
-				+ ", univer=" + univer + ", yearuniver=" + yearuniver
-				+ ", school=" + school + ", yearschool=" + yearschool
-				+ ", about=" + about + ", interest=" + interest + ", sport="
-				+ sport + ", books=" + books + ", movie=" + movie + ", music="
-				+ music + "]";
-	}
+	
 	
 }
