@@ -22,6 +22,10 @@ var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'ngCookies', 'imageu
 		templateUrl: "pages/wall.html",
 		controller: "wallCtrl"
 	})
+	.when("/Members", {
+		templateUrl: "pages/members.html",
+		controller: "membersCtrl"
+	})
 	.when("/Profile", {
 		templateUrl: "pages/profile.html",
 		controller: "profileCtrl"

@@ -202,6 +202,33 @@ app.controller("loginCtrl", function ($scope, $rootScope, $cookies, $route, data
 			});
 	};
 	
+//	$scope.sendNewPassword = function() {
+//		if($scope.input.resetPassword != $scope.input.confPassword) {
+//			$scope.errorMsg = "Must be at least 8 characters and match.";
+//			return;
+//		}
+//		$scope.errorMsg = "";
+//		var data = {
+//			email: $cookies.email,
+//			password: $cookies.password,
+//			resetPassword: $scope.input.resetPassword
+//		};
+//		console.log(data);
+//		dataFactory.updatePassword(JSON.stringify(data))
+//			.success(function(results) {
+//				if(results.status == "true") {
+//					$scope.securityQuestion = results.question;
+//					$scope.showResetPassword = false;
+//					$scope.showResetMsg = true;
+//				} else {
+//					$scope.errorMsg = "Failed to update password. Try again.";
+//				}
+//			})
+//			.error(function(error) {
+//				$scope.errorMsg = "A server error occured. Please try again.";
+//			});
+//	};
+	
 	$scope.forgotPassword = function() {
 		$scope.errorMsg = "";
 		$("#forgotLink").removeAttr("href");

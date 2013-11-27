@@ -1,0 +1,64 @@
+<div class="members-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="span6 filter">
+				<a href="#" class="btn btn-primary" id="All" ng-click="setAlphabeticFilter('All')">All</a> 
+				<a href="#" id="A">A</a>
+				<a href="#" id="B">B</a>
+				<a href="#" id="C">C</a>
+				<a href="#" id="D">D</a>
+				<a href="#" id="E">E</a>
+				<a href="#" id="F">F</a>
+				<a href="#" id="G">G</a>
+				<a href="#" id="H">H</a>
+				<a href="#" id="I">I</a>
+				<a href="#" id="J">J</a>
+				<a href="#" id="K">K</a>
+				<a href="#" id="L">L</a>
+				<a href="#" id="M">M</a>
+				<a href="#" id="N">N</a>
+				<a href="#" id="O">O</a>
+				<a href="#" id="P">P</a>
+				<a href="#" id="Q">Q</a>
+				<a href="#" id="R">R</a>
+				<a href="#" id="S">S</a>
+				<a href="#" id="T">T</a>
+				<a href="#" id="U">U</a>
+				<a href="#" id="V">V</a>
+				<a href="#" id="W">W</a>
+				<a href="#" id="X">X</a>
+				<a href="#" id="Y">Y</a>
+				<a href="#" id="Z">Z</a>
+			</div>
+			<div class="span6">
+				<button class="btn btn-primary search-button">Search</button> 
+				<input type="text" id="searchBox" class="search-box" ng-model="searchBox" placeholder="search">
+			</div>
+		</div>
+		<div class="member-wrapper">
+			<div class="member" ng-repeat="member in members">
+				{{member.FName}} {{member.LName}}
+			</div>
+		</div>	
+		<div class="row">
+			<div class="span12">
+				<div class="pagination">
+ 					<ul>
+    					<li><a href="#" id="prev">Prev</a></li>
+   				 		<li><a href="#" id="0">{{pageNumbers[0]}}</a></li>
+    					<li><a href="#" id="1">{{pageNumbers[1]}}</a></li>
+    					<li><a href="#" id="2">{{pageNumbers[2]}}</a></li>
+    					<li><a href="#" id="3">{{pageNumbers[3]}}</a></li>
+    					<li><a href="#" id="4">{{pageNumbers[4]}}</a></li>
+    					<li><a href="#" id="5">{{pageNumbers[5]}}</a></li>
+    					<li><a href="#" id="6">{{pageNumbers[6]}}</a></li>
+    					<li><a href="#" id="7">{{pageNumbers[7]}}</a></li>
+    					<li><a href="#" id="8">{{pageNumbers[8]}}</a></li>
+    					<li><a href="#" id="9">{{pageNumbers[9]}}</a></li>
+    					<li><a href="#" id="next">Next</a></li>
+  					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
