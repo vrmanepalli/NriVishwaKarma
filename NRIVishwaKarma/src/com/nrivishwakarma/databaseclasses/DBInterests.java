@@ -12,7 +12,7 @@ public class DBInterests {
 	
 	public Interests getInterests(String email) throws Exception{
 			Interests inter = new Interests();
-			Connection con=DBConnection.getInstance().getConnection();
+			Connection con=DBConnectionKatrina.getInstance().getConnection();
 			Statement stm=(Statement) con.createStatement();
 			ResultSet rs = (ResultSet) stm.executeQuery
 					("select * from interests where email = '"+email+"'");
@@ -98,42 +98,94 @@ public class DBInterests {
 	}//method to get all interests of user by email
 	
 	public void updateInterests(Interests inter) throws Exception{
-		Connection con=DBConnection.getInstance().getConnection();
+		Connection con=DBConnectionKatrina.getInstance().getConnection();
 		System.out.println("From updateinterest.class inter: "+inter);
-		PreparedStatement pstm = con.prepareStatement("update interests set photo=?, collecting=?, needlework=?, pcgames=?, travel=?,"
-				+ " computer=?,       cookery=?,            art=?, auto=?,    theater=?,         haunting=?,        science=?,        bookclassic=?,   bookcomedy=?, bookfantasy=?,"
-				+ " bookscience=?,    booktragedy=?,        booklovestory=?,  bookhorror=?,      bookbiography=?,   bookdetective=?,  moviearthouse=?, moviecomedy=?,"
-				+ " movieadventure=?, moviemusical=?,       movietvseries=?,  moviehistorical=?, moviefantasy=?,    moviedetective=?, moviedrama=?, "
-				+ "moviescience=?,    moviethriller=?,      moviehorror=?,    moviewestern=?,    moviesitcom=?,     musicpop=?,       musicpank=?,     musicdance=?, "
-				+ "musicshanson=?,    musicrnb=?,           musicdisco=?,     musiclatino=?,     musiccountry=?,    musichip_hop=?,   musicjass=?,     musicretro=?, "
-				+ "musictechno=?,     musicclassic=?,       musicrocknroll=?, musicsastriya_sangeet=?, musicrock=?, sportrunning=?,   sporthockey=?, "
-				+ "sportdiving=?,     sportjudo=?,          sportsoccer=?,    sportfitness=?,    sportbowling=?,    sportskates=?,    sportfootball=?, sportswimming=?, "
-				+ "sportsurfing=?,    sportroller_skates=?, sportvolyball=?,  sportbicycle=?,    sportyoga=?,       sportskilling=?,  sportbaseball=?, "
-				+ "sporttennis=?,     sportboxing=?,        sportbasketball=?,sportsnowboard=?, sportkickboxing=?   where email='"+inter.getEmail()+"'");
-		pstm.setString(1, inter.getPhoto());				pstm.setString(2, inter.getCollecting());		pstm.setString(3, inter.getNeedlework());
-		pstm.setString(4, inter.getPcgames());				pstm.setString(5, inter.getTravel());			pstm.setString(6, inter.getComputer());
-		pstm.setString(7, inter.getCookery());				pstm.setString(8, inter.getArt());				pstm.setString(9, inter.getAuto());
-		pstm.setString(10, inter.getTheater());				pstm.setString(11, inter.getHaunting());		pstm.setString(12, inter.getScience());     pstm.setString(13, inter.getBookclassic());
-		pstm.setString(14, inter.getBookcomedy());			pstm.setString(15, inter.getBookfantasy());		pstm.setString(16, inter.getBookscience());
-		pstm.setString(17, inter.getBooktragedy());			pstm.setString(18, inter.getBooklovestory());	pstm.setString(19, inter.getBookhorror());
-		pstm.setString(20, inter.getBookbiography());		pstm.setString(21, inter.getBookdetective());	pstm.setString(22, inter.getMoviearthouse());
-		pstm.setString(23, inter.getMoviecomedy());			pstm.setString(24, inter.getMovieadventure());	pstm.setString(25, inter.getMoviemusical());
-		pstm.setString(26, inter.getMovietvseries());		pstm.setString(27, inter.getMoviehistorical());	pstm.setString(28, inter.getMoviefantasy());
-		pstm.setString(29, inter.getMoviedetective());		pstm.setString(30, inter.getMoviedrama());		pstm.setString(31, inter.getMoviescience());
-		pstm.setString(32, inter.getMoviethriller());		pstm.setString(33, inter.getMoviehorror());		pstm.setString(34, inter.getMoviewestern());
-		pstm.setString(35, inter.getMoviesitcom());			pstm.setString(36, inter.getMusicpop());		pstm.setString(37, inter.getMusicpank());
-		pstm.setString(38, inter.getMusicdance());			pstm.setString(39, inter.getMusicshanson());	pstm.setString(40, inter.getMusicrnb());
-		pstm.setString(41, inter.getMusicdisco());			pstm.setString(42, inter.getMusiclatino());		pstm.setString(43, inter.getMusiccountry());
-		pstm.setString(44, inter.getMusichip_hop());		pstm.setString(45, inter.getMusicjass());		pstm.setString(46, inter.getMusicretro());
-		pstm.setString(47, inter.getMusictechno());			pstm.setString(48, inter.getMusicclassic());	pstm.setString(49, inter.getMusicrocknroll());
-		pstm.setString(50, inter.getMusicsastriya_sangeet());pstm.setString(51, inter.getMusicrock());		pstm.setString(52, inter.getSportrunning());
-		pstm.setString(53, inter.getSporthockey());			pstm.setString(54, inter.getSportdiving());		pstm.setString(55, inter.getSportjudo());
-		pstm.setString(56, inter.getSportsoccer());			pstm.setString(57, inter.getSportfitness());	pstm.setString(58, inter.getSportbowling());
-		pstm.setString(59, inter.getSportskates());			pstm.setString(60, inter.getSportfootball());	pstm.setString(61, inter.getSportswimming());
-		pstm.setString(62, inter.getSportsurfing());		pstm.setString(63, inter.getSportroller_skates());pstm.setString(64, inter.getSportvolyball());
-		pstm.setString(65, inter.getSportbicycle()); 		pstm.setString(66, inter.getSportyoga());		pstm.setString(67, inter.getSportskilling());
-		pstm.setString(68, inter.getSportbaseball());		pstm.setString(69, inter.getSporttennis());		pstm.setString(70, inter.getSportboxing());
-		pstm.setString(71, inter.getSportbasketball());		pstm.setString(72, inter.getSportsnowboard());	pstm.setString(73, inter.getSportkickboxing());
-		pstm.execute();
+		if (checkEmail(inter.getEmail())){
+			PreparedStatement pstm = con.prepareStatement("update interests set photo=?, collecting=?, needlework=?, pcgames=?, travel=?,"
+					+ " computer=?,       cookery=?,            art=?, auto=?,    theater=?,         haunting=?,        science=?,        bookclassic=?,   bookcomedy=?, bookfantasy=?,"
+					+ " bookscience=?,    booktragedy=?,        booklovestory=?,  bookhorror=?,      bookbiography=?,   bookdetective=?,  moviearthouse=?, moviecomedy=?,"
+					+ " movieadventure=?, moviemusical=?,       movietvseries=?,  moviehistorical=?, moviefantasy=?,    moviedetective=?, moviedrama=?, "
+					+ "moviescience=?,    moviethriller=?,      moviehorror=?,    moviewestern=?,    moviesitcom=?,     musicpop=?,       musicpank=?,     musicdance=?, "
+					+ "musicshanson=?,    musicrnb=?,           musicdisco=?,     musiclatino=?,     musiccountry=?,    musichip_hop=?,   musicjass=?,     musicretro=?, "
+					+ "musictechno=?,     musicclassic=?,       musicrocknroll=?, musicsastriya_sangeet=?, musicrock=?, sportrunning=?,   sporthockey=?, "
+					+ "sportdiving=?,     sportjudo=?,          sportsoccer=?,    sportfitness=?,    sportbowling=?,    sportskates=?,    sportfootball=?, sportswimming=?, "
+					+ "sportsurfing=?,    sportroller_skates=?, sportvolyball=?,  sportbicycle=?,    sportyoga=?,       sportskilling=?,  sportbaseball=?, "
+					+ "sporttennis=?,     sportboxing=?,        sportbasketball=?,sportsnowboard=?, sportkickboxing=?   where email='"+inter.getEmail()+"'");
+			pstm.setString(1, inter.getPhoto());				pstm.setString(2, inter.getCollecting());		pstm.setString(3, inter.getNeedlework());
+			pstm.setString(4, inter.getPcgames());				pstm.setString(5, inter.getTravel());			pstm.setString(6, inter.getComputer());
+			pstm.setString(7, inter.getCookery());				pstm.setString(8, inter.getArt());				pstm.setString(9, inter.getAuto());
+			pstm.setString(10, inter.getTheater());				pstm.setString(11, inter.getHaunting());		pstm.setString(12, inter.getScience());     pstm.setString(13, inter.getBookclassic());
+			pstm.setString(14, inter.getBookcomedy());			pstm.setString(15, inter.getBookfantasy());		pstm.setString(16, inter.getBookscience());
+			pstm.setString(17, inter.getBooktragedy());			pstm.setString(18, inter.getBooklovestory());	pstm.setString(19, inter.getBookhorror());
+			pstm.setString(20, inter.getBookbiography());		pstm.setString(21, inter.getBookdetective());	pstm.setString(22, inter.getMoviearthouse());
+			pstm.setString(23, inter.getMoviecomedy());			pstm.setString(24, inter.getMovieadventure());	pstm.setString(25, inter.getMoviemusical());
+			pstm.setString(26, inter.getMovietvseries());		pstm.setString(27, inter.getMoviehistorical());	pstm.setString(28, inter.getMoviefantasy());
+			pstm.setString(29, inter.getMoviedetective());		pstm.setString(30, inter.getMoviedrama());		pstm.setString(31, inter.getMoviescience());
+			pstm.setString(32, inter.getMoviethriller());		pstm.setString(33, inter.getMoviehorror());		pstm.setString(34, inter.getMoviewestern());
+			pstm.setString(35, inter.getMoviesitcom());			pstm.setString(36, inter.getMusicpop());		pstm.setString(37, inter.getMusicpank());
+			pstm.setString(38, inter.getMusicdance());			pstm.setString(39, inter.getMusicshanson());	pstm.setString(40, inter.getMusicrnb());
+			pstm.setString(41, inter.getMusicdisco());			pstm.setString(42, inter.getMusiclatino());		pstm.setString(43, inter.getMusiccountry());
+			pstm.setString(44, inter.getMusichip_hop());		pstm.setString(45, inter.getMusicjass());		pstm.setString(46, inter.getMusicretro());
+			pstm.setString(47, inter.getMusictechno());			pstm.setString(48, inter.getMusicclassic());	pstm.setString(49, inter.getMusicrocknroll());
+			pstm.setString(50, inter.getMusicsastriya_sangeet());pstm.setString(51, inter.getMusicrock());		pstm.setString(52, inter.getSportrunning());
+			pstm.setString(53, inter.getSporthockey());			pstm.setString(54, inter.getSportdiving());		pstm.setString(55, inter.getSportjudo());
+			pstm.setString(56, inter.getSportsoccer());			pstm.setString(57, inter.getSportfitness());	pstm.setString(58, inter.getSportbowling());
+			pstm.setString(59, inter.getSportskates());			pstm.setString(60, inter.getSportfootball());	pstm.setString(61, inter.getSportswimming());
+			pstm.setString(62, inter.getSportsurfing());		pstm.setString(63, inter.getSportroller_skates());pstm.setString(64, inter.getSportvolyball());
+			pstm.setString(65, inter.getSportbicycle()); 		pstm.setString(66, inter.getSportyoga());		pstm.setString(67, inter.getSportskilling());
+			pstm.setString(68, inter.getSportbaseball());		pstm.setString(69, inter.getSporttennis());		pstm.setString(70, inter.getSportboxing());
+			pstm.setString(71, inter.getSportbasketball());		pstm.setString(72, inter.getSportsnowboard());	pstm.setString(73, inter.getSportkickboxing());
+			pstm.execute();
+		}//if
+		else{
+			PreparedStatement pstm=con.prepareStatement
+					("insert into interests values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
+												 + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
+												 + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			pstm.setString(1, inter.getEmail());
+			pstm.setString(2, inter.getPhoto());				pstm.setString(3, inter.getCollecting());		pstm.setString(4, inter.getNeedlework());
+			pstm.setString(5, inter.getPcgames());				pstm.setString(6, inter.getTravel());			pstm.setString(7, inter.getComputer());
+			pstm.setString(8, inter.getCookery());				pstm.setString(9, inter.getArt());				pstm.setString(10, inter.getAuto());
+			pstm.setString(11, inter.getTheater());				pstm.setString(12, inter.getHaunting());		pstm.setString(13, inter.getScience());     pstm.setString(14, inter.getBookclassic());
+			pstm.setString(15, inter.getBookcomedy());			pstm.setString(16, inter.getBookfantasy());		pstm.setString(17, inter.getBookscience());
+			pstm.setString(18, inter.getBooktragedy());			pstm.setString(19, inter.getBooklovestory());	pstm.setString(20, inter.getBookhorror());
+			pstm.setString(21, inter.getBookbiography());		pstm.setString(22, inter.getBookdetective());	pstm.setString(23, inter.getMoviearthouse());
+			pstm.setString(24, inter.getMoviecomedy());			pstm.setString(25, inter.getMovieadventure());	pstm.setString(26, inter.getMoviemusical());
+			pstm.setString(27, inter.getMovietvseries());		pstm.setString(28, inter.getMoviehistorical());	pstm.setString(29, inter.getMoviefantasy());
+			pstm.setString(30, inter.getMoviedetective());		pstm.setString(31, inter.getMoviedrama());		pstm.setString(32, inter.getMoviescience());
+			pstm.setString(33, inter.getMoviethriller());		pstm.setString(34, inter.getMoviehorror());		pstm.setString(35, inter.getMoviewestern());
+			pstm.setString(36, inter.getMoviesitcom());			pstm.setString(37, inter.getMusicpop());		pstm.setString(38, inter.getMusicpank());
+			pstm.setString(39, inter.getMusicdance());			pstm.setString(40, inter.getMusicshanson());	pstm.setString(41, inter.getMusicrnb());
+			pstm.setString(42, inter.getMusicdisco());			pstm.setString(43, inter.getMusiclatino());		pstm.setString(44, inter.getMusiccountry());
+			pstm.setString(45, inter.getMusichip_hop());		pstm.setString(46, inter.getMusicjass());		pstm.setString(47, inter.getMusicretro());
+			pstm.setString(48, inter.getMusictechno());			pstm.setString(49, inter.getMusicclassic());	pstm.setString(50, inter.getMusicrocknroll());
+			pstm.setString(51, inter.getMusicsastriya_sangeet());pstm.setString(52, inter.getMusicrock());		pstm.setString(53, inter.getSportrunning());
+			pstm.setString(54, inter.getSporthockey());			pstm.setString(55, inter.getSportdiving());		pstm.setString(56, inter.getSportjudo());
+			pstm.setString(57, inter.getSportsoccer());			pstm.setString(58, inter.getSportfitness());	pstm.setString(59, inter.getSportbowling());
+			pstm.setString(60, inter.getSportskates());			pstm.setString(61, inter.getSportfootball());	pstm.setString(62, inter.getSportswimming());
+			pstm.setString(63, inter.getSportsurfing());		pstm.setString(64, inter.getSportroller_skates());pstm.setString(65, inter.getSportvolyball());
+			pstm.setString(66, inter.getSportbicycle()); 		pstm.setString(67, inter.getSportyoga());		pstm.setString(68, inter.getSportskilling());
+			pstm.setString(69, inter.getSportbaseball());		pstm.setString(70, inter.getSporttennis());		pstm.setString(71, inter.getSportboxing());
+			pstm.setString(72, inter.getSportbasketball());		pstm.setString(73, inter.getSportsnowboard());	pstm.setString(74, inter.getSportkickboxing());
+			pstm.execute();
+		}//else
 	}//method for update interests of user
+	
+	public boolean checkEmail(String email){
+		boolean status = false;
+		try {
+			Connection con=DBConnectionKatrina.getInstance().getConnection();
+			Statement stm=(Statement) con.createStatement();
+			ResultSet rs = (ResultSet) stm.executeQuery("select * from interests where email = '"+ email+"'");
+			if(rs.first()){
+				status=true;
+			}
+		}	
+		 catch (Exception e) {
+			e.printStackTrace();
+		}//catch
+		finally{
+			return status;
+		}//finally
+	}//method getDate
 }
