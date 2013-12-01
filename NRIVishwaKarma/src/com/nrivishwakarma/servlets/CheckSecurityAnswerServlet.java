@@ -19,6 +19,7 @@ public class CheckSecurityAnswerServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		System.out.println("");
 		System.out.println("in checkSecurityQuestion");
 		boolean status = false;
 		StringBuilder sb = new StringBuilder();
