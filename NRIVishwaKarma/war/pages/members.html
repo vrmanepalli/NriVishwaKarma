@@ -31,7 +31,7 @@
 				<a href="#" id="Z">Z</a>
 			</div>
 			<div class="span6">
-				<button class="btn btn-primary search-button">Search</button> 
+				<button class="btn btn-primary search-button" ng-click="searchByName()">Search</button> 
 				<input type="text" id="searchBox" class="search-box" ng-model="searchBox" placeholder="search">
 			</div>
 		</div>
@@ -45,16 +45,16 @@
 				<div class="pagination">
  					<ul>
     					<li><a href="#" id="prev">Prev</a></li>
-   				 		<li><a href="#" id="0">{{pageNumbers[0]}}</a></li>
-    					<li><a href="#" id="1">{{pageNumbers[1]}}</a></li>
-    					<li><a href="#" id="2">{{pageNumbers[2]}}</a></li>
-    					<li><a href="#" id="3">{{pageNumbers[3]}}</a></li>
-    					<li><a href="#" id="4">{{pageNumbers[4]}}</a></li>
-    					<li><a href="#" id="5">{{pageNumbers[5]}}</a></li>
-    					<li><a href="#" id="6">{{pageNumbers[6]}}</a></li>
-    					<li><a href="#" id="7">{{pageNumbers[7]}}</a></li>
-    					<li><a href="#" id="8">{{pageNumbers[8]}}</a></li>
-    					<li><a href="#" id="9">{{pageNumbers[9]}}</a></li>
+   				 		<li><a href="#" id="0" ng-show="showPageNumbers">{{pageNumbers[0]}}</a></li>
+    					<li><a href="#" id="1" ng-show="showPageNumbers">{{pageNumbers[1]}}</a></li>
+    					<li><a href="#" id="2" ng-show="showPageNumbers">{{pageNumbers[2]}}</a></li>
+    					<li><a href="#" id="3" ng-show="showPageNumbers">{{pageNumbers[3]}}</a></li>
+    					<li><a href="#" id="4" ng-show="showPageNumbers">{{pageNumbers[4]}}</a></li>
+    					<li><a href="#" id="5" ng-show="showPageNumbers">{{pageNumbers[5]}}</a></li>
+    					<li><a href="#" id="6" ng-show="showPageNumbers">{{pageNumbers[6]}}</a></li>
+    					<li><a href="#" id="7" ng-show="showPageNumbers">{{pageNumbers[7]}}</a></li>
+    					<li><a href="#" id="8" ng-show="showPageNumbers">{{pageNumbers[8]}}</a></li>
+    					<li><a href="#" id="9" ng-show="showPageNumbers">{{pageNumbers[9]}}</a></li>
     					<li><a href="#" id="next">Next</a></li>
   					</ul>
 				</div>

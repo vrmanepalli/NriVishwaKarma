@@ -108,6 +108,31 @@
         <servlet-name>UserUpdateServlet</servlet-name>
         <url-pattern>/UserUpdateServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>MembersShowServlet</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.MembersShowServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MembersShowServlet</servlet-name>
+        <url-pattern>/MembersShowServlet</url-pattern>
+    </servlet-mapping>
+   <servlet>
+        <servlet-name>MemberShowServletByName</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.MemberShowServletByName</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MemberShowServletByName</servlet-name>
+        <url-pattern>/MemberShowServletByName</url-pattern>
+    </servlet-mapping>
+  
+  <servlet>
+        <servlet-name>MembersShowAlphabeticServlet</servlet-name>
+        <servlet-class>com.nrivishwakarma.servlets.MembersShowAlphabeticServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MembersShowAlphabeticServlet</servlet-name>
+        <url-pattern>/MembersShowAlphabeticServlet</url-pattern>
+    </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
