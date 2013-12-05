@@ -56,14 +56,15 @@
 					<p align="center"><img class="avatar" src="{{imageUrl}}"></p>
 					<div class="well">
 						<ul class="nav nav-pills nav-stacked">
-							<li><a href="#"><i class="icon-envelope"></i> Message ({{numOfMessage}})</a></li>
+							<li><a href="#" ng-hide="User"><i class="icon-envelope"></i> Message ({{numOfMessage}})</a><a href="#" ng-show="User"><i class="icon-envelope"></i> Send message</a></li>
+							<li><a href="#" ng-show="User"><i class="icon-plus-sign"></i> Add to friends</a></li>
 							<li><a href="#"><i class="icon-camera"></i> Photo ({{numOfPhoto}})</a></li>
 							<li><a href="#"><i class="icon-film"></i> Video ({{numOfVideo}})</a></li>
 							<li><a href="#"><i class="icon-user"></i> Friends ({{numOfFriends}})</a></li>
 							<li><a href="#"><i class="icon-globe"></i> Groups ({{numOfGroups}})</a></li>
 							<li><a href="#"><i class="icon-tasks"></i> Events</a></li>
 							<li class="divider"></li>
-							<li><a href="#"><i class="icon-share"></i> Log out</a></li>
+							<li><a href="#" ng-hide="User"><i class="icon-share"></i> Log out</a></li>
 						</ul>
 					</div>
 				</div>

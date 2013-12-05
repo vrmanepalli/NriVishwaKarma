@@ -33,7 +33,7 @@ var app = angular.module("NRIVishwaKarma", ['ui.bootstrap', 'ngCookies', 'imageu
 	.otherwise({redirectTo: '/Home'});
 });
 
-app.controller("NRIVishwaKarmaCtrl", function($scope, $rootScope, $modal, $log, $cookies) {
+app.controller("NRIVishwaKarmaCtrl", function($scope, $rootScope, $modal, $log, $cookies, $route) {
 	
 	$rootScope.showLoggedInUser = false;
 	$rootScope.userEmail = "";
@@ -57,6 +57,13 @@ app.controller("NRIVishwaKarmaCtrl", function($scope, $rootScope, $modal, $log, 
 			$log.info('Modal dismissed at: ' + new Date());
 		});
 	};
+	
+	$scope.openProf = function(){
+		console.log("in function openProf in NRIVishwaKarma.js");
+		$route.reload();
+		$rootScope.profileUser = $cookies.email;
+		console.log("$rootScope.profileUser="+$rootScope.profileUser+" $cookies.email"+$cookies.email);
+	}
 	
 	$scope.logOut = function() {
 		$cookies.signedIn = "false";

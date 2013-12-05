@@ -1,6 +1,6 @@
 'use strict';
 app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies, $location, $modal){
-
+	
 	if($cookies.email === "" || $cookies.email === undefined){
 		$location.path('/Login');
 	}//if
@@ -39,7 +39,7 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies, $l
 		if($scope.user.fromcountry===""|| ($scope.user.fromcountry===undefined)){$scope.fromaddresshide=true;}else{$scope.fromaddresshide=false;}
 		if(($scope.user.about==="") || ($scope.user.about===undefined)){$scope.abouthide=true;}else{$scope.abouthide=false;}
 		if($scope.user.gender==="male"){$scope.colorGender="blue";}
-		else if($scope.user.gender==="female"){$scope.colorGender="pink";}
+		else if($scope.user.gender==="female"){$scope.colorGender="red";}
 		$scope.datepicker = {date: new Date($scope.user.bdate)};
 		
 		$scope.Fname=$scope.user.fname;
@@ -66,11 +66,11 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies, $l
 		$scope.Yearuniver = $scope.user.yearuniver;
 		$scope.School = $scope.user.school;
 		$scope.Yearschool = $scope.user.yearschool;
-		if($scope.user.job===""){$scope.jobhide=true;}
-		if($scope.user.field===""){$scope.degreehide=true;}
-		if($scope.user.univer===""){$scope.univerhide=true;}
-		if($scope.user.school===""){$scope.schoolhide=true;}
-		if(($scope.user.job==="")&&($scope.user.field==="")&&($scope.user.univer==="")&&($scope.user.school==="")){
+		if(($scope.user.job==="")||($scope.user.job===undefined)){$scope.jobhide=true;}
+		if(($scope.user.field==="")||($scope.user.field===undefined)){$scope.degreehide=true;}
+		if(($scope.user.univer==="")||($scope.user.univer===undefined)){$scope.univerhide=true;}
+		if(($scope.user.school==="")||($scope.user.school===undefined)){$scope.schoolhide=true;}
+		if((($scope.user.job==="")||($scope.user.job===undefined))&&(($scope.user.field==="")||($scope.user.field===undefined))&&(($scope.user.univer==="")||($scope.user.univer===undefined))&&(($scope.user.school==="")||($scope.user.school===undefined))){
 			$scope.allCareer=true;
 		}
 	
@@ -172,7 +172,7 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies, $l
 		if($scope.mus===""){$scope.music=true;}else{$scope.music=false;}
 		if($scope.mov===""){$scope.movie=true;}else{$scope.movie=false;}
 		if($scope.book===""){$scope.books=true;}else{$scope.books=false;}
-		if(($scope.interest==="")&&($scope.sp==="")&&($scope.mus==="")&&($scope.mov==="")&&($scope.books==="")){
+		if(($scope.interest==="")&&($scope.sp==="")&&($scope.mus==="")&&($scope.mov==="")&&($scope.book==="")){
 			$scope.allInter=true;
 		}else{$scope.allInter=false;}
 	}
@@ -376,24 +376,18 @@ app.controller('profileCtrl',function($scope,$rootScope,dataFactory,$cookies, $l
 		$scope.Interests = false;
 	}
 	$scope.editSecurity = function(){
-		$scope.changeSecurity = true;
+		$rootScope.resetPassword = true;
+		var modalInstance = $modal.open({
+			templateUrl: 'pages/login.html',
+			controller: "modalInstanceCtrl"
+		});
+//		$scope.changeSecurity = true;
 	}
 	$scope.cancelSecurity = function(){
 		$scope.changeSecurity = false;
 	}
 	$scope.okSecurity = function(){
-		console.log("password="+$scope.password);
-		$scope.changepass={
-				email:$rootScope.profileUser,
-				password:$scope.password,
-		}
-		dataFactory.changePassfactory($scope.changepass)
-		.success(function(){
-			$scope.changeSecurity = false;
-		})
-		.error(function(error){
-			colsole.log("ERROR in change password \n"+error);
-		})
+		
 	}
 	
 	/*****************Choose Avatar Modal *********************/

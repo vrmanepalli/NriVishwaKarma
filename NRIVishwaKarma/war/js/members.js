@@ -1,8 +1,9 @@
-app.controller("membersCtrl", function($scope,dataFactory,$rootScope) {
+app.controller("membersCtrl", function($scope,dataFactory,$rootScope,$location) {
 	$scope.alphabeticFilter = "All";
 	$scope.searchBox = "";
     //$scope.pageNumbers = [1,2,3,4,5,6,7,8,9,10];
 	$scope.showPageNumbers=true;	
+	
 	dataFactory.showAllMembers().success(function(members){
 	    console.log("success");
 	    $scope.members=members;
@@ -49,14 +50,10 @@ app.controller("membersCtrl", function($scope,dataFactory,$rootScope) {
 			    console.log("success");
 			    $scope.members=members;
 			    console.log(members[1].c[3]);
-			    
-				
 				})
 				.error(function(error){
 					console.log("error in getting values for all \n"+error);
-				});
-			
-			
+				});	
 		}
 		else{
 		
@@ -76,13 +73,17 @@ app.controller("membersCtrl", function($scope,dataFactory,$rootScope) {
 		}
 	};
 	
+	$scope.openProfile = function(Email){
+		$rootScope.profileUser = Email;
+		$location.path('/Profile');
+	};
+	
 	$scope.requestSelectedPage = function(pageNum) {
 		console.log($scope.pageNumbers[pageNum]);
 		console.log($scope.alphabeticFilter);
 	};
 	
-	$scope.searchByName = function(){
-		
+	$scope.searchByName = function(){	
 	var data={	
 		searchBox:$scope.searchBox
 	          };

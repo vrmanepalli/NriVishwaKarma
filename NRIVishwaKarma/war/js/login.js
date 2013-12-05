@@ -1,10 +1,11 @@
 app.controller("modalInstanceCtrl", function ($scope, $rootScope, $route, $modalInstance, 
 		$cookies, dataFactory, $location) {
+	if($rootScope.resetPassword){$scope.showResetPassword = true;$scope.showLogin = false;}//for change password in profile page
+	else{$scope.showResetPassword = false;$scope.showLogin = true;}
 	
-	$scope.showLogin = true;
+//------------------------------------------------------------------------------------------------------------------------------	
 	$scope.showForgotPassword = false;
 	$scope.showSecurityQuestion = false;
-	$scope.showResetPassword = false;
 	$scope.showResetMsg = false;
 	$scope.showEmailReset = false;
 	$scope.resetMsg = "Please wait...";
@@ -93,6 +94,9 @@ app.controller("modalInstanceCtrl", function ($scope, $rootScope, $route, $modal
 			return;
 		}
 		$scope.errorMsg = "";
+		if(($scope.input.email === undefined)||($scope.input.email==="")){//for change password in profile page
+			$scope.input.email=$cookies.email;
+		}//--------------------------------------------------------------------------------------------------
 		var data = {
 			email: $scope.input.email,
 			password: $scope.input.resetPassword

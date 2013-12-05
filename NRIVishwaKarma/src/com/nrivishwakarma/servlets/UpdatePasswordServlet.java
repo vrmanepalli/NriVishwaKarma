@@ -29,7 +29,7 @@ public class UpdatePasswordServlet extends HttpServlet {
 		}
 		System.out.println("Email and password"+sb.toString());
 		UserDetails ud = new Gson().fromJson(sb.toString(), UserDetails.class);
-		System.out.print("data from the front end "+ud.email);
+		System.out.println("data from the front end "+ud.email);
 		try {
 			DataBaseRegister dbr = new DataBaseRegister();
 			System.out.println("before calling the function");

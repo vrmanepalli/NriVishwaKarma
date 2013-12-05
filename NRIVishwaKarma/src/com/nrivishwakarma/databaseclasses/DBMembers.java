@@ -2,11 +2,12 @@ package com.nrivishwakarma.databaseclasses;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.nrivishwakarma.databaseclasses.DBConnection;
-import com.nrivishwakarma.utilities.MemberDetails;
 import com.nrivishwakarma.utilities.*;
 
 public class DBMembers {
@@ -45,8 +46,55 @@ public class DBMembers {
 		       md.count=mdc.count;
 		       for(int i=1;i<=mdc.b;i++)
 		    	   md.c[i-1]=mdc.c[i-1];
+		    md.email=rs.getString("Email");
 			md.FName=rs.getString("FName");
-			System.out.println(rs.getString("FName"));
+			md.LName=rs.getString("LName");
+			md.bdate=rs.getString("bday");
+			md.gender=rs.getString("gender");
+			if(md.gender.equals("male")){md.color="blue";}
+			else if(md.gender.equals("female")){md.color="red";}
+			md.country=rs.getString("country");
+			md.state=rs.getString("state");
+			md.city=rs.getString("city");
+			md.fromcountry=rs.getString("country_origin");
+			md.fromstate=rs.getString("state_origin");
+			md.fromcity=rs.getString("city_origin");
+			
+			//Taking hard code date for example
+			 String dob = md.bdate;
+			    System.out.println("dob="+dob);
+			    
+			    //divide date to year,month,day
+			    int yearDOB = Integer.parseInt(dob.substring(0, 4));
+			    int monthDOB = Integer.parseInt(dob.substring(5, 7));
+			    int dayDOB = Integer.parseInt(dob.substring(8, 10));
+			    
+			  //individual variable for year-month-date
+			    DateFormat dateFormat = new SimpleDateFormat("yyyy");
+			    java.util.Date date = new java.util.Date();
+			    int thisYear = Integer.parseInt(dateFormat.format(date));
+
+			    dateFormat = new SimpleDateFormat("MM");
+			    date = new java.util.Date();
+			    int thisMonth = Integer.parseInt(dateFormat.format(date));
+
+			    dateFormat = new SimpleDateFormat("dd");
+			    date = new java.util.Date();
+			    int thisDay = Integer.parseInt(dateFormat.format(date));
+
+			    //current year minus birth year
+			    int age = thisYear - yearDOB;
+
+			    if(thisMonth < monthDOB){
+			    age = age - 1;
+			    }
+
+			    if(thisMonth == monthDOB && thisDay < dayDOB){
+			    age = age - 1;
+			    }
+			md.setAge((String)(""+age));
+
+			
 			ls.add(md);
 		}
 		return ls;

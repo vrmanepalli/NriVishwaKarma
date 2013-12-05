@@ -35,10 +35,17 @@
 				<input type="text" id="searchBox" class="search-box" ng-model="searchBox" placeholder="search">
 			</div>
 		</div>
-		<div class="member-wrapper">
-			<div class="member" ng-repeat="member in members">
-				{{member.FName}} {{member.LName}}
+		<div class="row">
+		<ul class="thumbnails">
+			<li class="span3"  ng-repeat="member in members">
+			<div class="thumbnail"  ng-click="openProfile(member.email)" align="center">
+						<p style="font-size:22px; font-style: oblique; color:{{member.color}};">{{member.FName}} {{member.LName}}<p>
+						<p>{{member.age}} years old</p>
+						<p style="font-size: 11px; margin:0px; font-style: italic;">{{member.country}}, {{member.state}}, {{member.city}}</p>
+						<p style="font-size: 11px; margin:0px; font-style: italic;">{{member.fromcountry}}, {{member.fromstate}}, {{member.fromcity}}</p>
 			</div>
+			</li>
+		</ul>
 		</div>	
 		<div class="row">
 			<div class="span12">

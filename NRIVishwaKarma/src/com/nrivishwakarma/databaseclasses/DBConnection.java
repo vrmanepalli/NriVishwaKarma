@@ -11,7 +11,7 @@ package com.nrivishwakarma.databaseclasses;
 		private static DBConnection mySelf=null;
 		//private static String driver = "com.mysql.jdbc.Driver";
 		private static String dbName = "karma";
-		private static String username = "root", password = "root";
+		private static String username = "root", password = "1234";
 		
 		//method for connect to DB
 		public  DBConnection() throws ClassNotFoundException{
